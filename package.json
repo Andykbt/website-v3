@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "workspaces": ["web", "studio"],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "test": "lerna run test",
+    "new-version": "lerna version --conventional-commits --yes",
+    "diff": "lerna diff",
+    "dev": "lerna run dev --parallel",
+    "lint": "lerna run lint",
+    "killall": "npx kill-port 3000 && npx kill-port 3333"
+  }
+}
