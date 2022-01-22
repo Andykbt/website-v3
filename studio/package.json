@@ -1,5 +1,5 @@
 {
-  "name": "websitev3",
+  "name": "@website-v3/studio",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -10,7 +10,8 @@
     "start": "sanity start",
     "build": "sanity build",
     "test": "echo testing server",
-    "dev": "sanity start"
+    "dev": "sanity start",
+    "fix": "eslint . --fix"
   },
   "keywords": [
     "sanity"
@@ -27,7 +28,8 @@
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "@website-v3/studio": "1.0.0"
   },
   "devDependencies": {}
 }
