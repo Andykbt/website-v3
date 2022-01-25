@@ -1,21 +1,32 @@
 {
-  "name": "web",
+  "name": "@website-v3/web",
   "private": true,
+  "version": "1.0.0",
+  "main": "package.json",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "echo testing client"
+    "test": "jest"
   },
   "dependencies": {
+    "@react-spring/parallax": "^9.4.2",
+    "@react-spring/web": "^9.4.2",
+    "@website-v3/studio": "1.0.0",
+    "@website-v3/web": "1.0.0",
     "next": "12.0.8",
-    "react": "^17.0",
-    "react-dom": "^17.0",
-    "@website-v3/studio": "1.0.0"
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-parallax": "^3.3.0",
+    "react-scroll-parallax": "^3.0.0",
+    "react-spring": "^9.4.2"
   },
   "devDependencies": {
+    "@types/node": "17.0.10",
+    "@types/react": "17.0.38",
     "eslint": "8.7.0",
-    "eslint-config-next": "12.0.8"
+    "eslint-config-next": "12.0.8",
+    "typescript": "4.5.5"
   }
 }
