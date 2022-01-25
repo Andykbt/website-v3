@@ -31,8 +31,8 @@ export const SkillsContainer = styled.div<SkillsContainerProps>`
 export const Separator = styled.div<SeparatorProps>`
   border: dotted 1px ${colourLightBrown};
   z-index: 1;
-  transition: width 1s ease-in-out;
-  width: ${props => props.expand ? 99.25 : 0}vw;
+  transition: margin 1s ease-in-out;
+  margin: ${props => props.expand ? "0 15%" : "0 50%"};
 `;
 
 export const StickyContainer = styled.div<StickyContainerProps>`
