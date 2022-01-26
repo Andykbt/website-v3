@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Container } from "../layout";
+import { Container } from "../../layout";
 import { animated } from "react-spring";
 import { 
   SkillsContainer,
@@ -11,7 +11,7 @@ import {
 } from "./skills-styled";
 import { useSpring, config } from "react-spring";
 import { H2, H3 } from "@website-v3/web/components/typography";
-import { colourBlack, colourCyan, colourDarkGrey, colourPink, colourYellow } from "../../styles";
+import { colourCyan, colourDarkGrey, colourPink, colourYellow } from "../../../styles";
 
 type SkillsProps = {
   pages: number,
@@ -29,7 +29,7 @@ const CardComponent = ({
   title
 }: CardProps) => {
   const [hovered, setHovered] = useState(false);
-  const [selected, setSelected] = useState(false)
+  const [selected, setSelected] = useState(false);
 
   const styles = useSpring({
     transform: hovered || selected ? "translateY(2vh)" : "translateY(20vh)",
@@ -59,7 +59,6 @@ export const Skills = ({
     let top:number | undefined = skillContainerRef.current?.getBoundingClientRect().top!;
     let bottom:number | undefined = skillContainerRef.current?.getBoundingClientRect().bottom!;
     
-    console.log("bottom:", bottom, "height: ", skillContainerRef.current?.getBoundingClientRect().height);
     if (top < 150) {
       setExpand(true);
     } else {

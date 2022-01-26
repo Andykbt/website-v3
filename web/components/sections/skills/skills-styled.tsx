@@ -38,7 +38,7 @@ export const Separator = styled.div<SeparatorProps>`
 export const StickyContainer = styled.div<StickyContainerProps>`
   ${props => props.sticky && "position: sticky; top: 0;"}
   margin: auto;
-  width: ${props => props.expand ? 100 : 80}%;
+  width: ${props => props.expand ? 100 : 85}%;
   background: ${colourDarkGrey};
   transition: width 2s;
 `;
