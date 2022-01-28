@@ -1,5 +1,10 @@
 {
   "extends": "next/core-web-vitals",
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "unused-imports"
+  ],
   "rules": {
     "semi": ["error", "always"],
     "quotes": ["error", "double"],
@@ -7,6 +12,12 @@
     "no-multi-spaces": ["error"],
     "no-extra-semi": ["error"],
     "no-var": ["error"],
-    "semi-style": ["error", "last"]
-}
+    "semi-style": ["error", "last"],
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+		"unused-imports/no-unused-vars": [
+			"warn",
+			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+		]
+  }
 }
