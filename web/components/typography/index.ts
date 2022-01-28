@@ -64,7 +64,7 @@ export const H3 = styled.h3<FontProps>`
 
 export const body1Styles = (props: FontProps) => {
   return css`
-    font-weight:${fontWeightLight};
+    font-weight:${props.fontWeight || fontWeightLight};
     font-size:${props.fontSize || fontSizeSmall};
     color: ${props.color || colourLightBrown};
     margin: ${props.margin || "0"};
