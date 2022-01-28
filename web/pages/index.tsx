@@ -4,7 +4,7 @@ import { Url } from "@website-v3/web/constants/types";
 import Header from "@website-v3/web/components/header";
 import { Body1, H1 } from "@website-v3/web/components/typography";
 import { Contact } from "@website-v3/web/components/sections/contact/contact";
-import { Project } from "@website-v3/web/components/sections/projects/project";
+import { Projects } from "@website-v3/web/components/sections/projects/projects";
 import { fontSizeExtraLarge, fontSizeSmall } from "@website-v3/web/styles";
 import { Skills } from "../components/sections/skills/skills";
 import { TextTrail } from "../helpers/springs";
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
 
       <Body1 fontSize={fontSizeSmall} textDirection="right" margin="7.5vh 20vw">SOFTWARE<br/>ENG</Body1>
       <Skills pages={3} />
-      <Project />
+      <Projects />
       <Contact/>
     </>
   );
