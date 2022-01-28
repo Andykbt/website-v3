@@ -2485,6 +2485,11 @@
     get-random-values "^1.2.2"
     lodash "^4.17.15"
 
+"@sanity/cli@^2.25.0":
+  version "2.25.0"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-2.25.0.tgz#7d067bbd76f83508aacdd522d42d0c2314043627"
+  integrity sha512-rVImn6ZffI2OaQ3OwfMuwjCf9MtUnyMKeWyEjmnBsa9hoDwpLJs/im6/e35GQT4eNkQ0PbDg3Lq3s53jlSqpqw==
+
 "@sanity/client@2.23.2":
   version "2.23.2"
   resolved "https://registry.yarnpkg.com/@sanity/client/-/client-2.23.2.tgz#4d5490c8c401ae81941103ba79938f4cde83d4df"
@@ -13642,7 +13647,7 @@ style-value-types@5.0.0:
     hey-listen "^1.0.8"
     tslib "^2.1.0"
 
-styled-components@^5.2.0:
+styled-components@^5.3.3:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.3.3.tgz#312a3d9a549f4708f0fb0edc829eb34bde032743"
   integrity sha512-++4iHwBM7ZN+x6DtPPWkCI4vdtwumQ+inA/DdAsqYd4SVgUKJie5vXyzotA00ttcFdQkCng7zc6grwlfIfw+lw==
