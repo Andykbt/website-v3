@@ -8,7 +8,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
-    "build": "sanity build",
+    "build": "sanity build public -y",
     "test": "echo testing server",
     "dev": "sanity start",
     "fix": "eslint . --fix"
@@ -24,13 +24,14 @@
     "@sanity/desk-tool": "^2.25.0",
     "@sanity/eslint-config-studio": "^2.0.0",
     "@sanity/vision": "^2.25.0",
+    "@website-v3/studio": "1.0.0",
+    "@website-v3/web": "1.0.0",
     "eslint": "^8.6.0",
     "prop-types": "^15.7",
     "react": "^17.0",
-    "react-dom": "^17.0",
-    "styled-components": "^5.2.0",
-    "@website-v3/studio": "1.0.0",
-    "@website-v3/web": "1.0.0"
+    "react-dom": "^17.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@sanity/cli": "^2.25.0"
+  }
 }

@@ -31,7 +31,6 @@
     "killall": "npx kill-port 3000 && npx kill-port 3333"
   },
   "dependencies": {
-    "@types/styled-components": "^5.1.21",
     "ts-node": "^10.4.0"
   },
   "transform": {
