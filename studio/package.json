@@ -11,7 +11,8 @@
     "build": "sanity build public -y",
     "test": "echo testing server",
     "dev": "sanity start",
-    "fix": "eslint . --fix"
+    "fix": "eslint . --fix",
+    "lint": "eslint"
   },
   "keywords": [
     "sanity"
