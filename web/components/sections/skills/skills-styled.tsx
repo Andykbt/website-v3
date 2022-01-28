@@ -15,10 +15,6 @@ type StickyContainerProps = {
   expand: boolean,
 }
 
-type SeparatorProps = {
-  expand: boolean,
-}
-
 type CardHeaderProps = {
   colour: string,
 }
@@ -26,9 +22,8 @@ type CardHeaderProps = {
 export const SkillsContainer = styled.div<SkillsContainerProps>`
   height: ${props => props.pages * 100}vh;
 `;
-// ${props => props.sticky && "position: absolute;"}
 
-export const Separator = styled.div<SeparatorProps>`
+export const Separator = styled.div<{expand: boolean}>`
   border: dotted 1px ${colourLightBrown};
   z-index: 1;
   transition: margin 1s ease-in-out;
