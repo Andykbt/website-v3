@@ -27,10 +27,8 @@ export const TextTrail: React.FC<{open: boolean}> = ({
 
 export const FadeIn: React.FC<{
   on: boolean,
-  styles: React.CSSProperties | undefined
 }> = ({
   on,
-  styles,
   children
 }) => {
   const props = useSpring({
