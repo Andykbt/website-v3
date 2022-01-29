@@ -25,14 +25,12 @@ type CardProps = {
 
 const CardComponent = ({
   colour,
-  items,
   title
 }: CardProps) => {
   const [hovered, setHovered] = useState(false);
-  const [selected, setSelected] = useState(false);
 
   const styles = useSpring({
-    transform: hovered || selected ? "translateY(2vh)" : "translateY(20vh)",
+    transform: hovered ? "translateY(2vh)" : "translateY(20vh)",
     config: config.default,
   });
 
@@ -57,7 +55,6 @@ export const Skills = ({
 
   const handleScroll = () => {
     let top:number | undefined = skillContainerRef.current?.getBoundingClientRect().top!;
-    let bottom:number | undefined = skillContainerRef.current?.getBoundingClientRect().bottom!;
     
     if (top < 150) {
       setExpand(true);

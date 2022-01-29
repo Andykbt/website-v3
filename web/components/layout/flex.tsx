@@ -9,10 +9,10 @@ type FlexProps = {
 
 export const flexStyles = (props:FlexProps) => {
   return css`
-    display: flex
-    align-items: ${props.center ? "center" : props.alignItems}
-    justify-content: ${props.center ? "center" : props.justifyContent}
-    flex-direction: ${props.direction}
+    display: flex;
+    align-items: ${props.center ? "center" : props.alignItems};
+    justify-content: ${props.center ? "center" : props.justifyContent};
+    flex-direction: ${props.direction};
   `;
 };
 

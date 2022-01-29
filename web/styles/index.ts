@@ -25,7 +25,7 @@ export const widthExtraExtraLarge = "1320px";
 export const widthExtraLarge = "1140px";
 export const widthLarge = "960px";
 export const widthMedium = "720px";
-export const widthSmall = "540";
+export const widthSmall = "540px";
 export const widthExtraSmall = "100%";
 
 export const disableSelect = () => {

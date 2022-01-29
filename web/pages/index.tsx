@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import type { NextPage } from "next";
 import { Url } from "@website-v3/web/constants/types";
 import Header from "@website-v3/web/components/header";
@@ -9,6 +8,7 @@ import { fontSizeExtraLarge, fontSizeSmall } from "@website-v3/web/styles";
 import { Skills } from "../components/sections/skills/skills";
 import { TextTrail } from "../helpers/springs";
 import { useInView } from "react-intersection-observer";
+import { About } from "../components/sections/about/about";
 
 const navItems: Url[] = [
   {
@@ -38,8 +38,8 @@ const Home: NextPage = () => {
           <H1 fontSize={fontSizeExtraLarge}>&nbsp;&nbsp;&nbsp;&nbsp;Truong</H1>
         </TextTrail>
       </div>
-
       <Body1 fontSize={fontSizeSmall} textDirection="right" margin="7.5vh 20vw">SOFTWARE<br/>ENG</Body1>
+      <About/>
       <Skills pages={3} />
       <Projects />
       <Contact/>

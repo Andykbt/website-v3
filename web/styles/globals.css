@@ -26,3 +26,12 @@ a {
 .hideScroll::-webkit-scrollbar {
   display: none;
 }
+
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #D5CDC4;
+  border-radius: 5px;
+}

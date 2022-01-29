@@ -11,7 +11,7 @@ export const TextTrail: React.FC<{open: boolean}> = ({
   const trail = useTrail(items.length, {
     opacity: open ? 1 : 0,
     y: open ? 0 : 150,
-    config: config.gentle
+    config: config.stiff  
   });
 
   return (
@@ -27,10 +27,8 @@ export const TextTrail: React.FC<{open: boolean}> = ({
 
 export const FadeIn: React.FC<{
   on: boolean,
-  styles: React.CSSProperties | undefined
 }> = ({
   on,
-  styles,
   children
 }) => {
   const props = useSpring({

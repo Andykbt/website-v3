@@ -1,7 +1,6 @@
 import React from "react";
 import { Url } from "../../constants/types";
-import { Flex } from "../layout";
-import { NavItemContainer, NavItem, Nav } from "./header-styled";
+import { NavItemContainer, Nav } from "./header-styled";
 
 type HeaderProps = {
 	navItems: Url[],

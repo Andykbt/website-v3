@@ -34,16 +34,16 @@ export const containerStyles = (props:ContainerProps) => {
   case "S" || "s":
     size = widthSmall;
     break;
-  case "xS" || "xs":
+  case "XS" || "xs":
     size = widthExtraSmall;
     break;
   default:
-    size = widthMedium;
+    size = widthExtraExtraLarge;
     break;
   }
 
   return css`
-    max-width: ${props.width || size};
+    max-width: ${props.width || size };
     max-height: ${props.height || "auto"};
     margin: ${props.margin || "auto"};
   `;
