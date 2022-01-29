@@ -11,7 +11,7 @@ export const TextTrail: React.FC<{open: boolean}> = ({
   const trail = useTrail(items.length, {
     opacity: open ? 1 : 0,
     y: open ? 0 : 150,
-    config: config.stiff
+    config: config.stiff  
   });
 
   return (

@@ -10,13 +10,6 @@ type Props = {
   title?: string,
 };
 
-const fadeInStyles: React.CSSProperties | undefined = {
-  display: "inline-block",
-  width: "2.5vw",
-  float: "right",
-  background: "yellow",
-};
-
 export const Project = ({
   index,
 }: Props) => {
@@ -38,7 +31,7 @@ export const Project = ({
         </ProjectTextHover>
 
         <ArrowContainer>
-          <FadeIn on={isHovered} styles={fadeInStyles}>
+          <FadeIn on={isHovered}>
             <Image
               src="/arrow.svg"
               alt="arrow"
