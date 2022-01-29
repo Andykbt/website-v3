@@ -1,7 +1,5 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import {  
-  colourBlack,
-  colourCyan,
   colourDarkGrey,
   colourLightBrown,
 } from "@website-v3/web/styles";

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Body1, H2 } from "../../typography";
+import { Body1 } from "../../typography";
 import { ArrowContainer, IndexContainer, Name } from "./projects-styled";
 import Image from "next/image";
 import Link from "next/link";

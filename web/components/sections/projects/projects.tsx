@@ -1,14 +1,8 @@
-import React, { useState } from "react";
-import { TextTrail } from "@website-v3/web/helpers/springs";
+import React from "react";
 import { Project } from "./project";
-import { Container } from "../../layout";
 import { ProjectsContainer } from "./projects-styled";
 
-type Props = {
-
-};
-
-export const Projects = (props: Props) => {
+export const Projects = () => {
   return (
     <ProjectsContainer>
       <Project index={1} />

@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import type { NextPage } from "next";
 import { Url } from "@website-v3/web/constants/types";
 import Header from "@website-v3/web/components/header";
