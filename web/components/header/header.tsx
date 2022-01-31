@@ -6,7 +6,7 @@ type HeaderProps = {
 	navItems: Url[],
 }
 
-const Header = ({
+export const Header = ({
   navItems,
 }: HeaderProps) => {
 
@@ -24,5 +24,3 @@ const Header = ({
     </Nav>
   );
 };
-
-export default Header;

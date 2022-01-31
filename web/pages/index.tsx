@@ -1,15 +1,21 @@
 import type { NextPage } from "next";
 import { Url } from "@website-v3/web/constants/types";
-import Header from "@website-v3/web/components/header";
-import { Body1, H1 } from "@website-v3/web/components/typography";
-import { Contact } from "@website-v3/web/components/sections/contact/contact";
-import { Projects } from "@website-v3/web/components/sections/projects/projects";
-import { Skills } from "@website-v3/web/components/sections/skills/skills";
+import {
+  Header,
+  Contact,
+  Projects,
+  Skills,
+  About,
+  Experience,
+  Body1,
+  H1,
+} from "@website-v3/web/components";
+
 import { fontSizeExtraLarge, fontSizeSmall } from "@website-v3/web/styles";
 import { TextTrail } from "@website-v3/web/helpers/springs";
 import { useInView } from "react-intersection-observer";
-import { About } from "@website-v3/web/components/sections/about/about";
-import { Experience } from "@website-v3/web/components/sections/experience";
+
+
 
 const navItems: Url[] = [
   {
