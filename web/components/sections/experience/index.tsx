@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { FadeIn, SwapColour } from "../../../helpers/springs";
-import { Body1, H2 } from "../../typography";
+import { FadeIn, SwapColour } from "@website-v3/web/helpers/springs";
+import { Body1, H2 } from "@website-v3/web/components/typography";
 import {
   Center,
   StarsBG,

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colourBlack } from "../../../styles";
+import { colourBlack } from "@website-v3/web/styles/";
 
 export const StarsBG = styled.div`
     height: 100vh;

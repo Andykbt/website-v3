@@ -1,12 +1,12 @@
 import React from "react";
-import { Container, Flex } from "../../layout";
+import { Container, Flex } from "@website-v3/web/components/layout";
 import {
   VertSeparator,
   Separator
 } from "./about-styles";
-import { H2, Body1 } from "../../typography";
+import { H2, Body1 } from "@website-v3/web/components/typography";
 import { useInView } from "react-intersection-observer";
-import { TextTrail } from "../../../helpers/springs";
+import { TextTrail } from "@website-v3/web/helpers/springs";
 
 export const About = () => {
   const [ref, inView] = useInView({
