@@ -9,6 +9,7 @@ import { Skills } from "../components/sections/skills/skills";
 import { TextTrail } from "../helpers/springs";
 import { useInView } from "react-intersection-observer";
 import { About } from "../components/sections/about/about";
+import { Experience } from "../components/sections/experience";
 
 const navItems: Url[] = [
   {
@@ -32,7 +33,7 @@ const Home: NextPage = () => {
     <>
       <Header navItems={navItems}/>
       <div style={{margin: "5vh auto 0 5vw"}} ref={ref}>
-        <TextTrail open={inView}>
+        <TextTrail on={inView}>
           <H1 fontSize={fontSizeExtraLarge}>Andy</H1>
           <br />
           <H1 fontSize={fontSizeExtraLarge}>&nbsp;&nbsp;&nbsp;&nbsp;Truong</H1>
@@ -40,6 +41,7 @@ const Home: NextPage = () => {
       </div>
       <Body1 fontSize={fontSizeSmall} textDirection="right" margin="7.5vh 20vw">SOFTWARE<br/>ENG</Body1>
       <About/>
+      <Experience/>
       <Skills pages={3} />
       <Projects />
       <Contact/>

@@ -1,16 +1,21 @@
 import React from "react";
 import { useTrail, config, animated, useSpring } from "react-spring";
-import { colourBlack, colourLightBrown } from "../../styles";
+import { colourBlack, colourCyan, colourLightBrown, colourPink } from "../../styles";
 export { animated } from "react-spring";
 
-export const TextTrail: React.FC<{open: boolean}> = ({
-  open,
+type SpringProps = {
+  on?: boolean,
+  styles?: React.CSSProperties | undefined 
+};
+
+export const TextTrail: React.FC<SpringProps> = ({
+  on,
   children,
 }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    opacity: open ? 1 : 0,
-    y: open ? 0 : 150,
+    opacity: on ? 1 : 0,
+    y: on ? 0 : 150,
     config: config.stiff  
   });
 
@@ -25,14 +30,14 @@ export const TextTrail: React.FC<{open: boolean}> = ({
   );
 };
 
-export const FadeIn: React.FC<{
-  on: boolean,
-}> = ({
+export const FadeIn: React.FC<SpringProps> = ({
   on,
   children
 }) => {
   const props = useSpring({
     opacity: on ? 1 : 0,
+    from: {opacity: 0},
+    to: {opacity: 1},
     config: config.gentle,
   });
 
@@ -43,12 +48,8 @@ export const FadeIn: React.FC<{
   );
 };
 
-export const ProjectTextHover: React.FC<{
-  on: boolean,
-  styles?: React.CSSProperties | undefined,
-}> = ({
+export const ProjectTextHover: React.FC<SpringProps> = ({
   on,
-  styles,
   children,
 }) => {
   const props = useSpring({
@@ -58,6 +59,22 @@ export const ProjectTextHover: React.FC<{
 
   return (
     <animated.div style={Object.assign({display: "inline-block"}, props)}>
+      {children}
+    </animated.div>
+  );
+};
+
+export const SwapColour: React.FC<SpringProps> = ({
+  on,
+  children,
+}) => {
+  const props = useSpring({
+    color: on ? colourPink : colourLightBrown,
+    config: config.default,
+  });
+
+  return (
+    <animated.div style={props}>
       {children}
     </animated.div>
   );
