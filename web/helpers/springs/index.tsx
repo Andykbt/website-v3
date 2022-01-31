@@ -1,6 +1,6 @@
 import React from "react";
 import { useTrail, config, animated, useSpring } from "react-spring";
-import { colourBlack, colourCyan, colourLightBrown, colourPink } from "../../styles";
+import { colourBlack, colourLightBrown, colourPink } from "../../styles";
 export { animated } from "react-spring";
 
 type SpringProps = {

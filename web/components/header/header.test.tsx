@@ -11,9 +11,8 @@ describe("header", () => {
         url: ""
       }
     ];
-    expect(1 + 2).toBe(3);
-    const { getByText } = render(<Header navItems={mockItems} />);
 
+    const { getByText } = render(<Header navItems={mockItems} />);
     expect(getByText("mockNavItem")).toBeInTheDocument();
   });
 
