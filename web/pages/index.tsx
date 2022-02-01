@@ -50,7 +50,6 @@ const Home: NextPage = () => {
       <Experience/>
       <Skills pages={3} />
       <Projects />
-      <Contact/>
     </>
   );
 };
