@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import { Url } from "@website-v3/web/constants/types";
 import {
   Header,
-  Contact,
   Projects,
   Skills,
   About,
@@ -14,8 +13,6 @@ import {
 import { fontSizeExtraLarge, fontSizeSmall } from "@website-v3/web/styles";
 import { TextTrail } from "@website-v3/web/helpers/springs";
 import { useInView } from "react-intersection-observer";
-
-
 
 const navItems: Url[] = [
   {
