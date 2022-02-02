@@ -2,12 +2,27 @@ import React from "react";
 import { Project } from "./project";
 import { ProjectsContainer } from "./projects-styled";
 
-export const Projects = () => {
+type Props = {
+  projects: any,
+}
+
+export const Projects = ({
+  projects
+}: Props) => {
+  const renderProjects = () => {
+    return projects.map((project: any, index: number) => 
+      <Project
+        key={project}
+        title={project.title}
+        index={index + 1}
+        url={project.codeLink}
+      />
+    );
+  };
+
   return (
     <ProjectsContainer>
-      <Project index={1} />
-      <Project index={2} />
-      <Project index={3} />
+      {renderProjects()}
     </ProjectsContainer>
   );
 };
