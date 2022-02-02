@@ -16,7 +16,7 @@ export const TextTrail: React.FC<SpringProps> = ({
   const trail = useTrail(items.length, {
     opacity: on ? 1 : 0,
     y: on ? 0 : 150,
-    config: config.stiff  
+    config: config.slow  
   });
 
   return (
