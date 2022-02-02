@@ -1,10 +1,10 @@
-name: Continuous Integration
+name: Lint Codebase
 
 on:
   push:
-    branches-ignore: [master]
+    branches-ignore: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
   build:
@@ -18,5 +18,5 @@ jobs:
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
