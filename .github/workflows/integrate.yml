@@ -4,16 +4,25 @@ on: [ push ]
 
 jobs:
   build:
-    name: Run tests
+    name: Run lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@2.3.0
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Run Super-Linter
+        uses: github/super-linter@v4
+      
+      - name: GitHub Action for Yarn
+        uses: borales/actions-yarn@2.3.0
         with:
           cmd: install
-      - uses: borales/actions-yarn@2.3.0
+      
+      - name: GitHub Action for Yarn
+        uses: borales/actions-yarn@2.3.0
         with:
           cmd: build
-      - uses: borales/actions-yarn@2.3.0
+      - name: GitHub Action for Yarn
+        uses: borales/actions-yarn@2.3.0
         with:
           cmd: test
