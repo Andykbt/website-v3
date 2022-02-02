@@ -1,18 +1,19 @@
 import React from "react";
-import { Project } from "./project";
+import { Project as ProjectComponent } from "./project";
 import { ProjectsContainer } from "./projects-styled";
+import { Project } from "@website-v3/web/constants/types";
 
 type Props = {
-  projects: any,
+  projects: Project[],
 }
 
 export const Projects = ({
   projects
 }: Props) => {
   const renderProjects = () => {
-    return projects.map((project: any, index: number) => 
-      <Project
-        key={project}
+    return projects.map((project: Project, index: number) => 
+      <ProjectComponent
+        key={project._id}
         title={project.title}
         index={index + 1}
         url={project.codeLink}
