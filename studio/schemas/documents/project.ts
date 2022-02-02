@@ -1,4 +1,4 @@
-export default {
+export const project = {
     name: "project",
     title: "Projects",
     type: "document",
@@ -12,6 +12,10 @@ export default {
             name: "slug",
             title: "Slug",
             type: "slug",
+            options: {
+                source: "title",
+                maxLength: 96
+            }
         },
         {
             name: "excerpt",

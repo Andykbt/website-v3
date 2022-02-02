@@ -1,7 +1,3 @@
-import blog from "./blog";
-import project from "./project";
-
-export {
-    blog,
-    project,
-};
+export * from "./blog";
+export * from "./project";
+export * from "./experience";
