@@ -1,4 +1,4 @@
-export default {
+export const blog = {
     name: "article",
     title: "Articles",
     type: "document",
