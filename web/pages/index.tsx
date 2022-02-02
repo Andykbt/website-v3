@@ -1,3 +1,4 @@
+import React from "react";
 import type { NextPage } from "next";
 import { Url } from "@website-v3/web/constants/types";
 import {
@@ -13,6 +14,7 @@ import {
 import { fontSizeExtraLarge, fontSizeSmall } from "@website-v3/web/styles";
 import { TextTrail } from "@website-v3/web/helpers/springs";
 import { useInView } from "react-intersection-observer";
+import { SanityClient } from "../sanity";
 
 const navItems: Url[] = [
   {
@@ -29,7 +31,13 @@ const navItems: Url[] = [
   }
 ];
 
-const Home: NextPage = () => {
+type Props = {
+  projects: any[],
+}
+
+const Home: NextPage<Props> = ({
+  projects,
+}: Props) => {
   const { ref, inView } = useInView();
 
   return (
@@ -46,9 +54,27 @@ const Home: NextPage = () => {
       <About/>
       <Experience/>
       <Skills pages={3} />
-      <Projects />
+      <Projects projects={projects}/>
     </>
   );
 };
+
+export async function getServerSideProps() {
+  const query = "*[ _type == 'project' ]";
+  const projects = await SanityClient.fetch(query);
+
+  console.warn(projects);
+  if (!projects.length) {
+    return {
+      props: [],
+    };
+  } else {
+    return {
+      props: { 
+        projects
+      },
+    };
+  }
+}
 
 export default Home;

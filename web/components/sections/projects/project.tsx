@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Body1 } from "../../typography";
 import { ArrowContainer, IndexContainer, Name } from "./projects-styled";
 import Image from "next/image";
@@ -7,27 +7,26 @@ import { FadeIn, ProjectTextHover } from "@website-v3/web/helpers/springs";
 
 type Props = {
   index: number,
-  title?: string,
+  title: string,
+  url: string
 };
 
 export const Project = ({
   index,
+  title,
+  url
 }: Props) => {
   const [isHovered, setHovered] = useState(false);
 
-  useEffect(() => {
-    console.log(isHovered);
-  }, [isHovered]);
-
   return (
-    <Link href="" passHref={true}>
+    <Link href={url} passHref={true}>
       <div onMouseOver={() => setHovered(true)} onMouseLeave={() => setHovered(false)} style={{cursor: "pointer"}}>
         <IndexContainer>
           <Body1 fontSize="12px">Ø{index}</Body1>
         </IndexContainer>
 
         <ProjectTextHover on={isHovered}>
-          <Name>iShouldStudy</Name>
+          <Name>{title}</Name>
         </ProjectTextHover>
 
         <ArrowContainer>
