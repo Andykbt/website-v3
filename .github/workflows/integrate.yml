@@ -12,17 +12,3 @@ jobs:
       
       - name: Run Super-Linter
         uses: github/super-linter@v4
-      
-      - name: GitHub Action for Yarn
-        uses: borales/actions-yarn@2.3.0
-        with:
-          cmd: install
-      
-      - name: GitHub Action for Yarn
-        uses: borales/actions-yarn@2.3.0
-        with:
-          cmd: build
-      - name: GitHub Action for Yarn
-        uses: borales/actions-yarn@2.3.0
-        with:
-          cmd: test
