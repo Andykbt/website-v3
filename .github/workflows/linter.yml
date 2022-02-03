@@ -22,5 +22,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_JAVASCRIPT_STANDARD: false
           VALIDATE_TYPESCRIPT_STANDARD: false
+          JAVASCRIPT_ES_CONFIG_FILE: eslintrsc.json
+          TYPESCRIPT_ES_CONFIG_FILE: eslintrsc.json
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
