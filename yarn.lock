@@ -2266,6 +2266,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.2.tgz#830beaec4b4091a9e9398ac50f865ddea52186b9"
   integrity sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==
 
+"@portabletext/react@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@portabletext/react/-/react-1.0.1.tgz#08235ae63cc38379390fc0d8af3679f1b7be6829"
+  integrity sha512-LSoRFwvui/O7UVp8J7OAxfaE7Rl0UviICtP+SM1tY47HYpYFdvf/AweKeaJnnEutPZa7zumtUZUgBwq0aoCHOw==
+
 "@reach/auto-id@^0.13.2":
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.13.2.tgz#6c7fe7142285707b0f38b2f556f32accb467df32"
