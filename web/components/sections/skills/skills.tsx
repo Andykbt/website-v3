@@ -54,8 +54,11 @@ export const Skills = ({
   const [expand, setExpand] = useState(false);
 
   const handleScroll = () => {
-    let top:number | undefined = skillContainerRef.current?.getBoundingClientRect().top!;
-    
+    const top:number | undefined = skillContainerRef.current?.getBoundingClientRect().top;
+    if (!top) {
+      return;
+    }
+
     if (top < 150) {
       setExpand(true);
     } else {
