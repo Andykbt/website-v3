@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colourLightBrown } from "../../../styles";
+import { colourLightBrown } from "@website-v3/web/styles";
 
 export const ProjectsContainer = styled.div`
   margin: 5vh 5vw;

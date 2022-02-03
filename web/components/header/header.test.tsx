@@ -16,7 +16,7 @@ describe("header", () => {
     expect(getByText("mockNavItem")).toBeInTheDocument();
   });
 
-  it("goes to the correct url", () => {
+  // it("goes to the correct url", () => {
       
-  });
+  // });
 });

@@ -4,7 +4,7 @@ import {
   VertSeparator,
   Separator
 } from "./about-styles";
-import { H2, Body1 } from "@website-v3/web/components/typography";
+import { H2, Body1 } from "@website-v3/web/styles/typography";
 import { useInView } from "react-intersection-observer";
 import { TextTrail } from "@website-v3/web/helpers/springs";
 

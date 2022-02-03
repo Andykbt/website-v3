@@ -1,11 +1,13 @@
+export * from "./typography";
 import { css } from "styled-components";
 
 /* Font Sizes */
-export const fontSizeBase = "";
+export const fontSizeBase = "1rem";
 export const fontSizeExtraLarge = "13.5vw";
 export const fontSizeLarge = "10vw";
 export const fontSizeMedium = "5vw";
 export const fontSizeSmall = "1.5rem";
+export const fontSizeXSmall = "1rem";
 
 /* Colours */
 export const colourBlack = "#232025";
@@ -27,6 +29,12 @@ export const widthLarge = "960px";
 export const widthMedium = "720px";
 export const widthSmall = "540px";
 export const widthExtraSmall = "100%";
+
+/* Viewport breakpoints */
+export const xsBreakpoint = "360px";
+export const smBreakpoint = "768px";
+export const mdBreakpoint = "1024px";
+export const lgBreakpoint = "1280px";
 
 export const disableSelect = () => {
   return css`user-select: none; /* supported by Chrome and Opera */

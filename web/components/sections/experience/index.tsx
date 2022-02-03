@@ -1,68 +1,62 @@
 import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { FadeIn, SwapColour } from "@website-v3/web/helpers/springs";
-import { Body1, H2 } from "@website-v3/web/components/typography";
+import { FadeIn } from "@website-v3/web/helpers/springs";
+import { H2, H3 } from "@website-v3/web/styles/typography";
 import {
   Center,
   StarsBG,
   TableHeader,
   TableItems,
-  TableBody
+  TableBody,
+  Button,
+  Slider
 } from "./experience-styled";
+import { ExperienceType } from "@website-v3/web/constants/types";
+import { PortableText } from "@portabletext/react";
+import { colourCyan } from "@website-v3/web/styles";
 
-export const Experience = () => {
-  const items = [
-    {
-      title: "some title",
-      content: "retre qterqwe 0000",
-    },
-    {
-      title: "some title",
-      content: "retre qterqwe 1111",
-    },
-    {
-      title: "some title",
-      content: "retre qterqwe 2222",
-    },
-  ];
-  
-  const [ref, inView] = useInView({
-    threshold: 1,
-  });
+type Props = {
+  experiences: ExperienceType[],
+}
+
+export const Experience = ({
+  experiences
+}: Props) => {
+  const [ref, inView] = useInView({ threshold: 1 });
   const [selected, setSelected] = useState(0);
-  const [content, setContent] = useState<String>(items[0].content);
+  const [slider, setSlider] = useState(0);
 
   const renderItems = () => {
-    return items.map((item, index) => (
-      <Body1 
+    return experiences.map((item, index) => (
+      <Button 
         key={index}
-        onClick={
-          () => {
-            setSelected(index);
-            setContent(item.content);
-          }
-        }
-        style={{
-          cursor: "pointer",
-          padding: "0 15px"
-        }}>
-        <SwapColour on={selected === index}>
-          {item.title}
-        </SwapColour>
-      </Body1>
-
+        onClick={() => {
+          setSelected(index);
+          setSlider(48 * index);
+        }}
+        style={{color: selected === index ? colourCyan : ""}}
+      >
+        {item.company}
+      </Button>
     ));
   };
 
-  function renderContent( cardText: any ) {
-    return <FadeIn key={cardText}>{cardText}</FadeIn>;
-  }
+  const renderBody = (key: string) => {
+    return (
+      <FadeIn key={key}>
+        <H3>{experiences[selected].role} @ {experiences[selected].company}</H3>
+        <PortableText
+          value={experiences[selected].body}
+        />
+      </FadeIn>
+    );
+  };
 
   return (
     <StarsBG>
       <Center>
         <TableHeader>
-          <H2>Experience</H2>
+          <H2 textDirection="center">Experience</H2>
         </TableHeader>
 
         <TableBody
@@ -70,11 +64,12 @@ export const Experience = () => {
           show={inView}
         >
           <TableItems>
+            <Slider height={slider}/>
             {renderItems()}
           </TableItems>
           
           <div style={{ padding: "0 25px" }}>
-            {renderContent(content)}
+            {renderBody(experiences[selected]._id)}
           </div>
         </TableBody>
       </Center>

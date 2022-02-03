@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Body1 } from "../../typography";
+import { Body1 } from "@website-v3/web/styles/typography";
 import { ArrowContainer, IndexContainer, Name } from "./projects-styled";
 import Image from "next/image";
 import Link from "next/link";
