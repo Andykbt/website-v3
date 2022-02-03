@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { FadeIn } from "@website-v3/web/helpers/springs";
-import { H2, H3 } from "@website-v3/web/components/typography";
+import { H2, H3 } from "@website-v3/web/styles/typography";
 import {
   Center,
   StarsBG,
@@ -11,9 +11,9 @@ import {
   Button,
   Slider
 } from "./experience-styled";
-import { ExperienceType } from "../../../constants/types";
+import { ExperienceType } from "@website-v3/web/constants/types";
 import { PortableText } from "@portabletext/react";
-import { colourCyan } from "../../../styles";
+import { colourCyan } from "@website-v3/web/styles";
 
 type Props = {
   experiences: ExperienceType[],

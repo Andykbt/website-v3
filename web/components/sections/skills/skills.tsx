@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Container } from "../../layout";
+import { Container } from "@website-v3/web/components/layout";
 import { animated } from "react-spring";
 import { 
   SkillsContainer,
@@ -10,8 +10,8 @@ import {
   CardHeader
 } from "./skills-styled";
 import { useSpring, config } from "react-spring";
-import { H2, H3 } from "@website-v3/web/components/typography";
-import { colourCyan, colourDarkGrey, colourPink, colourYellow } from "../../../styles";
+import { H2, H3 } from "@website-v3/web/styles/typography";
+import { colourCyan, colourDarkGrey, colourPink, colourYellow } from "@website-v3/web/styles";
 
 type SkillsProps = {
   pages: number,
