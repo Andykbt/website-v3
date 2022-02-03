@@ -4,12 +4,10 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #232025;
   color: #D5CDC4;
   scroll-behavior: smooth;
-  font-family: nimbus-sans-extended,sans-serif;
+  font-family: nimbus-sans-extended, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
