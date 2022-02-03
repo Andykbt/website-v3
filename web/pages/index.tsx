@@ -33,10 +33,12 @@ const navItems: Url[] = [
 
 type Props = {
   projects: any[],
+  experience: any[]
 }
 
 const Home: NextPage<Props> = ({
   projects,
+  experience
 }: Props) => {
   const { ref, inView } = useInView();
 
@@ -52,7 +54,7 @@ const Home: NextPage<Props> = ({
       </div>
       <Body1 fontSize={fontSizeSmall} textDirection="right" margin="7.5vh 20vw">SOFTWARE<br/>ENG</Body1>
       <About/>
-      <Experience/>
+      <Experience experiences={experience}/>
       <Skills pages={3} />
       <Projects projects={projects}/>
     </>
@@ -60,18 +62,18 @@ const Home: NextPage<Props> = ({
 };
 
 export async function getServerSideProps() {
-  const query = "*[ _type == 'project' ]";
-  const projects = await SanityClient.fetch(query);
+  const projects = await SanityClient.fetch("*[ _type == 'project' ]");
+  const experience = await SanityClient.fetch("*[ _type == 'experience' ]");
 
-  console.warn(projects);
   if (!projects.length) {
     return {
-      props: [],
+      props: {},
     };
   } else {
     return {
       props: { 
-        projects
+        projects,
+        experience,
       },
     };
   }
