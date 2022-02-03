@@ -1,3 +1,4 @@
+export * from "./typography";
 import { css } from "styled-components";
 
 /* Font Sizes */

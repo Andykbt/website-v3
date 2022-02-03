@@ -7,10 +7,11 @@ import {
   Skills,
   About,
   Experience,
+} from "@website-v3/web/components";
+import {
   Body1,
   H1,
-} from "@website-v3/web/components";
-
+} from "@website-v3/web/styles";
 import { fontSizeExtraLarge, fontSizeSmall } from "@website-v3/web/styles";
 import { TextTrail } from "@website-v3/web/helpers/springs";
 import { useInView } from "react-intersection-observer";
