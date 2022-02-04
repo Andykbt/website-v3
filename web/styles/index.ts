@@ -5,7 +5,7 @@ import { css } from "styled-components";
 export const fontSizeBase = "1rem";
 export const fontSizeExtraLarge = "13.5vw";
 export const fontSizeLarge = "10vw";
-export const fontSizeMedium = "5vw";
+export const fontSizeMedium = "2.5rem";
 export const fontSizeSmall = "1.5rem";
 export const fontSizeXSmall = "1rem";
 
@@ -35,6 +35,9 @@ export const xsBreakpoint = "360px";
 export const smBreakpoint = "768px";
 export const mdBreakpoint = "1024px";
 export const lgBreakpoint = "1280px";
+
+/* Transitions */
+export const defaultTransition = "all 0.25s cubic-bezier(0.645,0.045,0.355,1)";
 
 export const disableSelect = () => {
   return css`user-select: none; /* supported by Chrome and Opera */
