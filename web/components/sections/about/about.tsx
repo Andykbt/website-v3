@@ -19,8 +19,8 @@ export const About = () => {
       <Flex justifyContent="space-around" alignItems="center" ref={ref}>
         <Flex direction="column" alignItems={"flex-start"}>
           <TextTrail on={inView}>
-            <H2>ABOUT</H2>
-            <H2>ME</H2>
+            <H2 fontSize="5vw">ABOUT</H2>
+            <H2 fontSize="5vw">ME</H2>
           </TextTrail>
         </Flex>
         <VertSeparator expand={inView}/>
