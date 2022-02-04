@@ -1,6 +1,7 @@
 import React from "react";
+import { Flex } from "..";
 import { Url } from "../../constants/types";
-import { NavItemContainer, Nav } from "./header-styled";
+import { NavItem, Nav, NavItemCircle } from "./header-styled";
 
 type HeaderProps = {
 	navItems: Url[],
@@ -11,15 +12,19 @@ export const Header = ({
 }: HeaderProps) => {
 
   const renderNavItems = () => {
-    return (
-      <NavItemContainer>
-        {navItems.map((item, index) => <a key={index} href={item.url}>{item.name}</a>)}
-      </NavItemContainer>
+    return navItems.map((item, index) =>
+      <NavItem key={index} href={item.url}>
+        {item.name}
+      </NavItem>
     );
   };
-
+  
+  // todo make loading ring svg
   return (
     <Nav>
+      <Flex justifyContent="center">
+        <NavItemCircle href={"/"}>N D</NavItemCircle>
+      </Flex>
       {renderNavItems()}
     </Nav>
   );
