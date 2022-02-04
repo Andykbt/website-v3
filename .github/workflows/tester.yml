@@ -26,7 +26,7 @@ jobs:
   
   lints:
     name: Run linter
-    runs-on ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
