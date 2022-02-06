@@ -1,7 +1,8 @@
-import React from "react";
-import { Flex } from "..";
+import Link from "next/link";
+import React, { useState } from "react";
 import { Url } from "../../constants/types";
-import { NavItem, Nav, NavItemCircle } from "./header-styled";
+import { CircleSvg } from "../../styles/svg/Circle-svg";
+import { NavItem, Nav } from "./header-styled";
 
 type HeaderProps = {
 	navItems: Url[],
@@ -19,12 +20,16 @@ export const Header = ({
     );
   };
   
-  // todo make loading ring svg
+  const [progress, setProgress] = useState(0);
+
   return (
     <Nav>
-      <Flex justifyContent="center">
-        <NavItemCircle href={"/"}>N D</NavItemCircle>
-      </Flex>
+      <a
+        href={"/"}
+        onMouseEnter={() => setProgress(100)}
+        onMouseLeave={() => setProgress(0)}>
+        <CircleSvg radius={25} stroke={1} progress={progress}>{"N D"}</CircleSvg>
+      </a>
       {renderNavItems()}
     </Nav>
   );

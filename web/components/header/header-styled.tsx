@@ -1,19 +1,15 @@
 import styled from "styled-components";
 import { colourBlack, colourCyan, colourDarkGrey, defaultTransition } from "../../styles";
 
-export const NavItemContainer = styled.div`
-
-`;
-
 export const Nav = styled.header`
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: 0.75fr repeat(3, minmax(0, 1fr));
   background: ${colourDarkGrey};
   margin: 0 25px 0 auto;
   border-radius: 25px;
   position: sticky;
   display: grid;
   padding: 2.5vh;
-  width: 600px;
+  width: 400px;
   z-index: 1;
   top: 25px;
   border: solid 1px ${colourBlack};
