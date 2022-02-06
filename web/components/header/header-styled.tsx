@@ -44,23 +44,6 @@ export const NavItem = styled.a`
   }
 `;
 
-export const NavItemCircle = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.5;
-  transition: ${defaultTransition};
-  position: relative;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  outline: solid 1px red;
-
-  &::after {
-
-  }
-
-  &:hover {
-    opacity: 1;
-  }
+export const NavItemHome = styled.a`
+  cursor: pointer;
 `;

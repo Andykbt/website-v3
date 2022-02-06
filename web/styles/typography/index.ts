@@ -5,7 +5,6 @@ import {
   fontSizeLarge,
   fontSizeSmall,
   fontWeightLight,
-  disableSelect
 } from "@website-v3/web/styles";
 import styled, { css } from "styled-components";
 
@@ -24,7 +23,6 @@ export const h1Styles = (props: FontProps) => {
     color: ${props.color || colourLightBrown};
     margin: ${props.margin || "0"};
     text-align: ${props.textDirection || "left"};
-    ${disableSelect};
   `;
 };
 
@@ -39,7 +37,6 @@ export const h2Styles = (props: FontProps) => {
     color: ${props.color || colourLightBrown};
     margin: ${props.margin || "0"};
     text-align: ${props.textDirection || "left"};
-    ${disableSelect};
   `;
 };
 
@@ -54,7 +51,6 @@ export const h3Styles = (props: FontProps) => {
     color: ${props.color || colourLightBrown};
     margin: ${props.margin || "0"};
     text-align: ${props.textDirection || "left"};
-    ${disableSelect};
   `;
 };
 
