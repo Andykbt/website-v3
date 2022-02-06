@@ -81,7 +81,7 @@ export const Skills = ({
     <SkillsContainer pages={pages} ref={skillContainerRef}>
       <StickyContainer sticky expand={expand}>
         <Container size={"xxl"} style={{ padding: "15vh 0" }}>
-          <H2 textDirection="center">{"Here are some of the things I've learnt"}</H2>
+          <H2 fontSize="5vw" textDirection="center">{"Here are some of the things I've learnt"}</H2>
         </Container>
         <CardContainer>
           <CardComponent

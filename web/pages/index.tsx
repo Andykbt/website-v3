@@ -7,6 +7,7 @@ import {
   Skills,
   About,
   Experience,
+  Footer,
 } from "@website-v3/web/components";
 import {
   Body1,
@@ -58,6 +59,7 @@ const Home: NextPage<Props> = ({
       <Experience experiences={experience}/>
       <Skills pages={3} />
       <Projects projects={projects}/>
+      <Footer/>
     </>
   );
 };
