@@ -79,3 +79,25 @@ export const SwapColour: React.FC<SpringProps> = ({
     </animated.div>
   );
 };
+
+export const ExpandBorder: React.FC<SpringProps> = ({
+  on,
+  children,
+}) => {
+  console.warn(on);
+  const props = useSpring({
+    borderRadius: "0.5rem",
+    overflow: "hidden",
+    boxShadow: on
+      ? `0 0 0 4px ${colourBlack}, 0 0 0 6px #fff, 0 0 #0000, 0 0 #0000`
+      : `0 0 0 0px ${colourBlack}, 0 0 0 0px #fff, 0 0 #0000, 0 0 #0000`,
+    cursor: "pointer",
+    config: config.stiff,
+  });
+
+  return (
+    <animated.div style={props}>
+      {children}
+    </animated.div>
+  );
+};
