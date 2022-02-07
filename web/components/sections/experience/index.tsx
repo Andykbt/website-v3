@@ -56,7 +56,7 @@ export const Experience = ({
     <StarsBG>
       <Center>
         <TableHeader>
-          <H2 textDirection="center">Experience</H2>
+          <H2 fontSize="5vw" textDirection="center">Experience</H2>
         </TableHeader>
 
         <TableBody
