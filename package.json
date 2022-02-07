@@ -27,7 +27,7 @@
   "scripts": {
     "test": "jest",
     "diff": "lerna diff",
-    "dev": "kill-port 3000 && lerna run dev --parallel --stream",
+    "dev": "kill-port 3000 && kill-port 3333 && lerna run dev --parallel --stream",
     "lint": "lerna run lint --parallel",
     "killall": "kill-port 3000 && kill-port 3333"
   },
