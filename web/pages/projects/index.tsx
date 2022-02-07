@@ -35,7 +35,7 @@ const Projects: NextPage<Props> = ({
         title={item.title}
         excerpt={item.excerpt}
         key={`project-card-${index}`}
-        href={item.slug}
+        href={item.slug.current}
         canCopy={true}
       />
     );

@@ -12,7 +12,10 @@ export type Project = {
   title: string,
   codeLink: string,
   projectLink: string,
-  slug: string,
+  slug: {
+    _type: string,
+    current: string,
+  },
   body: any[],
   excerpt: any[],
 }
