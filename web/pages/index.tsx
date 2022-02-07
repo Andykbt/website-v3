@@ -43,7 +43,6 @@ const Home: NextPage<Props> = ({
   experience
 }: Props) => {
   const { ref, inView } = useInView();
-
   return (
     <>
       <Header navItems={navItems}/>

@@ -7,7 +7,6 @@ type Props = {
 const Project = ({
   slug,
 }: Props) => {
-  console.warn(slug);
   return(
     <h1>{slug}</h1>
   );
@@ -15,7 +14,6 @@ const Project = ({
 
 export const getServerSideProps = async (context: any ) => {
   const pageSlug = context.query.slug;
-
   return { props: {pageSlug} };
 };
 
