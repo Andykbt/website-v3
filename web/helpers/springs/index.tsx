@@ -80,18 +80,24 @@ export const SwapColour: React.FC<SpringProps> = ({
   );
 };
 
-export const ExpandBorder: React.FC<SpringProps> = ({
+type ExpandBorderProps = {
+  borderRadius?: string,
+} & SpringProps;
+
+export const ExpandBorder: React.FC<ExpandBorderProps> = ({
   on,
   children,
+  borderRadius,
 }) => {
-  console.warn(on);
   const props = useSpring({
-    borderRadius: "0.5rem",
+    borderRadius: borderRadius ? borderRadius : "0.5rem",
     overflow: "hidden",
+    position: "relative",
     boxShadow: on
-      ? `0 0 0 4px ${colourBlack}, 0 0 0 6px #fff, 0 0 #0000, 0 0 #0000`
-      : `0 0 0 0px ${colourBlack}, 0 0 0 0px #fff, 0 0 #0000, 0 0 #0000`,
+      ? `0 0 0 4px #fff, 0 0 0 6px ${colourBlack}, 0 0 #0000, 0 0 #0000`
+      : `0 0 0 0px #fff, 0 0 0 0px ${colourBlack}, 0 0 #0000, 0 0 #0000`,
     cursor: "pointer",
+    width: "fit-content",
     config: config.stiff,
   });
 
