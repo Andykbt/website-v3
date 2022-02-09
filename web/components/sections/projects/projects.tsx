@@ -24,6 +24,11 @@ export const Projects = ({
   return (
     <ProjectsContainer>
       {renderProjects()}
+      <ProjectComponent
+        title={"View all"}
+        index={projects.length + 1}
+        url={"/projects"}
+      />
     </ProjectsContainer>
   );
 };
