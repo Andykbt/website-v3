@@ -12,6 +12,10 @@ export type Project = {
   title: string,
   codeLink: string,
   projectLink: string,
+  slug: {
+    _type: string,
+    current: string,
+  },
 }
 
 export type ExperienceType = {
