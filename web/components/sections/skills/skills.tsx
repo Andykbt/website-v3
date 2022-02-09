@@ -15,7 +15,6 @@ import { colourCyan, colourDarkGrey, colourPink, colourYellow } from "@website-v
 
 type SkillsProps = {
   pages: number,
-  skills: any[],
 }
 
 type CardProps = {
@@ -78,9 +77,6 @@ export const Skills = ({
 
   const renderSkills = () => {
     return skills.map((item, index) => {
-      if (index === 1) {
-        console.log("bottom: ", bottom, "threshold: ", gap * (index + 1), "threshold: ", gap * (index + 2));
-      }
       return (
         <CardComponent
           key={index}
@@ -109,7 +105,7 @@ export const Skills = ({
     } else {
       setSticky(false);
     }
-    
+
     setBottom(rect.height - rect.bottom);
     setGap(rect.height/(skills.length + 2));
   };
