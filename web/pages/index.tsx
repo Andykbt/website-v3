@@ -57,7 +57,7 @@ const Home: NextPage<Props> = ({
       <Body1 fontSize={fontSizeSmall} textDirection="right" margin="7.5vh 20vw">SOFTWARE<br/>ENG</Body1>
       <About/>
       <Experience experiences={experience}/>
-      <Skills pages={3} />
+      <Skills pages={5} />
       <Projects projects={projects}/>
       <Footer/>
     </>
