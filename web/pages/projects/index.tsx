@@ -1,26 +1,11 @@
 import React from "react";
 import { NextPage } from "next";
-import { Container, Header } from "../../components";
+import { Container } from "../../components";
 import { Card } from "../../components/card";
-import { Project, Url } from "@website-v3/web/constants/types";
+import { Project } from "@website-v3/web/constants/types";
 import { H2 } from "../../styles";
 import { SanityClient } from "@website-v3/web/sanity";
 import { Grid } from "../../components/layout/grid";
-
-const navItems: Url[] = [
-  {
-    name: "Work",
-    url: "mock",
-  },
-  {
-    name: "Blog",
-    url: "/blog",
-  },
-  {
-    name: "Contact",
-    url: "",
-  }
-];
 
 type Props = {
   projects: Project[],
@@ -42,15 +27,12 @@ const Projects: NextPage<Props> = ({
   };
 
   return (
-    <>
-      <Header navItems={navItems}/>
-      <Container size="XL">
-        <H2>Projects</H2>
-        <Grid noOfColumns={3} gap="50px">
-          {renderCards()}
-        </Grid>
-      </Container>
-    </>
+    <Container size="XL">
+      <H2>Projects</H2>
+      <Grid noOfColumns={3} gap="50px">
+        {renderCards()}
+      </Grid>
+    </Container>
   );
 };
 

@@ -91,12 +91,11 @@ export const ExpandBorder: React.FC<ExpandBorderProps> = ({
 }) => {
   const props = useSpring({
     borderRadius: borderRadius ? borderRadius : "0.5rem",
-    overflow: "hidden",
-    position: "relative",
     boxShadow: on
       ? `0 0 0 4px #fff, 0 0 0 6px ${colourBlack}, 0 0 #0000, 0 0 #0000`
       : `0 0 0 0px #fff, 0 0 0 0px ${colourBlack}, 0 0 #0000, 0 0 #0000`,
     cursor: "pointer",
+    overflow: "hidden",
     width: "fit-content",
     config: config.stiff,
   });
