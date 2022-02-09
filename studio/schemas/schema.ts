@@ -4,7 +4,13 @@ import createSchema from "part:@sanity/base/schema-creator";
 // Then import schema types from any plugins that might expose them
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
-import { project, experience, blog, sitemap } from "@website-v3/studio/schemas/documents";
+import {
+  project,
+  experience,
+  blog,
+  sitemap,
+  skills,
+} from "@website-v3/studio/schemas/documents";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -17,5 +23,6 @@ export default createSchema({
     blog,
     experience,
     sitemap,
+    skills,
   ]),
 });

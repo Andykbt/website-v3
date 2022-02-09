@@ -6,7 +6,7 @@ export const blog = {
     {
       name: "title",
       title: "Article title",
-      descript: "What is the name of your article",
+      description: "What is the name of your article",
       type: "string",
     },
     {
