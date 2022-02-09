@@ -15,27 +15,33 @@ import { colourCyan, colourDarkGrey, colourPink, colourYellow } from "@website-v
 
 type SkillsProps = {
   pages: number,
+  skills: any[],
 }
 
 type CardProps = {
   colour: string,
   title: string,
-  items?: string[],
+  isSelected?: boolean,
 }
 
 const CardComponent = ({
   colour,
-  title
+  title,
+  isSelected,
 }: CardProps) => {
   const [hovered, setHovered] = useState(false);
 
   const styles = useSpring({
-    transform: hovered ? "translateY(2vh)" : "translateY(20vh)",
+    transform: hovered || isSelected ? "translateY(2vh)" : "translateY(20vh)",
     config: config.default,
   });
 
   return (
-    <animated.div style={{...styles}} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+    <animated.div
+      style={{...styles}}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}>
+
       <Card>
         <CardHeader colour={colour}>
           <H3 color={colourDarkGrey}>{title}</H3>
@@ -47,7 +53,8 @@ const CardComponent = ({
 
 
 export const Skills = ({
-  pages
+  pages,
+  skills,
 }: SkillsProps) => {
   const skillContainerRef = useRef<HTMLDivElement | null>(null);
   const [sticky, setSticky] = useState(false);
