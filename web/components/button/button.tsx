@@ -20,10 +20,11 @@ export const Button: React.FC<Props> = ({
   return (
     <ExpandBorder on={hover} borderRadius="9999px">
       <ButtonContainer
+        data-testid={"button.button"}
         onClick={onClick}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}>
-        <Body1>{label || children}</Body1>
+        <Body1 data-testid={"button.button-label"}>{label || children}</Body1>
       </ButtonContainer>
     </ExpandBorder>
   );
