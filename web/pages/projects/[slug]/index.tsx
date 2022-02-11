@@ -13,8 +13,9 @@ import {
   ProjectBody,
   ProjectColumn,
   ProjectHeading,
-  ProjectLinks
+  ProjectLinks,
 } from "@website-v3/web/components/sections/projects/projects-styled";
+import { Separator } from "../../../components/sections/about/about-styles";
 
 type Props = {
   title: string,
