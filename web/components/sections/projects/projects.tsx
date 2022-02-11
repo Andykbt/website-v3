@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import { FadeIn, ProjectTextHover } from "@website-v3/web/helpers/springs";
 import { useRouter } from "next/router";
+import ArrowSvg from "../../../styles/svg/Arrow-svg";
 
 type ProjectsProps = {
   projects: Project[],
@@ -58,7 +59,10 @@ export const ProjectComponent = ({
 
   return (
     <ProjectContainer onClick={() => router.push(`/projects/${url}`)} data-testid={"projects.redirect-link"}>
-      <div onMouseOver={() => setHovered(true)} onMouseLeave={() => setHovered(false)} style={{cursor: "pointer"}}>
+      <div
+        onMouseOver={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{cursor: "pointer"}}>
         <IndexContainer>
           <Body1 fontSize="12px">Ø{index}</Body1>
         </IndexContainer>
@@ -68,15 +72,7 @@ export const ProjectComponent = ({
         </ProjectTextHover>
 
         <ArrowContainer>
-          <FadeIn on={isHovered}>
-            <Image
-              src="/arrow.svg"
-              alt="arrow"
-              layout="responsive"
-              width={100}
-              height={100}
-            />  
-          </FadeIn>
+          <ArrowSvg width={100} height={100} isHovered={isHovered} />
         </ArrowContainer>
       </div>
     </ProjectContainer>

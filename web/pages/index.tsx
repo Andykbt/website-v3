@@ -15,6 +15,7 @@ import { fontSizeExtraLarge, fontSizeSmall } from "@website-v3/web/styles";
 import { TextTrail } from "@website-v3/web/helpers/springs";
 import { useInView } from "react-intersection-observer";
 import { SanityClient } from "../sanity";
+import ArrowSvg from "../styles/svg/Arrow-svg";
 
 type Props = {
   projects: any[],
