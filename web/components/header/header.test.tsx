@@ -5,7 +5,6 @@ import { Header } from "@website-v3/web/components";
 import { createMockRouter } from "../../helpers/test-utils/createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context";
 
-
 describe("header", () => {
   const mockItems: Url[] = [
     {

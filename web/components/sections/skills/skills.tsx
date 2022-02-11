@@ -20,22 +20,27 @@ type SkillsProps = {
 type CardProps = {
   colour: string,
   title: string,
-  items?: string[],
+  isSelected?: boolean,
 }
 
 const CardComponent = ({
   colour,
-  title
+  title,
+  isSelected,
 }: CardProps) => {
   const [hovered, setHovered] = useState(false);
 
   const styles = useSpring({
-    transform: hovered ? "translateY(2vh)" : "translateY(20vh)",
+    transform: hovered || isSelected ? "translateY(2vh)" : "translateY(20vh)",
     config: config.default,
   });
 
   return (
-    <animated.div style={{...styles}} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+    <animated.div
+      style={{...styles}}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}>
+
       <Card>
         <CardHeader colour={colour}>
           <H3 color={colourDarkGrey}>{title}</H3>
@@ -47,28 +52,62 @@ const CardComponent = ({
 
 
 export const Skills = ({
-  pages
+  pages,
 }: SkillsProps) => {
   const skillContainerRef = useRef<HTMLDivElement | null>(null);
   const [sticky, setSticky] = useState(false);
   const [expand, setExpand] = useState(false);
+  const [bottom, setBottom] = useState(0);
+  const [gap, setGap] = useState(0);
+
+  const skills = [
+    {
+      title: "frontend",
+      color: colourCyan
+    },
+    {
+      title: "backend",
+      color: colourYellow
+    },
+    {
+      title: "other",
+      color: colourPink
+    }
+  ];
+
+  const renderSkills = () => {
+    return skills.map((item, index) => {
+      return (
+        <CardComponent
+          key={index}
+          title={item.title}
+          colour={item.color}
+          isSelected={bottom > gap * (index + 1) && bottom < gap * (index + 2)}
+        />
+      );
+    });
+  };
 
   const handleScroll = () => {
-    const top:number | undefined = skillContainerRef.current?.getBoundingClientRect().top;
-    if (!top) {
+    const rect: DOMRect | undefined = skillContainerRef.current?.getBoundingClientRect();
+
+    if (!rect) {
       return;
     }
 
-    if (top < 150) {
+    if (rect.top < 150) {
       setExpand(true);
     } else {
       setExpand(false);
     }
-    if (top < 0) {
+    if (rect.top < 0) {
       setSticky(true);
     } else {
       setSticky(false);
     }
+
+    setBottom(rect.height - rect.bottom);
+    setGap(rect.height/(skills.length + 2));
   };
 
   useEffect(() => {
@@ -84,18 +123,7 @@ export const Skills = ({
           <H2 fontSize="5vw" textDirection="center">{"Here are some of the things I've learnt"}</H2>
         </Container>
         <CardContainer>
-          <CardComponent
-            title={"Front End"}
-            colour={colourCyan}
-          />
-          <CardComponent
-            title={"Back End"}
-            colour={colourYellow}
-          />
-          <CardComponent
-            title={"Other Tools"}
-            colour={colourPink}
-          />
+          {renderSkills()}
         </CardContainer>
         <Separator expand={sticky}/>
       </StickyContainer>

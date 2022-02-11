@@ -16,6 +16,8 @@ export type Project = {
     _type: string,
     current: string,
   },
+  body: any[],
+  excerpt: any[],
 }
 
 export type ExperienceType = {

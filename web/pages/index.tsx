@@ -1,8 +1,6 @@
 import React from "react";
 import type { NextPage } from "next";
-import { Url } from "@website-v3/web/constants/types";
 import {
-  Header,
   Projects,
   Skills,
   About,
@@ -18,21 +16,6 @@ import { TextTrail } from "@website-v3/web/helpers/springs";
 import { useInView } from "react-intersection-observer";
 import { SanityClient } from "../sanity";
 
-const navItems: Url[] = [
-  {
-    name: "Work",
-    url: "mock",
-  },
-  {
-    name: "Blog",
-    url: "/blog",
-  },
-  {
-    name: "Contact",
-    url: "",
-  }
-];
-
 type Props = {
   projects: any[],
   experience: any[]
@@ -43,10 +26,8 @@ const Home: NextPage<Props> = ({
   experience
 }: Props) => {
   const { ref, inView } = useInView();
-
   return (
     <>
-      <Header navItems={navItems}/>
       <div style={{margin: "5vh auto 0 5vw"}} ref={ref}>
         <TextTrail on={inView}>
           <H1 fontSize={fontSizeExtraLarge}>Andy</H1>
@@ -57,7 +38,7 @@ const Home: NextPage<Props> = ({
       <Body1 fontSize={fontSizeSmall} textDirection="right" margin="7.5vh 20vw">SOFTWARE<br/>ENG</Body1>
       <About/>
       <Experience experiences={experience}/>
-      <Skills pages={3} />
+      <Skills pages={5} />
       <Projects projects={projects}/>
       <Footer/>
     </>
