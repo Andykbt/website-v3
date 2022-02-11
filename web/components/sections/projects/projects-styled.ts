@@ -5,10 +5,7 @@ export const ProjectsContainer = styled.div`
   margin: 5vh 5vw;
 `;
 
-export const ProjectContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+export const ProjectContainer = styled.a`
 `;
 
 export const IndexContainer = styled.div`
