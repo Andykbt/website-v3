@@ -5,7 +5,7 @@ import React from "react";
 import { Footer } from "../../../components";
 import { Button } from "../../../components/button";
 import { Separator } from "../../../components/sections/about/about-styles";
-import { imageUrl, Project as ProjectType} from "../../../constants/types";
+import { Project as ProjectType} from "../../../constants/types";
 import { SanityClient } from "../../../sanity";
 import {
   ImageContainer,
@@ -31,7 +31,6 @@ const Project = ({
   title,
   codeLink,
   projectLink,
-  slug,
   imageUrl,
   body,
 }: Props) => {
