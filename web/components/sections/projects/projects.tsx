@@ -8,8 +8,7 @@ import {
   ProjectContainer,
   ProjectsContainer
 } from "./projects-styled";
-import Image from "next/image";
-import { FadeIn, ProjectTextHover } from "@website-v3/web/helpers/springs";
+import { ProjectTextHover } from "@website-v3/web/helpers/springs";
 import { useRouter } from "next/router";
 import ArrowSvg from "../../../styles/svg/Arrow-svg";
 

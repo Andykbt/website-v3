@@ -11,7 +11,6 @@ const ArrowSvg = ({
   height,
   isHovered,
 }: Props) => {
-  console.warn(isHovered);
   return (
     <svg width={width} height={height} viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
