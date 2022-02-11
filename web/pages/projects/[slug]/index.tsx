@@ -1,19 +1,20 @@
+import React from "react";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
-import { Footer } from "../../../components";
-import { Button } from "../../../components/button";
-import { Separator } from "../../../components/sections/about/about-styles";
-import { Project as ProjectType} from "../../../constants/types";
-import { SanityClient } from "../../../sanity";
+import {
+  Footer,
+  Button
+} from "@website-v3/web/components";
+import { Project as ProjectType} from "@website-v3/web/constants/types";
+import { SanityClient } from "@website-v3/web/sanity";
 import {
   ImageContainer,
   ProjectBody,
   ProjectColumn,
   ProjectHeading,
   ProjectLinks
-} from "../projects-styled";
+} from "@website-v3/web/components/sections/projects/projects-styled";
 
 type Props = {
   title: string,
