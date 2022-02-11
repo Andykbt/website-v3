@@ -5,6 +5,7 @@ import {
   fontSizeLarge,
   fontSizeSmall,
   fontWeightLight,
+  fontSizeXSmall,
 } from "@website-v3/web/styles";
 import styled, { css } from "styled-components";
 
@@ -69,5 +70,19 @@ export const body1Styles = (props: FontProps) => {
 };
 
 export const Body1 = styled.div<FontProps>`
-    ${body1Styles}
+  ${body1Styles}
+`;
+
+export const body2Styles = (props: FontProps) => {
+  return css`
+    font-weight:${props.fontWeight || fontWeightLight};
+    font-size:${props.fontSize || fontSizeXSmall};
+    color: ${props.color || colourLightBrown};
+    margin: ${props.margin || "0"};
+    text-align: ${props.textDirection || "left"};
+  `;
+};
+
+export const Body2 = styled.div<FontProps>`
+  ${body2Styles}
 `;
