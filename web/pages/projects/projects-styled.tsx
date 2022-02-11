@@ -7,12 +7,17 @@ export const ImageContainer = styled.div`
   display: inline-block;
 `;
 
+export const ProjectColumn = styled.div`
+  display: flex;
+  max-width: 90vw;
+  max-height: 100vh;
+  margin: 0 auto 17vh;
+`;
+
 export const ProjectBody = styled.div`
   display: inline-block;
-  width: 45%;
-  position: absolute;
-  padding: 0 50px;
-`;
+  `;
+  // position: absolute;
 
 export const ProjectLinks = styled.div`
   display: flex;
