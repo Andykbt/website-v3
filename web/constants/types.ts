@@ -16,6 +16,7 @@ export type Project = {
     _type: string,
     current: string,
   },
+  imageUrl?: string,
   body: any[],
   excerpt: any[],
 }
