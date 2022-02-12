@@ -20,6 +20,8 @@ describe("project in homepage", () => {
         _type: "slugtype",
         current: "slug",
       },
+      body: [],
+      excerpt: [],
     },
   ];
 
