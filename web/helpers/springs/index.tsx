@@ -15,8 +15,8 @@ export const TextTrail: React.FC<SpringProps> = ({
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
     opacity: on ? 1 : 0,
-    y: on ? 0 : 150,
-    config: config.slow  
+    y: on ? 0 : 100,
+    config: config.default  
   });
 
   return (

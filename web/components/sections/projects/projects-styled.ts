@@ -16,13 +16,13 @@ export const IndexContainer = styled.div`
 
 export const Name = styled.div<{hover?: boolean}>`
   display: inline-block;
-  font-size: 3.5vw;
+  font-size: 5vw;
   text-shadow: 0 -1px 1px ${colourLightBrown}, -1px 0 1px ${colourLightBrown}, 0 1px 1px ${colourLightBrown}, 1px 0 1px ${colourLightBrown};
 `; 
 
 export const ArrowContainer = styled.div`
   display: inline-block;
-  width: 2.5vw;
+  width: 3.5vw;
   float: right;
 `;
 
