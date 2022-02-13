@@ -47,7 +47,6 @@ const Project = ({
         <ImageContainer>
           <Image
             src={imageUrl}
-            alt={image.alt}
             priority={true}
             layout="fill"
             sizes="100w"
