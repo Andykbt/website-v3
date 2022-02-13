@@ -26,6 +26,7 @@ type Props = {
     current: string,
   },
   body: any[],
+  image: any[],
   imageUrl: string,
 };
 
@@ -33,8 +34,10 @@ const Project = ({
   title,
   codeLink,
   projectLink,
+  image,
   imageUrl,
   body,
+  slug,
 }: Props) => {
   const router = useRouter();
 
@@ -44,15 +47,16 @@ const Project = ({
         <ImageContainer>
           <Image
             src={imageUrl}
-            width={500}
-            height={500}
+            alt={image.alt}
             priority={true}
-            layout="responsive"
+            layout="fill"
+            sizes="100w"
+            objectFit="cover"
           />
         </ImageContainer>
       
         <ProjectBody>
-          <ProjectHeading>{title}</ProjectHeading>
+          <ProjectHeading style={{fontSize: slug.current === "ishouldstudy" ? "10vw" : ""}}>{title}</ProjectHeading>
           <Separator expand={true} />
           <ProjectLinks>
             <Button onClick={() => router.push(projectLink)}>View Project</Button>

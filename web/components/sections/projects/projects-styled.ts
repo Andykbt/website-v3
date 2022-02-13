@@ -27,22 +27,22 @@ export const ArrowContainer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  width: 45%;
-  padding: 0 25px;
-  display: inline-block;
+  width: 50%;
+  position: relative;
 `;
 
 export const ProjectColumn = styled.div`
   display: flex;
   max-width: 90vw;
-  max-height: 100vh;
+  height: 85vh;
   margin: 0 auto 17vh;
 `;
 
 export const ProjectBody = styled.div`
+  width: 50%;
   display: inline-block;
-  `;
-  // position: absolute;
+  padding: 0 50px 0 25px;
+`;
 
 export const ProjectLinks = styled.div`
   display: flex;
