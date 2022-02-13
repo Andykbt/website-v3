@@ -3,6 +3,10 @@ export type Url = {
   url: string,
 }
 
+export type imageUrl = {
+  imageUrl?: string,
+};
+
 export type Project = {
   _createdAt: string,
   _id: string,

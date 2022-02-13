@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CardContainer, ToolsContainer } from "./card-styled";
 import Image from "next/image";
-import { H3, Body2 } from "../../styles";
+import { H3, Body2 } from "@website-v3/web/styles/typography";
 import { ExpandBorder } from "../../helpers/springs";
 import { fontSizeMedium } from "@website-v3/web/styles";
 import { PortableText } from "@portabletext/react";

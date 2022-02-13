@@ -42,7 +42,7 @@ export const Projects = ({
       <ProjectComponent
         title={"View all"}
         index={projects.length + 1}
-        url={"/projects"}
+        url={""}
       />
     </ProjectsContainer>
   );
