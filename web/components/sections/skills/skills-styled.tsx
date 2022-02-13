@@ -33,7 +33,8 @@ export const StickyContainer = styled.div<StickyContainerProps>`
   margin: auto;
   width: ${props => props.expand ? 100 : 85}%;
   background: ${colourDarkGrey};
-  transition: width 2s;
+  transition: width 2s, height 2s;
+  height: ${props => props.expand ? 100 : 85}vh;
 `;
 
 export const CardContainer = styled.div`
