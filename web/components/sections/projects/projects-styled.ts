@@ -29,6 +29,7 @@ export const ArrowContainer = styled.div`
 export const ImageContainer = styled.div`
   width: 50%;
   position: relative;
+  overflow: hidden;
 `;
 
 export const ProjectColumn = styled.div`

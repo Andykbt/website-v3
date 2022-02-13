@@ -35,3 +35,14 @@ body::-webkit-scrollbar-thumb {
   background-color: #D5CDC4;
   border-radius: 5px;
 }
+
+.imageScale {
+  transform: scale(1);
+  animation-name: scale;
+  animation-duration: 1s;
+}
+
+@keyframes scale {
+  from { transform: scale(1.25); }
+  to { transform: scale(1); }
+}

@@ -5,7 +5,7 @@ export { animated } from "react-spring";
 
 type SpringProps = {
   on?: boolean,
-  styles?: React.CSSProperties | undefined 
+  styles?: React.CSSProperties | undefined,
 };
 
 export const TextTrail: React.FC<SpringProps> = ({
