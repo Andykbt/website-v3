@@ -16,23 +16,57 @@ export const About = () => {
   return (
     <Container size="XS">
       <Separator expand={inView}/>
-      <Flex justifyContent="space-around" alignItems="center" ref={ref}>
-        <Flex direction="column" alignItems={"flex-start"}>
+      <Flex alignItems="center" justifyContent="space-between" style={{height: "30vh", padding: 50}}>
+        <Flex ref={ref} >
           <TextTrail on={inView}>
             <H2 fontSize="5vw">ABOUT</H2>
             <H2 fontSize="5vw">ME</H2>
           </TextTrail>
         </Flex>
         <VertSeparator expand={inView}/>
-        <Body1 fontWeight="bold" style={{textTransform: "uppercase"}}>
+        <Body1
+          fontSize={"calc(1em + 0.25vw);"}
+          fontWeight="bold"
+          style={{
+            textTransform: "uppercase",
+            padding: 25,
+            width: "50vw",
+            display: "inline-block",
+          }}>
           <TextTrail on={inView}>
-            {"Currently in my final year studying Computer Science."}<br/>
-            {"You can find me on LinkedIn, throw me a follow on Github"}<br />
-            {"or come look at what I've been working on here."}
+            {`Currently in my final year of Computer Science.
+              You can find me on LinkedIn, throw me a follow on Github
+              or come look at what I've been working on here.
+            `}
           </TextTrail>
         </Body1>
       </Flex>
       <Separator expand={inView}/>
+      {/* <Flex justifyContent="space-around" alignItems="center" ref={ref}>
+        <Flex direction="column" alignItems={"flex-start"} style={{padding: 25}}>
+          <TextTrail on={inView}>
+            <H2 fontSize="5vw">ABOUT</H2>
+            <H2 fontSize="5vw">ME</H2>
+          </TextTrail>
+        </Flex>
+        <VertSeparator expand={inView}/>
+        <Body1
+          fontSize={"calc(1em + 0.25vw);"}
+          fontWeight="bold"
+          style={{
+            textTransform: "uppercase",
+            padding: 25,
+            width: "50vw"
+          }}>
+          <TextTrail on={inView}>
+            {`Currently in my final year of Computer Science.
+              You can find me on LinkedIn, throw me a follow on Github
+              or come look at what I've been working on here.
+            `}
+          </TextTrail>
+        </Body1>
+      </Flex> */}
+      {/* <Separator expand={inView}/> */}
     </Container>
   );
 };

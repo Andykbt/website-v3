@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colourBlack, colourCyan, colourDarkGrey, defaultTransition } from "../../styles";
+import { colourBlack, colourCyan, colourDarkGrey, colourLightBrown, defaultTransition, smBreakpoint } from "../../styles";
 
 export const Nav = styled.header`
   grid-template-columns: 0.75fr repeat(3, minmax(0, 1fr));
@@ -10,9 +10,15 @@ export const Nav = styled.header`
   display: grid;
   padding: 2.5vh;
   width: 400px;
-  z-index: 1;
+  z-index: 10;
   top: 25px;
   border: solid 1px ${colourBlack};
+
+  @media (max-width: ${smBreakpoint}) {
+    width: 100%;
+    top: 0;
+    border-radius: 0px;
+  }
 `;
 
 export const NavItem = styled.a`

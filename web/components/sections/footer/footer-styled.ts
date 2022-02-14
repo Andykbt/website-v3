@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { colourCyan, colourLightBrown, defaultTransition } from "../../../styles";
+import { colourCyan, colourLightBrown, defaultTransition, mdBreakpoint } from "../../../styles";
 
 export const FooterContainer = styled.footer`
   border-top: solid 1px ${colourLightBrown};
@@ -8,10 +8,13 @@ export const FooterContainer = styled.footer`
 
 export const Sitemap = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  width: 66.666%;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
   margin: auto;
   column-gap: 1rem;
+
+  @media (max-width: ${mdBreakpoint}) {
+    width: 95%;
+  }
 `;
 
 const colStyles = () => {
@@ -24,25 +27,22 @@ const colStyles = () => {
 };
 
 export const Col0 = styled.div`
-  grid-column: span 3 / span 3;
+  grid-column 1 / span 3;
   ${colStyles}
 `;
 
 export const Col1 = styled.div`
-grid-column: span 2 / span 2;
-grid-column-start: 5;
+  grid-column 5 / span 3;
   ${colStyles}
 `;
 
 export const Col2 = styled.div`
-  grid-column: span 2 / span 2;
-  grid-column-start: 7;
+  grid-column 9 / span 3;
   ${colStyles}
 `;
 
 export const Col3 = styled.div`
-  grid-column: span 3 / span 3;
-  grid-column-start: 10;
+  // grid-column-start: 8;
   ${colStyles}
 `;
 
