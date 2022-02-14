@@ -15,8 +15,8 @@ import {
   ProjectHeading,
   ProjectLinks,
 } from "@website-v3/web/components/sections/projects/projects-styled";
-import { Separator } from "../../../components/sections/about/about-styles";
-import { TextTrail } from "../../../helpers/springs";
+import { Separator } from "@website-v3/web/components/sections/about/about-styles";
+import { TextTrail } from "@website-v3/web/helpers/springs";
 import { useInView } from "react-intersection-observer";
 
 type Props = {
