@@ -15,7 +15,9 @@ import {
   ProjectHeading,
   ProjectLinks,
 } from "@website-v3/web/components/sections/projects/projects-styled";
-import { Separator } from "../../../components/sections/about/about-styles";
+import { Separator } from "@website-v3/web/components/sections/about/about-styles";
+import { TextTrail } from "@website-v3/web/helpers/springs";
+import { useInView } from "react-intersection-observer";
 
 type Props = {
   title: string,
@@ -34,16 +36,16 @@ const Project = ({
   title,
   codeLink,
   projectLink,
-  image,
   imageUrl,
   body,
   slug,
 }: Props) => {
   const router = useRouter();
+  const [ref, inView] = useInView();
 
   return(
     <>
-      <ProjectColumn>
+      <ProjectColumn ref={ref}>
         <ImageContainer>
           <Image
             src={imageUrl}
@@ -51,19 +53,25 @@ const Project = ({
             layout="fill"
             sizes="100w"
             objectFit="cover"
+            className="imageScale"
           />
         </ImageContainer>
       
         <ProjectBody>
-          <ProjectHeading style={{fontSize: slug.current === "ishouldstudy" ? "10vw" : ""}}>{title}</ProjectHeading>
-          <Separator expand={true} />
-          <ProjectLinks>
-            <Button onClick={() => router.push(projectLink)}>View Project</Button>
-            <Button onClick={() => router.push(codeLink)}>View Code</Button>
-          </ProjectLinks>
-          <Separator expand={true} />
-          
-          <PortableText value={body} />
+          <TextTrail on={inView}>
+            <ProjectHeading style={{fontSize: slug.current === "ishouldstudy" ? "10vw" : ""}}>{title}</ProjectHeading>
+          </TextTrail>
+
+          <TextTrail on={inView}>
+            <Separator expand={true} />
+            <ProjectLinks>
+              <Button onClick={() => router.push(projectLink)}>View Project</Button>
+              <Button onClick={() => router.push(codeLink)}>View Code</Button>
+            </ProjectLinks>
+            <Separator expand={true} />
+            
+            <PortableText value={body} />
+          </TextTrail>
         </ProjectBody>
       </ProjectColumn>
       <Footer/>
