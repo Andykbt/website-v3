@@ -71,7 +71,7 @@ export const ProjectComponent = ({
         </ProjectTextHover>
 
         <ArrowContainer>
-          <ArrowSvg width={100} height={100} isHovered={isHovered} />
+          <ArrowSvg width={"5vw"} height={"5vw"} isHovered={isHovered} />
         </ArrowContainer>
       </div>
     </ProjectContainer>

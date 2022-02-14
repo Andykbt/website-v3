@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colourLightBrown, colourBlack } from "@website-v3/web/styles";
+import { colourLightBrown, colourBlack, smBreakpoint } from "@website-v3/web/styles";
 
 export const ProjectsContainer = styled.div`
   margin: 5vh 5vw;
@@ -30,6 +30,12 @@ export const ImageContainer = styled.div`
   width: 50%;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: ${smBreakpoint}) {
+    width: inherit;
+    height: inherit;
+    min-height: 360px;
+  }
 `;
 
 export const ProjectColumn = styled.div`
@@ -37,12 +43,23 @@ export const ProjectColumn = styled.div`
   max-width: 90vw;
   height: 85vh;
   margin: 0 auto 17vh;
+
+  @media (max-width: ${smBreakpoint}) {
+    padding-top: 2.5vh;
+    flex-direction: column;
+  }
 `;
 
 export const ProjectBody = styled.div`
   width: 50%;
   display: inline-block;
   padding: 0 50px 0 25px;
+
+  @media (max-width: ${smBreakpoint}) {
+    padding: 0;
+    flex-direction: column;
+    width: initial;
+  }
 `;
 
 export const ProjectLinks = styled.div`
@@ -50,6 +67,11 @@ export const ProjectLinks = styled.div`
   flex-direction: row;
   margin: 25px 0;
   gap: 25px;
+  
+  @media (max-width: ${smBreakpoint}) {
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 
 export const ProjectHeading = styled.div`
@@ -58,4 +80,8 @@ export const ProjectHeading = styled.div`
   transform: translateX(-40%);
   width: fit-content;
   text-shadow: 0 -2px 2px #d5cdc4, -2px 0 2px #d5cdc4, 0 2px 2px #d5cdc4, 2px 0 2px #d5cdc4;
+
+  @media (max-width: ${smBreakpoint}) {
+    transform: translateX(0);
+  }
 `;

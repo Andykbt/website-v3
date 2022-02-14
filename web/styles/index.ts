@@ -6,7 +6,9 @@ export const fontSizeBase = "1rem";
 export const fontSizeExtraLarge = "13.5vw";
 export const fontSizeLarge = "10vw";
 export const fontSizeMedium = "2.5rem";
+export const fontSizeMediumResponsive = "3vw";
 export const fontSizeSmall = "1.5rem";
+export const fontSizeSmallResponsive = "2vw";
 export const fontSizeXSmall = "1rem";
 
 /* Colours */
