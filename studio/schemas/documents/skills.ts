@@ -11,11 +11,6 @@ export const skill = {
       description: "Write your svg code here"
     },
     {
-      name: "name",
-      title: "Skill name",
-      type: "string",
-    },
-    {
       name: "caption",
       title: "Caption",
       type: "string",
@@ -42,23 +37,23 @@ export const skills = {
   type: "document",
   fields: [
     {
-      name: "frontend",
-      title: "Frontend Skills",
-      description: "Show off your FE Skills",
+      name: "programmingLanguages",
+      title: "Programming Languages",
+      description: "Write the languages you know!",
       type: "array",
       of: [skill],
     },
     {
-      name: "backend",
-      title: "Backend Skills",
-      description: "Show off your BE Skills",
+      name: "librariesAndFrameworks",
+      title: "Libraries & Frameworks",
+      description: "Write the libraries & frameworks that you know!",
       type: "array",
       of: [skill]
     },
     {
-      name: "other",
-      title: "Tools and languages",
-      description: "Show off your other skills",
+      name: "toolsAndPlatforms",
+      title: "Tools & Platforms",
+      description: "Write the tools & platforms that you know!",
       type: "array",
       of: [skill]
     }
