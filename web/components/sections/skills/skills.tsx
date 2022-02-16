@@ -12,6 +12,7 @@ import {
 import { useSpring, config } from "react-spring";
 import { H2, H3 } from "@website-v3/web/styles/typography";
 import { colourCyan, colourDarkGrey, colourPink, colourYellow } from "@website-v3/web/styles";
+import { useIsTablet } from "../../../helpers/hooks/useWindowDims";
 
 type SkillsProps = {
   pages: number,
@@ -21,17 +22,23 @@ type CardProps = {
   colour: string,
   title: string,
   isSelected?: boolean,
+  isTablet?: boolean,
 }
 
 const CardComponent = ({
   colour,
   title,
   isSelected,
+  isTablet,
 }: CardProps) => {
   const [hovered, setHovered] = useState(false);
 
   const styles = useSpring({
-    transform: hovered || isSelected ? "translateY(2vh)" : "translateY(20vh)",
+    transform: isTablet
+      ? "translateY(0)"
+      : (hovered || isSelected)
+        ? "translateY(2vh)"
+        : "translateY(20vh)",
     config: config.default,
   });
 
@@ -59,6 +66,7 @@ export const Skills = ({
   const [expand, setExpand] = useState(false);
   const [bottom, setBottom] = useState(0);
   const [gap, setGap] = useState(0);
+  const isTablet = useIsTablet();
 
   const skills = [
     {
@@ -83,6 +91,7 @@ export const Skills = ({
           title={item.title}
           colour={item.color}
           isSelected={bottom > gap * (index + 1) && bottom < gap * (index + 2)}
+          isTablet={isTablet}
         />
       );
     });
@@ -119,7 +128,7 @@ export const Skills = ({
   return (
     <SkillsContainer pages={pages} ref={skillContainerRef}>
       <StickyContainer sticky expand={expand}>
-        <Container size={"xxl"} style={{ padding: "15vh 0" }}>
+        <Container size={"xxl"} style={{ padding: "15vh 0", width: "80vw" }}>
           <H2 fontSize="5vw" textDirection="center">{"Here are some of the things I've learnt"}</H2>
         </Container>
         <CardContainer>

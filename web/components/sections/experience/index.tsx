@@ -9,7 +9,9 @@ import {
   TableItems,
   TableBody,
   Button,
-  Slider
+  Slider,
+  TableContent,
+  TableItemsWrapper
 } from "./experience-styled";
 import { ExperienceType } from "@website-v3/web/constants/types";
 import { PortableText } from "@portabletext/react";
@@ -63,14 +65,16 @@ export const Experience = ({
           ref={ref}
           show={inView}
         >
-          <TableItems>
-            <Slider height={slider}/>
-            {renderItems()}
-          </TableItems>
+          <TableItemsWrapper>
+            <TableItems>
+              <Slider height={slider}/>
+              {renderItems()}
+            </TableItems>
+          </TableItemsWrapper>
           
-          <div style={{ padding: "0 25px" }}>
+          <TableContent>
             {renderBody(experiences[selected]._id)}
-          </div>
+          </TableContent>
         </TableBody>
       </Center>
     </StarsBG>
