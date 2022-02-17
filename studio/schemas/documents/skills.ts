@@ -37,25 +37,16 @@ export const skills = {
   type: "document",
   fields: [
     {
-      name: "programmingLanguages",
-      title: "Programming Languages",
-      description: "Write the languages you know!",
+      name: "category",
+      title: "Skills Category",
+      description: "Write what group of skills are these",
+      type: "string",
+    },
+    {
+      name: "skills",
+      title: "Skills",
       type: "array",
       of: [skill],
-    },
-    {
-      name: "librariesAndFrameworks",
-      title: "Libraries & Frameworks",
-      description: "Write the libraries & frameworks that you know!",
-      type: "array",
-      of: [skill]
-    },
-    {
-      name: "toolsAndPlatforms",
-      title: "Tools & Platforms",
-      description: "Write the tools & platforms that you know!",
-      type: "array",
-      of: [skill]
     }
   ]
 };

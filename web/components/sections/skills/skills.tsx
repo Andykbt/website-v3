@@ -11,11 +11,13 @@ import {
 } from "./skills-styled";
 import { useSpring, config } from "react-spring";
 import { H2, H3 } from "@website-v3/web/styles/typography";
-import { colourCyan, colourDarkGrey, colourPink, colourYellow } from "@website-v3/web/styles";
+import { colourDarkGrey } from "@website-v3/web/styles";
 import { useIsTablet } from "../../../helpers/hooks/useWindowDims";
+import { SkillType } from "@website-v3/web/constants/types";
 
 type SkillsProps = {
   pages: number,
+  skills: SkillType,
 }
 
 type CardProps = {
@@ -60,6 +62,7 @@ const CardComponent = ({
 
 export const Skills = ({
   pages,
+  skills
 }: SkillsProps) => {
   const skillContainerRef = useRef<HTMLDivElement | null>(null);
   const [sticky, setSticky] = useState(false);
@@ -68,33 +71,22 @@ export const Skills = ({
   const [gap, setGap] = useState(0);
   const isTablet = useIsTablet();
 
-  const skills = [
-    {
-      title: "frontend",
-      color: colourCyan
-    },
-    {
-      title: "backend",
-      color: colourYellow
-    },
-    {
-      title: "other",
-      color: colourPink
-    }
-  ];
+  console.warn(skills.libraryAndFrameworks);
+  console.warn(skills.programmingLanguages);
+  console.warn(skills.toolsAndPlatforms);
 
   const renderSkills = () => {
-    return skills.map((item, index) => {
-      return (
-        <CardComponent
-          key={index}
-          title={item.title}
-          colour={item.color}
-          isSelected={bottom > gap * (index + 1) && bottom < gap * (index + 2)}
-          isTablet={isTablet}
-        />
-      );
-    });
+    // return skills.map((item, index) => {
+    //   return (
+    //     <CardComponent
+    //       key={index}
+    //       title={item.title}
+    //       colour={item.color}
+    //       isSelected={bottom > gap * (index + 1) && bottom < gap * (index + 2)}
+    //       isTablet={isTablet}
+    //     />
+    //   );
+    // });
   };
 
   const handleScroll = () => {
