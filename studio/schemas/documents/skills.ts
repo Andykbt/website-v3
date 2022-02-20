@@ -43,6 +43,19 @@ export const skills = {
       type: "string",
     },
     {
+      name: "svg",
+      title: "SVG",
+      type: "array",
+      of: [{ type: "block" }],
+      description: "Write your svg code here"
+    },
+    {
+      name: "colour",
+      title: "Colour",
+      description: "What is the main colour for this category",
+      type: "string",
+    },
+    {
       name: "skills",
       title: "Skills",
       type: "array",
