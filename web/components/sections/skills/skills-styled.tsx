@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import {  
+  colourBlack,
   colourDarkGrey,
-  colourLightBrown,
+  defaultTransition,
   lgBreakpoint,
 } from "@website-v3/web/styles";
 
@@ -22,15 +23,9 @@ export const SkillsContainer = styled.div<SkillsContainerProps>`
   height: ${props => props.pages * 100}vh;
 `;
 
-export const Separator = styled.div<{expand: boolean}>`
-  border: dotted 1px ${colourLightBrown};
-  z-index: 1;
-  transition: margin 1s ease-in-out;
-  margin: ${props => props.expand ? "0 15%" : "0 50%"};
-
-  @media (max-width: ${lgBreakpoint}) {
-    display: none;
-  };
+export const Separator = styled.div`
+  border: dotted 1px ${colourBlack};
+  transition: ${defaultTransition};
 `;
 
 export const StickyContainer = styled.div<StickyContainerProps>`
@@ -42,30 +37,37 @@ export const StickyContainer = styled.div<StickyContainerProps>`
   height: ${props => props.expand ? 100 : 85}vh;
 `;
 
-export const CardContainer = styled.div`
+export const CardWrapper = styled.div`
+  width: fit-content;
+  margin: auto;
   display: flex;
-  justify-content: center;
-  overflow: hidden;
-
-  @media (max-width: ${lgBreakpoint}) {
-    width: 75vw;
-    margin: auto;
-  };
 `;
 
-export const Card = styled.div`
-  border-radius: 25px;
-  background-color: ${colourDarkGrey};
-  width: 15vw;
-  height: 25vh;
-  margin: 0 5px;
-  border: solid 1px black;
+export const SkillWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 10px;
+  gap: 25px;
+`;
 
-  
-  @media (max-width: ${lgBreakpoint}) {
-    width: 20vw;
-    border-radius: 0;
-  };
+export const CardContainer = styled.div<{
+  colour: string, 
+  left: number,
+  focus: boolean,
+  selected: boolean | undefined,
+}>`
+  background-color: ${props => props.colour};
+  transform: translate(-50%) ${props => props.focus ? "scale(1)" : "scale(0.9)"};
+  ${props => props.focus && "z-index: 1;"}
+  left: ${props => props.left}%;
+  transition: ${defaultTransition};
+  cursor: pointer;
+  position: absolute;
+  width: ${props => props.selected ? "500px" : "350px"};
+  height: 350px;
+  padding: 25px;
+  margin: 0;
+  border-radius: 25px;
 `;
 
 export const CardHeader = styled.div<CardHeaderProps>`
