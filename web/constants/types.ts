@@ -38,24 +38,20 @@ export type ExperienceType = {
 };
 
 export type SkillType = {
-  libraryAndFrameworks: [{
-    alt: string,
-    caption: string,
-    colour: string,
-    svg: [{
-      children: any[],
-      markDefs: any[],
-      _key: string,
-      _type: string,
-    }],
-    _key: string,
-    _type: string,
+  category: "string",
+  svg: any[],
+  skills: [{
+    alt: "string",
+    caption: "string",
+    colour: "string",
+    svg: any[],
+    _key: "string",
+    _type: "string",
   }],
-  programmingLanguages: any[],
-  toolsAndPlatforms: any[],
-  _createdAt: string,
-  _id: string,
-  _rev: string,
-  _type: string,
-  _updatedAt: string,
+  colour: "string",
+  _createdAt: "string",
+  _id: "string",
+  _rev: "string",
+  _type: "skills",
+  _updatedAt: "string",
 };

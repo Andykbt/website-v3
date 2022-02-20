@@ -14,7 +14,7 @@ import { SkillType } from "../constants/types";
 type Props = {
   projects: any[],
   experience: any[],
-  skills: any[],
+  skills: SkillType[],
 }
 
 const Home: NextPage<Props> = ({
@@ -22,13 +22,12 @@ const Home: NextPage<Props> = ({
   experience,
   skills
 }: Props) => {
-  console.warn(skills);
   return (
     <>
       <Hero/>
       <About/>
       <Experience experiences={experience}/>
-      {/* <Skills pages={5} skills={skills[0]}/> */}
+      <Skills pages={5} skills={skills}/>
       <Projects projects={projects}/>
       <Footer/>
     </>
