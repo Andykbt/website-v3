@@ -22,7 +22,7 @@ export const colourPink = "#FA2B7B";
 /* FontWeight */
 export const fontWeightLight = "";
 export const fontWeightMedium = "";
-export const fontWeightBold = "";
+export const fontWeightBold = "bold";
 
 /* Container constants */
 export const widthExtraExtraLarge = "1320px";

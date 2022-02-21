@@ -33,6 +33,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-thumb {
   background-color: #D5CDC4;
+  border: solid 1px #232025;
   border-radius: 5px;
 }
 
