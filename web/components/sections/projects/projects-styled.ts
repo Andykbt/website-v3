@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colourLightBrown, colourBlack, smBreakpoint } from "@website-v3/web/styles";
+import { colourLightBrown, colourBlack, smBreakpoint, defaultTransition } from "@website-v3/web/styles";
 
 export const ProjectsContainer = styled.div`
   margin: 5vh 5vw;
@@ -83,5 +83,38 @@ export const ProjectHeading = styled.div`
 
   @media (max-width: ${smBreakpoint}) {
     transform: translateX(0);
+  }
+`;
+
+export const StickyCenter = styled.div`
+  width: fit-content;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+export const BackButton = styled.div`
+  color: black;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  font-size: 25px;
+  padding: 10px 19.25px;
+  text-align: center;
+  border-radius: 0%;
+  cursor: pointer;
+  color: ${colourLightBrown};
+  
+  background-color: ${colourBlack};
+  transition: ${defaultTransition};
+
+  &:hover {
+    border-radius: 50%;
+  }
+
+  &:before {
+    content: "<";
   }
 `;

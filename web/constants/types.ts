@@ -22,6 +22,7 @@ export type Project = {
   },
   body: any[],
   excerpt: any[],
+  imageUrl?: string,
 }
 
 export type ExperienceType = {

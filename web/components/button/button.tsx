@@ -13,6 +13,7 @@ type Props = {
 export const Button: React.FC<Props> = ({
   label,
   children,
+  background,
   onClick,
 }) => {
   const [hover, setHover] = useState(false);
@@ -22,6 +23,7 @@ export const Button: React.FC<Props> = ({
       <ButtonContainer
         data-testid={"button.button"}
         onClick={onClick}
+        background={background}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}>
         <Body1 data-testid={"button.button-label"}>{label || children}</Body1>
