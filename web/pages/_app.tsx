@@ -6,8 +6,12 @@ import { Url } from "@website-v3/web/constants/types";
 
 const navItems: Url[] = [
   {
+    name: "Home",
+    url: "/",
+  },
+  {
     name: "Work",
-    url: "mock",
+    url: "/projects",
   },
   {
     name: "Blog",
@@ -15,7 +19,7 @@ const navItems: Url[] = [
   },
   {
     name: "Contact",
-    url: "",
+    url: "/contact",
   }
 ];
 
