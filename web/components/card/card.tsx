@@ -3,7 +3,7 @@ import { CardContainer, ToolsContainer } from "./card-styled";
 import Image from "next/image";
 import { H3, Body2 } from "@website-v3/web/styles/typography";
 import { ExpandBorder } from "../../helpers/springs";
-import { fontSizeMedium } from "@website-v3/web/styles";
+import { colourBlack, fontSizeMedium } from "@website-v3/web/styles";
 import { PortableText } from "@portabletext/react";
 import { Button } from "../button";
 import { useRouter } from "next/router";
@@ -13,13 +13,15 @@ type CardProps = {
   excerpt: any[],
   href: string,
   canCopy?: boolean,
+  image: string | undefined,
 }
 
 export const Card: React.FC<CardProps> = ({
   title,
   excerpt,
   href,
-  canCopy
+  canCopy,
+  image
 }) => {
   const [hover, setHover] = useState(false);
   const router = useRouter();
@@ -31,14 +33,18 @@ export const Card: React.FC<CardProps> = ({
       <a data-testid={"card.redirect-link"} onClick={() => router.push(`/projects/${href}`)}>
         <ExpandBorder on={hover}>
           <Image
-            src="/stars.gif"
-            width={500}
-            height={500}
+            src={image || "/stars.gif"}
+            width={750}
+            height={750}
+            objectFit={"cover"}
           />
         </ExpandBorder>
+      </a>
+
+      <>
         <H3 margin="0.35em 0" fontSize={fontSizeMedium}>{title}</H3>
         <Body2><PortableText value={excerpt}/></Body2>
-      </a>
+      </>
 
       { canCopy &&
         <ToolsContainer
@@ -46,7 +52,8 @@ export const Card: React.FC<CardProps> = ({
         >
           <Button
             label="Click to copy url"
-            onClick={() => navigator.clipboard.writeText(`http://localhost:3000/projects/${href}`)}
+            background={colourBlack}
+            onClick={() => navigator.clipboard.writeText(`http://andykbt.net/projects/${href}`)}
           />
         </ToolsContainer>
       }
