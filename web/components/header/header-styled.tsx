@@ -6,8 +6,8 @@ import { colourBlack, colourDarkGrey, colourLightBrown, defaultTransition, fontS
 export const Nav = styled.header<{toggled: boolean}>`
   padding: 20px 13.5px;
   position: sticky;
-  top: 25px;
-  right: 25px;
+  top: 50px;
+  right: 50px;
   width: fit-content;
   float: right;
   border-radius: 25px;
@@ -60,14 +60,10 @@ export const NavItem = styled.a`
 export const NavLine1 = ({
   toggled
 }: {toggled: boolean}) => {
-  const Line = styled.div`
-    width: 24px;
-    height: 2px;
-    background-color: white;
-    margin-bottom: 6px;
-  `;
-
   const props = useSpring({
+    width: 24,
+    height: 2,
+    marginBottom: 6,
     transform: toggled
       ? "translate(0px, 4px) rotateZ(45deg)"
       : "translate(0px, 0px) rotateZ(0deg)",
@@ -76,18 +72,15 @@ export const NavLine1 = ({
   });
 
   return (
-    <Line as={a.div} style={props} />
+    <a.div style={props} />
   );
 };
 
 export const NavLine2 = ({
   toggled
 }: {toggled: boolean}) => {
-  const Line = styled.div`
-    height: 2px;
-  `;
-
   const props = useSpring({
+    height: 2,
     width: toggled ? "24px" : "16px",
     transform: toggled
       ? "translate(0px, -4px) rotateZ(-45deg)"
@@ -97,7 +90,7 @@ export const NavLine2 = ({
   });
 
   return (
-    <Line as={a.div} style={props} />
+    <a.div style={props} />
   );
 };
 
