@@ -46,7 +46,15 @@ export const Experience = ({
   const renderBody = (key: string) => {
     return (
       <FadeIn key={key}>
-        <H3>{experiences[selected].role} @ {experiences[selected].company}</H3>
+        <H3>{experiences[selected].role} 
+          <a 
+            href={experiences[selected].companyLink}
+            style={{color: colourCyan}}
+          >
+            &nbsp;@ {experiences[selected].company}
+          </a>
+        </H3>
+
         <PortableText
           value={experiences[selected].body}
         />
