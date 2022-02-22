@@ -9,6 +9,7 @@ import {
 import { Project as ProjectType} from "@website-v3/web/constants/types";
 import { SanityClient } from "@website-v3/web/sanity";
 import {
+  BackButton,
   ImageContainer,
   ProjectBody,
   ProjectColumn,
@@ -47,6 +48,7 @@ const Project = ({
     <>
       <ProjectColumn ref={ref}>
         <ImageContainer>
+          <BackButton onClick={() => router.back()} />
           <Image
             src={imageUrl}
             priority={true}

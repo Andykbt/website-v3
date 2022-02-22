@@ -60,10 +60,21 @@ export const NavItem = styled.a`
 export const NavLine1 = ({
   toggled
 }: {toggled: boolean}) => {
+<<<<<<< HEAD
   const props = useSpring({
     width: 24,
     height: 2,
     marginBottom: 6,
+=======
+  const Line = styled.div`
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    margin-bottom: 6px;
+  `;
+
+  const props = useSpring({
+>>>>>>> 511edf7a2bea2a470b23837a3bf793abf3fe144e
     transform: toggled
       ? "translate(0px, 4px) rotateZ(45deg)"
       : "translate(0px, 0px) rotateZ(0deg)",
@@ -72,15 +83,27 @@ export const NavLine1 = ({
   });
 
   return (
+<<<<<<< HEAD
     <a.div style={props} />
+=======
+    <Line as={a.div} style={props} />
+>>>>>>> 511edf7a2bea2a470b23837a3bf793abf3fe144e
   );
 };
 
 export const NavLine2 = ({
   toggled
 }: {toggled: boolean}) => {
+<<<<<<< HEAD
   const props = useSpring({
     height: 2,
+=======
+  const Line = styled.div`
+    height: 2px;
+  `;
+
+  const props = useSpring({
+>>>>>>> 511edf7a2bea2a470b23837a3bf793abf3fe144e
     width: toggled ? "24px" : "16px",
     transform: toggled
       ? "translate(0px, -4px) rotateZ(-45deg)"
@@ -90,7 +113,11 @@ export const NavLine2 = ({
   });
 
   return (
+<<<<<<< HEAD
     <a.div style={props} />
+=======
+    <Line as={a.div} style={props} />
+>>>>>>> 511edf7a2bea2a470b23837a3bf793abf3fe144e
   );
 };
 

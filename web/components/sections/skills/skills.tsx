@@ -1,101 +1,114 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Container } from "@website-v3/web/components/layout";
-import { animated } from "react-spring";
 import { 
   SkillsContainer,
-  Card,
   Separator,
   StickyContainer,
   CardContainer,
-  CardHeader
+  SkillWrapper,
 } from "./skills-styled";
-import { useSpring, config } from "react-spring";
 import { H2, H3 } from "@website-v3/web/styles/typography";
-import { colourCyan, colourDarkGrey, colourPink, colourYellow } from "@website-v3/web/styles";
-import { useIsTablet } from "../../../helpers/hooks/useWindowDims";
+import { colourBlack, defaultTransition } from "@website-v3/web/styles";
+import { SkillType } from "@website-v3/web/constants/types";
 
 type SkillsProps = {
   pages: number,
+  skills: SkillType[],
 }
 
 type CardProps = {
-  colour: string,
+  hoveredCard: number,
+  setHovered: (v: number) => void,
+  isSelected: boolean | undefined,
+  svg: any[],
+  index: number,
   title: string,
-  isSelected?: boolean,
-  isTablet?: boolean,
+  background: string,
+  items: any[],
 }
 
-const CardComponent = ({
-  colour,
-  title,
+const Card = ({
+  hoveredCard,
+  setHovered,
   isSelected,
-  isTablet,
+  index,
+  title,
+  svg,
+  background,
+  items,
 }: CardProps) => {
-  const [hovered, setHovered] = useState(false);
+  const [selected, setSelected] = useState(false);
+  const isFocused = hoveredCard === index;
+  const leftOffset = 40 + index * 10;
 
-  const styles = useSpring({
-    transform: isTablet
-      ? "translateY(0)"
-      : (hovered || isSelected)
-        ? "translateY(2vh)"
-        : "translateY(20vh)",
-    config: config.default,
-  });
+  useEffect(() => {
+    if (isSelected) {
+      setSelected(isSelected);
+    } else {
+      setSelected(false);
+    }
+  }, [isSelected]);
 
-  return (
-    <animated.div
-      style={{...styles}}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}>
+  const renderIcons = () => {
+    return items.map((item, index) => {
+      return (
+        <div
+          key={index}
+          onMouseEnter={(e) => {
+            const element = e.target as HTMLElement;
+            element.style.transform = "scale(1.1)";
+            element.style.fill = item.colour;
+          }}
+          onMouseLeave={(e) => {
+            const element = e.target as HTMLElement;
+            element.style.transform = "scale(1)";
+            element.style.fill = "black";
+          }}
+          style={{
+            transition: defaultTransition,
+          }}
+          dangerouslySetInnerHTML={{__html: item.svg[0].children[0].text}}
+        />
+      );
+    });
+  };
 
-      <Card>
-        <CardHeader colour={colour}>
-          <H3 color={colourDarkGrey}>{title}</H3>
-        </CardHeader>
-      </Card>
-    </animated.div>
+  return(
+    <CardContainer 
+      onMouseEnter={() => setHovered(index) }
+      onMouseDown={() => setSelected(!selected) }
+      left={leftOffset}
+      focus={isFocused}
+      selected={selected}
+      colour={background}>
+      <>
+        <H3 color={colourBlack}>{title}</H3>
+        <Separator/>
+      </>
+      {selected ? (
+        <SkillWrapper>
+          {renderIcons()}
+        </SkillWrapper>
+      ) : (
+        <div
+          style={{width: "85%", margin: "auto"}}
+          dangerouslySetInnerHTML={{__html: svg[0].children[0].text}}
+        />
+      )}
+    </CardContainer>
   );
 };
 
 
 export const Skills = ({
   pages,
+  skills
 }: SkillsProps) => {
   const skillContainerRef = useRef<HTMLDivElement | null>(null);
-  const [sticky, setSticky] = useState(false);
-  const [expand, setExpand] = useState(false);
+  const [expand, setExpand] = useState<boolean>(false);
+  const [hovered, setHovered] = useState<number>(1);
   const [bottom, setBottom] = useState(0);
   const [gap, setGap] = useState(0);
-  const isTablet = useIsTablet();
-
-  const skills = [
-    {
-      title: "frontend",
-      color: colourCyan
-    },
-    {
-      title: "backend",
-      color: colourYellow
-    },
-    {
-      title: "other",
-      color: colourPink
-    }
-  ];
-
-  const renderSkills = () => {
-    return skills.map((item, index) => {
-      return (
-        <CardComponent
-          key={index}
-          title={item.title}
-          colour={item.color}
-          isSelected={bottom > gap * (index + 1) && bottom < gap * (index + 2)}
-          isTablet={isTablet}
-        />
-      );
-    });
-  };
 
   const handleScroll = () => {
     const rect: DOMRect | undefined = skillContainerRef.current?.getBoundingClientRect();
@@ -109,11 +122,6 @@ export const Skills = ({
     } else {
       setExpand(false);
     }
-    if (rect.top < 0) {
-      setSticky(true);
-    } else {
-      setSticky(false);
-    }
 
     setBottom(rect.height - rect.bottom);
     setGap(rect.height/(skills.length + 2));
@@ -122,19 +130,35 @@ export const Skills = ({
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    return (() => window.removeEventListener("scroll", handleScroll));
+    return (() => {
+      window.removeEventListener("scroll", handleScroll);
+    });
   }, []);
+  const renderItems = () => {
+    return skills.map((item, index) => {
+      return (
+        <Card
+          key={`skills-${index}`}
+          index={index}
+          title={item.category}
+          background={item.colour}
+          hoveredCard={hovered}
+          setHovered={setHovered}
+          isSelected={bottom > gap * (index + 1)}
+          items={item.skills}
+          svg={item.svg}
+        />
+      );
+    });
+  };
 
   return (
     <SkillsContainer pages={pages} ref={skillContainerRef}>
       <StickyContainer sticky expand={expand}>
-        <Container size={"xxl"} style={{ padding: "15vh 0", width: "80vw" }}>
+        <Container size={"xxl"} style={{ padding: "15vh 0 5vh", width: "80vw" }}>
           <H2 fontSize="5vw" textDirection="center">{"Here are some of the things I've learnt"}</H2>
         </Container>
-        <CardContainer>
-          {renderSkills()}
-        </CardContainer>
-        <Separator expand={sticky}/>
+        {renderItems()}
       </StickyContainer>
     </SkillsContainer>
   );

@@ -1,14 +1,19 @@
 import styled from "styled-components";
+import { colourDarkGrey } from "../../styles";
 
 export const CardContainer = styled.div`
   position: relative;
-  max-width: 350px;
+  width: 60%;
   margin: auto;
-  height: 100%;
+  padding: 25px;
+  border-radius: 25px;
+
+  background-color: ${colourDarkGrey};
+  margin-bottom: 25px;
 `;
 
 export const ToolsContainer = styled.div`
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 35px;
+  left: 35px;
 `;
