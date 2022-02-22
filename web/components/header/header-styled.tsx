@@ -1,36 +1,43 @@
+import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { colourBlack, colourCyan, colourDarkGrey, defaultTransition, smBreakpoint } from "../../styles";
+import { useSpring, animated as a, config } from "react-spring";
+import { colourBlack, colourDarkGrey, colourLightBrown, defaultTransition, fontSizeSmall, fontWeightBold } from "../../styles";
 
-export const Nav = styled.header`
-  grid-template-columns: 0.75fr repeat(3, minmax(0, 1fr));
-  background: ${colourDarkGrey};
-  margin: 0 25px 0 auto;
-  border-radius: 25px;
+export const Nav = styled.header<{toggled: boolean}>`
+  padding: 20px 13.5px;
   position: sticky;
-  display: grid;
-  padding: 2.5vh;
-  width: 400px;
-  z-index: 10;
   top: 25px;
-  border: solid 1px ${colourBlack};
-
-  @media (max-width: ${smBreakpoint}) {
-    width: 100%;
-    top: 0;
-    border-radius: 0px;
+  right: 25px;
+  width: fit-content;
+  float: right;
+  border-radius: 25px;
+  transition: ${defaultTransition};
+  z-index: 2;
+  cursor: pointer;
+  
+  &:hover {
+    background: ${props => props.toggled ? "" : colourDarkGrey};
   }
+`;
+export type LineProps = {
+  hovered: boolean,
+}
+
+export const HeaderSitemap = styled.div`
+  position: absolute;
+  bottom: 25%;
+  left: 25%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const NavItem = styled.a`
-  padding: 15px;
-  text-align: center;
-  opacity: 0.5;
-  transition: ${defaultTransition};
+  padding: 5px;
+  margin: 5px;
+  width: fit-content;
+  font-size: ${fontSizeSmall};
+  font-weight: ${fontWeightBold};
   position: relative;
-
-  &:hover {
-    opacity: 1;
-  }
 
   &::after {
     bottom: 0;
@@ -39,7 +46,7 @@ export const NavItem = styled.a`
     height: 3px;
     left: 50%;
     position: absolute;
-    background: ${colourCyan};
+    background: ${colourBlack};
     transition: width 0.15s ease 0s, left 0.15s ease 0s;
     width: 0px;
   }
@@ -50,6 +57,79 @@ export const NavItem = styled.a`
   }
 `;
 
-export const NavItemHome = styled.a`
-  cursor: pointer;
-`;
+export const NavLine1 = ({
+  toggled
+}: {toggled: boolean}) => {
+  const Line = styled.div`
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    margin-bottom: 6px;
+  `;
+
+  const props = useSpring({
+    transform: toggled
+      ? "translate(0px, 4px) rotateZ(45deg)"
+      : "translate(0px, 0px) rotateZ(0deg)",
+    backgroundColor: toggled ? colourBlack : colourLightBrown,
+    config: config.default,
+  });
+
+  return (
+    <Line as={a.div} style={props} />
+  );
+};
+
+export const NavLine2 = ({
+  toggled
+}: {toggled: boolean}) => {
+  const Line = styled.div`
+    height: 2px;
+  `;
+
+  const props = useSpring({
+    width: toggled ? "24px" : "16px",
+    transform: toggled
+      ? "translate(0px, -4px) rotateZ(-45deg)"
+      : "translate(0px, 0px) rotateZ(0deg)",
+    backgroundColor: toggled ? colourBlack : colourLightBrown,
+    config: config.default,
+  });
+
+  return (
+    <Line as={a.div} style={props} />
+  );
+};
+
+export const Menu = ({
+  toggled,
+  children
+}: {toggled: boolean, children: ReactNode}) => {
+  const Menu = styled.div`
+    background-color: ${colourLightBrown};
+    overflow: hidden;
+    position: fixed;
+    z-index: 1;
+    width: 1000vw;
+    top: 0;
+    left: 0;
+
+    & > * {
+      z-index: 2;
+      color: ${colourBlack};
+      position: absolute;
+      left: 0.5%;
+    }
+  `;
+
+  const props = useSpring({
+    height: toggled ? "100vh" : "0vh",
+    config: config.slow,
+  });
+  
+  return (
+    <Menu as={a.div} style={props}>
+      {children}
+    </Menu>
+  );
+};

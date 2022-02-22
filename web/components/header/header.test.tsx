@@ -37,19 +37,4 @@ describe("header", () => {
     expect(router.push).toHaveBeenCalledWith(mockItems[0].url);
     expect(router.push).toHaveBeenCalledWith(mockItems[1].url);
   });
-
-  it("home button redirects to homepage", () => {
-    const router = createMockRouter({});
-    const { getByTestId } = render(
-      <RouterContext.Provider value={router}>
-        <Header navItems={mockItems} />
-      </RouterContext.Provider>  
-    );
-
-    const homeButton = getByTestId("header.home-button");
-    expect(homeButton).toBeInTheDocument();
-    
-    fireEvent.click(homeButton);
-    expect(router.push).toHaveBeenCalledWith("/");
-  });
 });
