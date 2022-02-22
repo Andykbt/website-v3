@@ -57,10 +57,7 @@ export const Header = ({
       </Menu>
       <Nav
         toggled={toggleMenu}
-<<<<<<< HEAD
-=======
 
->>>>>>> 511edf7a2bea2a470b23837a3bf793abf3fe144e
         onMouseDown={() => setToggle(!toggleMenu)}>
         <NavLine1 toggled={toggleMenu} />
         <NavLine2 toggled={toggleMenu} />
