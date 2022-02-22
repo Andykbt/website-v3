@@ -34,6 +34,25 @@ export type ExperienceType = {
   companyLink: string,
   role: string,
   dateFinished: string,
-  dateStarted: string,
+  datestarted: string,
   body: any[],
-}
+};
+
+export type SkillType = {
+  category: "string",
+  svg: any[],
+  skills: [{
+    alt: "string",
+    caption: "string",
+    colour: "string",
+    svg: any[],
+    _key: "string",
+    _type: "string",
+  }],
+  colour: "string",
+  _createdAt: "string",
+  _id: "string",
+  _rev: "string",
+  _type: "skills",
+  _updatedAt: "string",
+};
