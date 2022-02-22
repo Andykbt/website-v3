@@ -6,8 +6,8 @@ import { colourBlack, colourDarkGrey, colourLightBrown, defaultTransition, fontS
 export const Nav = styled.header<{toggled: boolean}>`
   padding: 20px 13.5px;
   position: sticky;
-  top: 25px;
-  right: 25px;
+  top: 75px;
+  right: 75px;
   width: fit-content;
   float: right;
   border-radius: 25px;
