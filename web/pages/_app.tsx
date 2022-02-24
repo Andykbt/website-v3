@@ -13,14 +13,18 @@ const navItems: Url[] = [
     name: "Work",
     url: "/projects",
   },
+  // {
+  //   name: "Blog",
+  //   url: "/blog",
+  // },
   {
-    name: "Blog",
-    url: "/blog",
+    name: "Resume",
+    url: "/resume"
   },
   {
     name: "Contact",
     url: "/contact",
-  }
+  },
 ];
 
 function MyApp({ Component, pageProps }: AppProps) {

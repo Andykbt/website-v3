@@ -3,7 +3,7 @@ import React from "react";
 import { 
   Body1, 
   fontSizeMediumResponsive,
-  H2 } from "../../../styles";
+  H2 } from "@website-v3/web/styles";
 import {
   Col0,
   Col1,
@@ -22,8 +22,9 @@ export const Footer = () => {
         </Col0>
 
         <Col1>
-          <LinkWrapper><Link href={"/contact"}>Contact</Link></LinkWrapper>
-          <H2 fontSize={fontSizeMediumResponsive}>Contact</H2>
+          <H2 fontSize={fontSizeMediumResponsive}>
+            <LinkWrapper><Link href={"/contact"}>Contact</Link></LinkWrapper>
+          </H2>
           <LinkWrapper><Link href={"https://www.linkedin.com/in/andy-truong-591449216/"}>LinkedIn</Link></LinkWrapper>
           <LinkWrapper><Link href={"https://github.com/Andykbt"}>Github</Link></LinkWrapper>
           <LinkWrapper><Link href={"https://www.linkedin.com/in/andy-truong-591449216/"}>Email</Link></LinkWrapper>
