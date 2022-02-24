@@ -14,7 +14,6 @@ type Props = {
 const Projects: NextPage<Props> = ({
   projects,
 }: Props) => {
-  console.log(projects[0]. imageUrl);
   const renderCards = () => {
     return projects.map((item, index) =>
       <Card

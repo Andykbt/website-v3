@@ -7,10 +7,9 @@ export const FooterContainer = styled.footer`
 `;
 
 export const Sitemap = styled.div`
-  display: grid;
-  grid-template-columns: repeat(11, minmax(0, 1fr));
+  display: flex;
+  justify-content: space-around;
   margin: auto;
-  column-gap: 1rem;
 
   @media (max-width: ${mdBreakpoint}) {
     width: 95%;

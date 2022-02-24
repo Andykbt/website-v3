@@ -8,12 +8,14 @@ type Props = {
   onClick?: () => void
   color?: string,
   background?: string,
+  disabled?: boolean
 };
 
 export const Button: React.FC<Props> = ({
   label,
   children,
   background,
+  disabled,
   onClick,
 }) => {
   const [hover, setHover] = useState(false);
@@ -23,6 +25,7 @@ export const Button: React.FC<Props> = ({
       <ButtonContainer
         data-testid={"button.button"}
         onClick={onClick}
+        disabled={disabled}
         background={background}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}>

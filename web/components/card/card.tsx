@@ -13,7 +13,7 @@ type CardProps = {
   excerpt: any[],
   href: string,
   canCopy?: boolean,
-  image: string | undefined,
+  image?: string,
 }
 
 export const Card: React.FC<CardProps> = ({
