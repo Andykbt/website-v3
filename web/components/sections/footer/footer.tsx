@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import { Contact } from "@website-v3/web/components/contact";
 import { 
   Body1, 
   fontSizeMediumResponsive,
@@ -8,7 +7,6 @@ import {
 import {
   Col0,
   Col1,
-  Col2,
   FooterContainer,
   LinkWrapper,
   Sitemap
