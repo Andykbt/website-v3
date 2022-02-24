@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { colourDarkGrey, colourPink, defaultTransition, fontSizeMedium } from "@website-v3/web/styles";
 
+export const ContactPageWrapper = styled.div`
+  background-image: url("/stars.gif");
+  margin: auto;
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;

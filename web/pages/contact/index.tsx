@@ -1,7 +1,7 @@
 import React from "react";
-import { Contact } from "../../components/contact";
-import { H1, fontSizeExtraLarge } from "../../styles";
-import { ContactPageWrapper } from "./contact-styled";
+import { Contact } from "@website-v3/web/components/contact";
+import { H1, fontSizeExtraLarge } from "@website-v3/web/styles";
+import { ContactPageWrapper } from "@website-v3/web/components/contact/contact-styled";
 
 type Props = {
   emailID: string,
