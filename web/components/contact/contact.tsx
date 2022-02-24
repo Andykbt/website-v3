@@ -25,6 +25,7 @@ export const Contact = ({
     e.preventDefault();
 
     setLoading(true);
+    //@ts-ignore
     emailjs.sendForm(emailID, templateID, formRef.current, userID)
       .then(() => {
         setLoading(false);
