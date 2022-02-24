@@ -102,7 +102,7 @@ export const Menu = ({
     background-color: ${colourLightBrown};
     overflow: hidden;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     width: 1000vw;
     top: 0;
     left: 0;

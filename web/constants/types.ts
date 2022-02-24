@@ -20,6 +20,16 @@ export type Project = {
     _type: string,
     current: string,
   },
+  technologies: [{
+    name: "string",
+    url: "string",
+    link: "string",
+  }],
+  colour: "string",
+  nextProject: {
+    _ref: "string",
+    _type: "string",
+  },
   body: any[],
   excerpt: any[],
   imageUrl?: string,

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colourLightBrown, colourBlack, smBreakpoint, defaultTransition } from "@website-v3/web/styles";
+import { colourLightBrown, colourBlack, smBreakpoint, defaultTransition, colourDarkGrey } from "@website-v3/web/styles";
 
 export const ProjectsContainer = styled.div`
   margin: 5vh 5vw;
@@ -38,11 +38,11 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const ProjectColumn = styled.div`
+export const ProjectWrapper = styled.div`
   display: flex;
   max-width: 90vw;
-  height: 85vh;
-  margin: 0 auto 17vh;
+  min-height: 90vh;
+  margin: 5vh auto;
 
   @media (max-width: ${smBreakpoint}) {
     padding-top: 2.5vh;
@@ -117,4 +117,36 @@ export const BackButton = styled.div`
   &:before {
     content: "<";
   }
+`;
+
+export const NextProject = styled.div<{background: "string"}>`
+  background-color: ${props => props.background || "transparent"};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5vh auto 0;
+  width: 90vw;
+  cursor: pointer;
+  transition: ${defaultTransition};
+
+  &:hover {
+    width: 100%;
+  }
+`;
+
+export const Technologies = styled.div`
+  margin-top: 15px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+`;
+
+export const TechItem = styled.a`
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  width: fit-content;
+  background: ${colourDarkGrey};
+  border-radius: 50px;
+  padding: 10px;
 `;

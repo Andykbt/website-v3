@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -12,48 +12,86 @@ import {
   BackButton,
   ImageContainer,
   ProjectBody,
-  ProjectColumn,
+  ProjectWrapper,
   ProjectHeading,
   ProjectLinks,
+  NextProject,
+  TechItem,
+  Technologies,
 } from "@website-v3/web/components/sections/projects/projects-styled";
 import { Separator } from "@website-v3/web/components/sections/about/about-styles";
-import { TextTrail } from "@website-v3/web/helpers/springs";
+import { ExpandBorder, TextTrail } from "@website-v3/web/helpers/springs";
 import { useInView } from "react-intersection-observer";
+import { Body1 } from "../../../styles";
 
 type Props = {
-  title: string,
-  codeLink: string,
-  projectLink: string,
-  slug: {
-    _type: string,
-    current: string,
-  },
-  body: any[],
-  image: any[],
-  imageUrl: string,
+  project: ProjectType,
+  nextProject: ProjectType,
+};
+
+const TechItemWrapper = ({
+  url,
+  name,
+  link
+}: {
+  url: string,
+  name: string,
+  link: string,
+}) => {
+  const [hover, setHover] = useState<boolean>(false);
+
+  return (
+    <ExpandBorder on={hover} borderRadius="9999px">
+      <TechItem
+        href={link}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
+        <Image
+          width={32}
+          height={32}
+          src={url}
+        />
+        <Body1>{name}</Body1>
+      </TechItem>
+    </ExpandBorder>
+  );
 };
 
 const Project = ({
-  title,
-  codeLink,
-  projectLink,
-  imageUrl,
-  body,
-  slug,
+  project,
+  nextProject
 }: Props) => {
-  const router = useRouter();
+  const router = useRouter(); 
   const [ref, inView] = useInView();
 
-  return(
+  const renderTechUsed = () => {    
+    if (!project.technologies) {
+      return;
+    }
+
+    return project.technologies.map((item, index) => {
+      return (
+        <TechItemWrapper
+          key={`${item.name}-${index}`}
+          name={item.name}
+          url={item.url}
+          link={item.link}
+        />
+      );
+    });
+  };
+
+  return (
     <>
-      <ProjectColumn ref={ref}>
+      <ProjectWrapper ref={ref}>
         <ImageContainer>
           <BackButton onClick={() => router.back()} />
           <Image
-            src={imageUrl}
-            priority={true}
+            src={project.imageUrl || "/stars.gif"}
             layout="fill"
             sizes="100w"
+            priority={true}
             objectFit="cover"
             className="imageScale"
           />
@@ -61,32 +99,61 @@ const Project = ({
       
         <ProjectBody>
           <TextTrail on={inView}>
-            <ProjectHeading style={{fontSize: slug.current === "ishouldstudy" ? "10vw" : ""}}>{title}</ProjectHeading>
+            <ProjectHeading style={{fontSize: project.slug.current === "ishouldstudy" ? "10vw" : ""}}>
+              {project.title}
+            </ProjectHeading>
           </TextTrail>
 
           <TextTrail on={inView}>
             <Separator expand={true} />
             <ProjectLinks>
-              <Button onClick={() => router.push(projectLink)}>View Project</Button>
-              <Button onClick={() => router.push(codeLink)}>View Code</Button>
+              <Button onClick={() => router.push(project.projectLink)}>View Project</Button>
+              <Button onClick={() => router.push(project.codeLink)}>View Code</Button>
             </ProjectLinks>
             <Separator expand={true} />
-            
-            <PortableText value={body} />
+            <Technologies>
+              {renderTechUsed()}
+            </Technologies>
+            <PortableText value={project.body} />
+
           </TextTrail>
         </ProjectBody>
-      </ProjectColumn>
+      </ProjectWrapper>
+
+      <NextProject
+        onClick={() => router.push(`/projects/${nextProject.slug.current}`)}
+        background={nextProject.colour}
+      >
+        <Image
+          src={nextProject.imageUrl || "/stars.gif"}
+          width={250}
+          height={250}
+        />
+      </NextProject>
       <Footer/>
     </>
   );
 };
 
 export const getServerSideProps = async (context: any) => {
-  const pageSlug = context.query.slug;  
+  const pageSlug = context.query.slug;
   const project: ProjectType = await SanityClient.fetch(
     `*[ _type == 'project' && slug.current == '${pageSlug}' ][0] {
       "imageUrl": image.asset -> url,
+      technologies[] {
+        name,
+        link,
+        "url": asset -> url,
+      },
       ...,
+    }`
+  );
+
+  const nextProject: ProjectType = await SanityClient.fetch(
+    `*[ _id == '${project.nextProject._ref}' ][0] {
+      slug,
+      colour,
+      "imageUrl": image.asset -> url,
     }`
   );
 
@@ -96,7 +163,10 @@ export const getServerSideProps = async (context: any) => {
     };
   } else {
     return {
-      props: project,
+      props: {
+        project,
+        nextProject,
+      }
     };
   }
 };
