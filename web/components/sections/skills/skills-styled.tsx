@@ -4,7 +4,6 @@ import {
   colourDarkGrey,
   defaultTransition,
   lgBreakpoint,
-  mdBreakpoint,
   smBreakpoint,
 } from "@website-v3/web/styles";
 
