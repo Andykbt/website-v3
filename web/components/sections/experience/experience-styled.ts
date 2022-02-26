@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colourBlack, colourCyan, colourDarkGrey, colourLightBrown, mdBreakpoint, smBreakpoint } from "@website-v3/web/styles/";
+import { colourBlack, colourCyan, colourDarkGrey, colourLightBrown, mdBreakpoint, smBreakpoint, xsBreakpoint } from "@website-v3/web/styles/";
 
 export const StarsBG = styled.div`
     height: 100vh;
@@ -15,7 +15,12 @@ export const Center = styled.div`
 
     @media (max-width: ${smBreakpoint}) {
         width: 75vw;
+        transform: translateY(10vh);
     };
+
+    @media (max-width: ${xsBreakpoint}) {
+        width: 100vw;
+    }
 `;
     
 export const TableHeader = styled.div`

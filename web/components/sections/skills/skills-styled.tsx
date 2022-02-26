@@ -4,6 +4,8 @@ import {
   colourDarkGrey,
   defaultTransition,
   lgBreakpoint,
+  mdBreakpoint,
+  smBreakpoint,
 } from "@website-v3/web/styles";
 
 type SkillsContainerProps = {
@@ -20,7 +22,11 @@ type CardHeaderProps = {
 }
 
 export const SkillsContainer = styled.div<SkillsContainerProps>`
-  height: ${props => props.pages * 100}vh;
+  min-height: ${props => props.pages * 100}vh;
+
+  @media(max-width: ${smBreakpoint}) {
+    min-height: initial;
+  }
 `;
 
 export const Separator = styled.div`
@@ -35,6 +41,12 @@ export const StickyContainer = styled.div<StickyContainerProps>`
   background: ${colourDarkGrey};
   transition: width 2s, height 2s;
   height: ${props => props.expand ? 100 : 85}vh;
+
+  @media (max-width: ${smBreakpoint}) {
+    position: initial;
+    height: initial;
+    padding: 0 0 2.5vh;
+  }
 `;
 
 export const CardWrapper = styled.div`
@@ -68,6 +80,15 @@ export const CardContainer = styled.div<{
   padding: 25px;
   margin: 0;
   border-radius: 25px;
+
+  @media (max-width: ${smBreakpoint}) {
+    transform: translate(0);
+    position: initial;
+    left: initial;
+    margin: 10vh auto;
+    width: ${props => props.selected ? "310px" : "250px"};
+    height: fit-content;
+  }
 `;
 
 export const CardHeader = styled.div<CardHeaderProps>`

@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { useSpring, animated as a, config } from "react-spring";
-import { colourBlack, colourDarkGrey, colourLightBrown, defaultTransition, fontSizeSmall, fontWeightBold } from "../../styles";
+import { colourBlack, colourDarkGrey, colourLightBrown, defaultTransition, fontSizeSmall, fontWeightBold, smBreakpoint } from "../../styles";
 
 export const Nav = styled.header<{toggled: boolean}>`
   padding: 20px 13.5px;
@@ -17,6 +17,11 @@ export const Nav = styled.header<{toggled: boolean}>`
   
   &:hover {
     background: ${props => props.toggled ? "" : colourDarkGrey};
+  }
+
+  @media (max-width: ${smBreakpoint}) {
+    top: 25px;
+    right: 25px;
   }
 `;
 export type LineProps = {

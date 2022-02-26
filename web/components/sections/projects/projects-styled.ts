@@ -18,6 +18,10 @@ export const Name = styled.div<{hover?: boolean}>`
   display: inline-block;
   font-size: 5vw;
   text-shadow: 0 -1px 1px ${colourLightBrown}, -1px 0 1px ${colourLightBrown}, 0 1px 1px ${colourLightBrown}, 1px 0 1px ${colourLightBrown};
+
+  @media (max-width: ${smBreakpoint}) {
+    text-shadow: none;
+  }
 `; 
 
 export const ArrowContainer = styled.div`
