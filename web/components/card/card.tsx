@@ -3,7 +3,7 @@ import { CardContainer, ToolsContainer } from "./card-styled";
 import Image from "next/image";
 import { H3, Body2 } from "@website-v3/web/styles/typography";
 import { ExpandBorder } from "../../helpers/springs";
-import { colourBlack, fontSizeMedium } from "@website-v3/web/styles";
+import { colourBlack, fontSizeSmall } from "@website-v3/web/styles";
 import { PortableText } from "@portabletext/react";
 import { Button } from "../button";
 import { useRouter } from "next/router";
@@ -42,7 +42,7 @@ export const Card: React.FC<CardProps> = ({
       </a>
 
       <>
-        <H3 margin="0.35em 0" fontSize={fontSizeMedium}>{title}</H3>
+        <H3 margin="0.35em 0" fontSize={fontSizeSmall}>{title}</H3>
         <Body2><PortableText value={excerpt}/></Body2>
       </>
 
