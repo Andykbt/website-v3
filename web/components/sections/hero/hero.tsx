@@ -12,11 +12,10 @@ export const Hero = () => {
     <HeroContainer ref={ref}>
       <TextTrail on={inView}>
         <H1 fontSize={fontSizeExtraLarge}>Andy</H1>
-        <br />
         <H1 fontSize={fontSizeExtraLarge}>&nbsp;&nbsp;&nbsp;&nbsp;Truong</H1>
+        <Body1 fontSize={fontSizeSmall} textDirection="right" margin="7.5vh 20vw">SOFTWARE<br/>ENG</Body1>
       </TextTrail>
 
-      <Body1 fontSize={fontSizeSmall} textDirection="right" margin="7.5vh 20vw">SOFTWARE<br/>ENG</Body1>
     </HeroContainer>
   );
 };
