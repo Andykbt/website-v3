@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import styled from "styled-components";
 import { Card, Container } from "../../components";
 import { Input } from "../../components/contact/contact-styled";
@@ -39,7 +39,7 @@ const Blog = ({
     });
   };
 
-  const search = async (event) => {
+  const search = async (event: ChangeEvent<HTMLInputElement>) => {
     const q = event.target.value;
 
     if (q.length > 2) {

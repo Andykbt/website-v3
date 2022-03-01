@@ -22,6 +22,18 @@ describe("project in homepage", () => {
       },
       body: [],
       excerpt: [],
+      technologies: [
+        {
+          name: "",
+          url: "",
+          link: " ",
+        }
+      ],
+      colour: "#000000",
+      nextProject: {
+        _ref: "",
+        _type: "",
+      }
     },
   ];
 
