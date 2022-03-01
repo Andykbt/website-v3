@@ -10,10 +10,11 @@ import { useRouter } from "next/router";
 
 type CardProps = {
   title: string,
-  excerpt: any[],
+  excerpt: any[] | string,
   href: string,
   canCopy?: boolean,
   image?: string,
+  isSmall?: boolean,
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -21,7 +22,8 @@ export const Card: React.FC<CardProps> = ({
   excerpt,
   href,
   canCopy,
-  image
+  image,
+  isSmall
 }) => {
   const [hover, setHover] = useState(false);
   const router = useRouter();
@@ -29,7 +31,8 @@ export const Card: React.FC<CardProps> = ({
   return (
     <CardContainer
       onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}>
+      onMouseLeave={() => setHover(false)}
+      isSmall={isSmall || false}>
       <a data-testid={"card.redirect-link"} onClick={() => router.push(`/projects/${href}`)}>
         <ExpandBorder on={hover}>
           <Image

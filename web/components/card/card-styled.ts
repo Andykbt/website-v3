@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { colourDarkGrey, smBreakpoint } from "../../styles";
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.div<{ isSmall: boolean }>`
   position: relative;
-  width: 60%;
+  width: ${props => props.isSmall ? "320px" : "60%"};
   margin: auto;
   padding: 25px;
   border-radius: 25px;
