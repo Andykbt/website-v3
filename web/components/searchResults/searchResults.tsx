@@ -8,17 +8,18 @@ import { useRouter } from "next/router";
 export const SearchResults = ({
   hits
 }: { hits: any[] }) => {
+  const [hovered, setHovered] = useState<string | undefined>();
+
   const renderHits = () => {
     return hits.map((item) => {
-      const [hover, setHover] = useState(false);
       const router = useRouter();
 
       return (
         <Hit
           onMouseDown={() => router.push(`/blog/${item.slug}`)}
           key={item.entityId}
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
+          onMouseEnter={() => setHovered(item.entityId)}
+          onMouseLeave={() => setHovered("")}
         >
           <Image
             src="/stars.gif"
@@ -30,7 +31,11 @@ export const SearchResults = ({
             <Body1>{item.excerpt}</Body1>
           </HitBody>
 
-          <ArrowSvg width={100} height={100} isHovered={hover} />
+          <ArrowSvg 
+            width={100} 
+            height={100} 
+            isHovered={item.entityId === hovered}
+          />
         </Hit>
       );
     });

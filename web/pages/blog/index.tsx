@@ -42,7 +42,9 @@ const Blog = ({
   const search = async (event: ChangeEvent<HTMLInputElement>) => {
     const q = event.target.value;
 
-    if (q.length > 2) {
+    if (q.length === 0) {
+      setHits([]);
+    } else if (q.length > 2) {
       const params = new URLSearchParams({ q });
 
       const res = await fetch("/api/search?" + params);
