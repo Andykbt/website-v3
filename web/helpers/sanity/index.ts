@@ -5,7 +5,7 @@ const defaults = { nonTextBehaviour: "remove" };
 export const blocksToText = (blocks: Block[], opts = {}) => {
   const options = Object.assign({}, defaults, opts);
   return blocks.map(block => {
-    if (block._type !== "block" || !block.children) {
+    if (!block.children) {
       return options.nonTextBehaviour === "remove" ? "" : `[${block._type} block]`;
     }
 
