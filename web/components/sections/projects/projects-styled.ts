@@ -123,7 +123,7 @@ export const BackButton = styled.div`
   }
 `;
 
-export const NextProject = styled.div<{background: "string"}>`
+export const NextProject = styled.div<{background: string}>`
   background-color: ${props => props.background || "transparent"};
   display: flex;
   align-items: center;

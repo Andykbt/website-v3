@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 import { Card, Container } from "../../components";
 import { Input } from "../../components/contact/contact-styled";

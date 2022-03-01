@@ -10,9 +10,9 @@ export type Url = {
 export type Block = {
   children: any[],
   markDefs: any[],
-  style: "string",
-  _key: "string",
-  _type: "string",
+  style: string,
+  _key: string,
+  _type: string,
 }
 
 export type imageUrl = {
@@ -62,22 +62,22 @@ export type ExperienceType = {
 };
 
 export type SkillType = {
-  category: "string",
+  category: string,
   svg: any[],
   skills: [{
-    alt: "string",
-    caption: "string",
-    colour: "string",
+    alt: string,
+    caption: string,
+    colour: string,
     svg: any[],
-    _key: "string",
-    _type: "string",
+    _key: string,
+    _type: string,
   }],
-  colour: "string",
-  _createdAt: "string",
-  _id: "string",
-  _rev: "string",
+  colour: string,
+  _createdAt: string,
+  _id: string,
+  _rev: string,
   _type: "skills",
-  _updatedAt: "string",
+  _updatedAt: string,
 };
 
 export type Article = {
@@ -87,19 +87,19 @@ export type Article = {
     _type: string,
     current: string,
   },
-  title: "string",
-  _createdAt: "string",
-  _id: "string",
-  _rev: "string",
-  _type: "string",
-  _updatedAt: "string",
+  title: string,
+  _createdAt: string,
+  _id: string,
+  _rev: string,
+  _type: string,
+  _updatedAt: string,
   imageUrl?: string,
 }
 
 export type ArticleSchema = {
-  title: "string",
-  slug: "string",
-  updatedAt: "string",
-  excerpt: "string",
-  imageUrl: "string",
+  title: string,
+  slug: string,
+  updatedAt: string,
+  excerpt: string,
+  imageUrl: string,
 }
