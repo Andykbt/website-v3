@@ -1,6 +1,18 @@
+/* MISC */
+export const DEFAULT_TTL = 3600;
+
+/* TYPES */
 export type Url = {
   name: string,
   url: string,
+}
+
+export type Block = {
+  children: any[],
+  markDefs: any[],
+  style: "string",
+  _key: "string",
+  _type: "string",
 }
 
 export type imageUrl = {
@@ -67,3 +79,27 @@ export type SkillType = {
   _type: "skills",
   _updatedAt: "string",
 };
+
+export type Article = {
+  body: any[],
+  excerpt: any,
+  slug: {
+    _type: string,
+    current: string,
+  },
+  title: "string",
+  _createdAt: "string",
+  _id: "string",
+  _rev: "string",
+  _type: "string",
+  _updatedAt: "string",
+  imageUrl?: string,
+}
+
+export type ArticleSchema = {
+  title: "string",
+  slug: "string",
+  updatedAt: "string",
+  excerpt: "string",
+  imageUrl: "string",
+}

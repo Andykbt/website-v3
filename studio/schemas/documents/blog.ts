@@ -19,14 +19,14 @@ export const blog = {
       title: "Excerpt",
       description: "Write a short description about your post",
       type: "array",
-      of: [{ type: "string" }],
+      of: [{ type: "block" }],
     },
     {
       name: "body",
       title: "Body",
       description: "Write anything you want for your post",
       type: "array",
-      of: [{ type: "string" }],
+      of: [{ type: "block" }],
     },
     {
       name: "image",
