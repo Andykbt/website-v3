@@ -29,7 +29,7 @@ export const Footer = () => {
           </H2>
           <LinkWrapper><Link href={"https://www.linkedin.com/in/andy-truong-591449216/"}>LinkedIn</Link></LinkWrapper>
           <LinkWrapper><Link href={"https://github.com/Andykbt"}>Github</Link></LinkWrapper>
-          <LinkWrapper><Link href={"https://www.linkedin.com/in/andy-truong-591449216/"}>Email</Link></LinkWrapper>
+          <LinkWrapper><Link href={"mailto:andy.truong2001@gmail.com"}>Email</Link></LinkWrapper>
         </Col1>
       </Sitemap>
     </FooterContainer>
