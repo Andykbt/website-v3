@@ -13,6 +13,9 @@ export const project = {
       title: "Date",
       description: "Write when your project was published",
       type: "date",
+      options: {
+        "dateFormat": "DD-MM-YYYY",
+      },
     },
     {
       name: "slug",
