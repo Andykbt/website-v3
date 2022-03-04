@@ -1,14 +1,14 @@
 import React, { ChangeEvent, useState } from "react";
 import styled from "styled-components";
-import { Card, Container } from "../../components";
-import { Input } from "../../components/contact/contact-styled";
-import { SearchResults } from "../../components/searchResults";
-import { StarsBG } from "../../components/sections/experience/experience-styled";
-import { Article, ArticleSchema } from "../../constants/types";
-import { blocksToText } from "../../helpers/sanity";
-import { createArticle, getAllArticles } from "../../lib/redis";
-import { SanityClient } from "../../sanity";
-import { fontSizeExtraLarge, H1, H2 } from "../../styles";
+import { Card, Container } from "@website-v3/web/components";
+import { Input } from "@website-v3/web/components/contact/contact-styled";
+import { SearchResults } from "@website-v3/web/components/searchResults";
+import { StarsBG } from "@website-v3/web/components/sections/experience/experience-styled";
+import { Article, ArticleSchema, baseUrl } from "@website-v3/web/constants/types";
+import { blocksToText } from "@website-v3/web/helpers/sanity";
+import { createArticle, getAllArticles } from "@website-v3/web/lib/redis";
+import { SanityClient } from "@website-v3/web/sanity";
+import { fontSizeExtraLarge, H1, H2 } from "@website-v3/web/styles";
 
 const ArticleContainer = styled.div`
   display: grid;
@@ -30,7 +30,7 @@ const Blog = ({
         <Card
           key={index}
           title={item.title}
-          href={item.slug}
+          href={`${baseUrl}blog/${item.slug}`}
           excerpt={item.excerpt}
           image={item.imageUrl}
           isSmall

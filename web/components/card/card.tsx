@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CardContainer, ToolsContainer } from "./card-styled";
 import Image from "next/image";
 import { H3, Body2 } from "@website-v3/web/styles/typography";
-import { ExpandBorder } from "../../helpers/springs";
+import { ExpandBorder } from "@website-v3/web/helpers/springs";
 import { colourBlack, fontSizeSmall } from "@website-v3/web/styles";
 import { PortableText } from "@portabletext/react";
 import { Button } from "../button";
@@ -33,7 +33,7 @@ export const Card: React.FC<CardProps> = ({
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       isSmall={isSmall || false}>
-      <a data-testid={"card.redirect-link"} onClick={() => router.push(`/projects/${href}`)}>
+      <a data-testid={"card.redirect-link"} onClick={() => router.push(href)}>
         <ExpandBorder on={hover}>
           <Image
             src={image || "/stars.gif"}
@@ -56,7 +56,7 @@ export const Card: React.FC<CardProps> = ({
           <Button
             label="Click to copy url"
             background={colourBlack}
-            onClick={() => navigator.clipboard.writeText(`http://andykbt.net/projects/${href}`)}
+            onClick={() => navigator.clipboard.writeText(href)}
           />
         </ToolsContainer>
       }

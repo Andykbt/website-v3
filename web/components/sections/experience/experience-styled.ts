@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colourBlack, colourCyan, colourDarkGrey, colourLightBrown, mdBreakpoint, smBreakpoint, xsBreakpoint } from "@website-v3/web/styles/";
 
 export const StarsBG = styled.div`
-    height: 100vh;
+    min-height: 100vh;
     background-image: url("/stars.gif");
     position: relative;
 `;
