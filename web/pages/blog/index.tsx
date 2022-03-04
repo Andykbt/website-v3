@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useMemo, useState } from "react";
 import styled from "styled-components";
 import { Card, Container } from "@website-v3/web/components";
 import { Input } from "@website-v3/web/components/contact/contact-styled";
@@ -9,6 +9,7 @@ import { blocksToText } from "@website-v3/web/helpers/sanity";
 import { createArticle, getAllArticles } from "@website-v3/web/lib/redis";
 import { SanityClient } from "@website-v3/web/sanity";
 import { fontSizeExtraLarge, H1, H2 } from "@website-v3/web/styles";
+import { debounce } from "lodash";
 
 const ArticleContainer = styled.div`
   display: grid;
@@ -54,6 +55,10 @@ const Blog = ({
     }
   };
 
+  const debouncedResults = useMemo(() => {
+    return debounce(search, 300);
+  }, []);
+
   return (
     <StarsBG style={{ minHeight: "100vh", height: "initial" }}>
       <Container>
@@ -61,7 +66,7 @@ const Blog = ({
         <SearchContainer>
           <Input
             style={{ marginBottom: 25 }}
-            onChange={search}
+            onChange={debouncedResults}
             placeholder="Search posts"
             type="text"
           />
