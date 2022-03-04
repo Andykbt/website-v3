@@ -1,7 +1,7 @@
 import React from "react";
 import { NextPage } from "next";
 import { Container, Card } from "@website-v3/web/components";
-import { baseUrl, Project } from "@website-v3/web/constants/types";
+import { Project } from "@website-v3/web/constants/types";
 import { fontSizeExtraLarge, H1 } from "@website-v3/web/styles";
 import { SanityClient } from "@website-v3/web/sanity";
 import { StarsBG } from "@website-v3/web/components/sections/experience/experience-styled";
@@ -21,7 +21,7 @@ const Projects: NextPage<Props> = ({
         excerpt={item.excerpt}
         key={`project-card-${index}`}
         image={item.imageUrl}
-        href={`${baseUrl}projects/${item.slug.current}`}
+        href={item.slug.current}
         canCopy={true}
       />
     );
