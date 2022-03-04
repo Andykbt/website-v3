@@ -6,6 +6,7 @@ export const ProjectsContainer = styled.div`
 `;
 
 export const ProjectContainer = styled.a`
+  cursor: pointer;
 `;
 
 export const IndexContainer = styled.div`
