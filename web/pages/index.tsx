@@ -35,8 +35,8 @@ const Home: NextPage<Props> = ({
 };
 
 export async function getServerSideProps() {
-  const projects = await SanityClient.fetch("*[ _type == 'project' ]");
-  const experience = await SanityClient.fetch("*[ _type == 'experience' ]");
+  const projects = await SanityClient.fetch("*[ _type == 'project' ] | order(date)");
+  const experience = await SanityClient.fetch("*[ _type == 'experience' ] | order(dateFinished desc)");
   const skills = await SanityClient.fetch("* [ _type == 'skills' ]");
 
   if (!projects.length) {

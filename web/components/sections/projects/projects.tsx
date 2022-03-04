@@ -10,7 +10,7 @@ import {
 } from "./projects-styled";
 import { ProjectTextHover } from "@website-v3/web/helpers/springs";
 import { useRouter } from "next/router";
-import ArrowSvg from "../../../styles/svg/Arrow-svg";
+import ArrowSvg from "@website-v3/web/styles/svg/Arrow-svg";
 
 type ProjectsProps = {
   projects: Project[],
@@ -19,14 +19,14 @@ type ProjectsProps = {
 type ProjectProps = {
   index: number,
   title: string,
-  url: string
+  url: string,
 };
 
 export const Projects = ({
   projects
 }: ProjectsProps) => {
   const renderProjects = () => {
-    return projects.map((project: Project, index: number) => 
+    return projects.map((project: Project, index: number) =>
       <ProjectComponent
         key={project._id}
         title={project.title}
@@ -51,7 +51,7 @@ export const Projects = ({
 export const ProjectComponent = ({
   index,
   title,
-  url
+  url,
 }: ProjectProps) => {
   const [isHovered, setHovered] = useState(false);
   const router = useRouter();
@@ -60,8 +60,8 @@ export const ProjectComponent = ({
     <ProjectContainer onClick={() => router.push(`/projects/${url}`)} data-testid={"projects.redirect-link"}>
       <div
         onMouseOver={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        style={{cursor: "pointer"}}>
+        onMouseLeave={() => setHovered(false)}>
+
         <IndexContainer>
           <Body1 fontSize="12px">Ø{index}</Body1>
         </IndexContainer>

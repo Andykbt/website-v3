@@ -40,7 +40,7 @@ const Projects: NextPage<Props> = ({
 };
 
 export const getServerSideProps = async () => {
-  const projects = await SanityClient.fetch(`*[ _type == 'project' ] {
+  const projects = await SanityClient.fetch(`*[ _type == 'project' ] | order(date) {
     "imageUrl": image.asset -> url,
     ...,
     }`
