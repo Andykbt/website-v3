@@ -1,6 +1,5 @@
 /* MISC */
 export const DEFAULT_TTL = 3600;
-export const baseUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000/" : "https://website-v3-umber.vercel.app/";
 
 /* TYPES */
 export type Url = {

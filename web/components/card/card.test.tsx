@@ -36,7 +36,7 @@ describe("project card", () => {
     
     fireEvent.click(card);
     expect(router.push)
-      .toHaveBeenCalledWith(mockProps.href);
+      .toHaveBeenCalledWith(`/projects/${mockProps.href}`);
   });
 
   it("displays copy url button", () => {

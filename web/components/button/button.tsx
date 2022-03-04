@@ -29,7 +29,7 @@ export const Button: React.FC<Props> = ({
         background={background}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}>
-        <Body1 textDirection="center" data-testid={"button.button-label"}>{label || children}</Body1>
+        <Body1 data-testid={"button.button-label"}>{label || children}</Body1>
       </ButtonContainer>
     </ExpandBorder>
   );
