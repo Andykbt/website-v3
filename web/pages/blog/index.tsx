@@ -8,7 +8,7 @@ import { Article, ArticleSchema, baseUrl } from "@website-v3/web/constants/types
 import { blocksToText } from "@website-v3/web/helpers/sanity";
 import { createArticle, getAllArticles } from "@website-v3/web/lib/redis";
 import { SanityClient } from "@website-v3/web/sanity";
-import { fontSizeExtraLarge, H1, H2 } from "@website-v3/web/styles";
+import { Body1, fontSizeExtraLarge, H1, H2 } from "@website-v3/web/styles";
 import { debounce } from "lodash";
 
 const ArticleContainer = styled.div`
@@ -63,6 +63,7 @@ const Blog = ({
     <StarsBG style={{ minHeight: "100vh", height: "initial" }}>
       <Container>
         <H1 textDirection="center" fontSize={fontSizeExtraLarge}>Blog</H1>
+        <Body1 textDirection="center">A personal diary and log of things i find interesting</Body1>
         <SearchContainer>
           <Input
             style={{ marginBottom: 25 }}
