@@ -10,6 +10,7 @@ import { createArticle, getAllArticles } from "@website-v3/web/lib/redis";
 import { SanityClient } from "@website-v3/web/sanity";
 import { Body1, fontSizeExtraLarge, H1, H2 } from "@website-v3/web/styles";
 import { debounce } from "lodash";
+import Head from "next/head";
 
 const ArticleContainer = styled.div`
   display: grid;
@@ -61,6 +62,9 @@ const Blog = ({
 
   return (
     <StarsBG style={{ minHeight: "100vh", height: "initial" }}>
+      <Head>
+        <title>Blog | Andy Truong</title>
+      </Head>
       <Container>
         <H1 textDirection="center" fontSize={fontSizeExtraLarge}>Blog</H1>
         <Body1 textDirection="center">A personal diary and log of things i find interesting</Body1>

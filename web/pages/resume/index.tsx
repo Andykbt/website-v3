@@ -1,10 +1,14 @@
 import React from "react";
 import { EmbedWrapper, ResumePageWrapped } from "@website-v3/web/components/resume/resume-styled";
 import { H1, fontSizeExtraLarge } from "@website-v3/web/styles";
+import Head from "next/head";
 
 const ResumePage = () => {
   return (
     <ResumePageWrapped>
+      <Head>
+        <title>Resume | Andy Truong</title>
+      </Head>
       <H1 
         fontSize={fontSizeExtraLarge} 
         margin="auto"
