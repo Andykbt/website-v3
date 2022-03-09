@@ -28,6 +28,7 @@ const Home: NextPage<Props> = ({
       <Head>
         <title>Andy Truong</title>
       </Head>
+      <Hero/>
       <About/>
       <Experience experiences={experience}/>
       <Skills pages={5} skills={skills}/>
