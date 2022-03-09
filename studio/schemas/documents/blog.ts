@@ -10,9 +10,23 @@ export const blog = {
       type: "string",
     },
     {
+      name: "publishedAt",
+      title: "Published at",
+      description: "You can use this field to schedule projects where you show them",
+      type: "datetime"
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+        slugify: input => input
+          .toLowerCase()
+          .replace(/\s+/g, "-")
+          .slice(0, 200)
+      }
     },
     {
       name: "excerpt",
@@ -25,8 +39,7 @@ export const blog = {
       name: "body",
       title: "Body",
       description: "Write anything you want for your post",
-      type: "array",
-      of: [{ type: "block" }],
+      type: "markdown",
     },
     {
       name: "image",
