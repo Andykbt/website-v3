@@ -6,6 +6,7 @@ import { fontSizeExtraLarge, H1 } from "@website-v3/web/styles";
 import { SanityClient } from "@website-v3/web/sanity";
 import { StarsBG } from "@website-v3/web/components/sections/experience/experience-styled";
 import { StickyCenter } from "@website-v3/web/components/sections/projects/projects-styled";
+import Head from "next/head";
 
 type Props = {
   projects: Project[],
@@ -29,6 +30,9 @@ const Projects: NextPage<Props> = ({
 
   return (
     <StarsBG style={{height: "initial"}}>
+      <Head>
+        <title>Projects | Andy Truong</title>
+      </Head>
       <StickyCenter>
         <H1 fontSize={fontSizeExtraLarge}>Projects</H1>
       </StickyCenter>

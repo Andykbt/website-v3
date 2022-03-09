@@ -2,6 +2,7 @@ import React from "react";
 import { Contact } from "@website-v3/web/components/contact";
 import { H1, fontSizeExtraLarge } from "@website-v3/web/styles";
 import { ContactPageWrapper } from "@website-v3/web/components/contact/contact-styled";
+import Head from "next/head";
 
 type Props = {
   emailID: string,
@@ -16,6 +17,9 @@ const ContactPage = ({
 }: Props) => {
   return (
     <ContactPageWrapper>
+      <Head>
+        <title>Contact | Andy Truong</title>
+      </Head>
       <H1 
         fontSize={fontSizeExtraLarge} 
         margin="auto"
