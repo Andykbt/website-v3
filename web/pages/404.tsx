@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import { Container } from "../components";
@@ -8,6 +9,9 @@ import { fontSizeExtraLarge, H1, H2 } from "../styles";
 const Custom404 = () => {
   return (
     <StarsBG>
+      <Head>
+        <title>Oops! Something went wrong...</title>
+      </Head>
       <Container>
         <H1 textDirection="center" fontSize={fontSizeExtraLarge}>Oops!</H1>
         <H2 textDirection="center">Click <LinkWrapper style={{ display: "inline-block" }}><Link href="/">here</Link></LinkWrapper> to go home</H2>

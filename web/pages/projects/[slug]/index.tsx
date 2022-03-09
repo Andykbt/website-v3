@@ -23,6 +23,7 @@ import { Separator } from "@website-v3/web/components/sections/about/about-style
 import { ExpandBorder, TextTrail } from "@website-v3/web/helpers/springs";
 import { useInView } from "react-intersection-observer";
 import { Body1 } from "../../../styles";
+import Head from "next/head";
 
 type Props = {
   project: ProjectType,
@@ -84,6 +85,9 @@ const Project = ({
 
   return (
     <>
+      <Head>
+        <title>{project.title} | Andy Truong</title>
+      </Head>
       <ProjectWrapper ref={ref}>
         <ImageContainer>
           <BackButton onClick={() => router.back()} />
