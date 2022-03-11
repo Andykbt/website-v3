@@ -22,7 +22,7 @@ export const SearchResults = ({
           onMouseLeave={() => setHovered("")}
         >
           <Image
-            src="/stars.gif"
+            src={item.imageUrl || "/stars.gif"}
             width={100}
             height={100}
           />
