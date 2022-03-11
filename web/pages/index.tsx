@@ -10,6 +10,7 @@ import {
 } from "@website-v3/web/components";
 import { SanityClient } from "../sanity";
 import { SkillType } from "../constants/types";
+import Head from "next/head";
 
 type Props = {
   projects: any[],
@@ -24,6 +25,9 @@ const Home: NextPage<Props> = ({
 }: Props) => {
   return (
     <>
+      <Head>
+        <title>Andy Truong</title>
+      </Head>
       <Hero/>
       <About/>
       <Experience experiences={experience}/>
