@@ -16,6 +16,7 @@ import {
 import { ExperienceType } from "@website-v3/web/constants/types";
 import { PortableText } from "@portabletext/react";
 import { colourCyan } from "@website-v3/web/styles";
+import { formateDate } from "@website-v3/web/helpers/sanity";
 
 type Props = {
   experiences: ExperienceType[],
@@ -44,6 +45,7 @@ export const Experience = ({
   };
 
   const renderBody = (key: string) => {
+    console.log(experiences[selected]);
     return (
       <FadeIn key={key}>
         <H3>{experiences[selected].role} 
@@ -54,6 +56,12 @@ export const Experience = ({
             &nbsp;@ {experiences[selected].company}
           </a>
         </H3>
+
+        <sub>
+          {formateDate(experiences[selected].dateStarted)}
+          {" - "} 
+          {formateDate(experiences[selected].dateFinished)}
+        </sub>
 
         <PortableText
           value={experiences[selected].body}
