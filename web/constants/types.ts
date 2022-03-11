@@ -58,7 +58,7 @@ export type ExperienceType = {
   companyLink: string,
   role: string,
   dateFinished: string,
-  datestarted: string,
+  dateStarted: string,
   body: any[],
 };
 

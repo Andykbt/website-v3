@@ -12,3 +12,12 @@ export const blocksToText = (blocks: Block[], opts = {}) => {
     return block.children.map(child => child.text).join("");
   }).join("\n\n");
 };
+
+export const formateDate = (date: string) => {
+  const d = Date.parse(date);
+
+  return new Intl.DateTimeFormat("en-GB", {
+    month: "long",
+    year: "numeric",
+  }).format(d);
+};
