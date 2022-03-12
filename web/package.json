@@ -18,6 +18,7 @@
     "@types/styled-components": "^5.1.21",
     "@website-v3/studio": "1.0.0",
     "@website-v3/web": "1.0.0",
+    "algoliasearch": "^4.12.2",
     "axios": "^0.26.0",
     "ioredis": "^4.28.5",
     "lodash": "^4.17.21",
