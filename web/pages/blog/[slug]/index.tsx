@@ -2,10 +2,11 @@ import Image from "next/image";
 import React from "react";
 import { StarsBG } from "@website-v3/web/components/sections/experience/experience-styled";
 import { Article } from "@website-v3/web/constants/types";
-import { SanityClient } from "@website-v3/web/sanity";
+import { SanityClient } from "@website-v3/web/lib/sanity";
 import { H1 } from "@website-v3/web/styles";
 import { PortableText } from "@portabletext/react";
 import { Container } from "@website-v3/web/components";
+import { NextPageContext } from "next";
 
 type Props = {
   article: Article,
@@ -36,7 +37,7 @@ const ArticlePage = ({ article } : Props) => {
   );
 };
 
-export const getServerSideProps = async (context: any) => {
+export const getServerSideProps = async (context: NextPageContext) => {
   const pageSlug = context.query.slug;
   const article = await SanityClient.fetch(
     `*[ _type == "article" && slug.current == "${pageSlug}"][0] {

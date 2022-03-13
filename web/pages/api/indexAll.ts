@@ -1,5 +1,6 @@
-import { algoliaClient } from "@website-v3/web/algolia";
-import { SanityClient } from "../../sanity";
+import { algoliaClient } from "@website-v3/web/lib/algolia";
+import { SanityClient } from "@website-v3/web/lib/sanity";
+import { NextApiRequest, NextApiResponse } from "next";
 
 const query = `
   *[ _type in ['article', 'project']] {
@@ -12,7 +13,7 @@ const query = `
     "slug": slug.current
   }`;
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const documents = await SanityClient.fetch(query);
 
   const index = algoliaClient.initIndex(process.env.ALGOLIA_INDEX || "");

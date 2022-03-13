@@ -7,7 +7,7 @@ import { StarsBG } from "@website-v3/web/components/sections/experience/experien
 import { Article, ArticleSchema, baseUrl } from "@website-v3/web/constants/types";
 import { blocksToText } from "@website-v3/web/helpers/sanity";
 import { createArticle, getAllArticles } from "@website-v3/web/lib/redis";
-import { SanityClient } from "@website-v3/web/sanity";
+import { SanityClient } from "@website-v3/web/lib/sanity";
 import { fontSizeExtraLarge, H1, H2, Body1 } from "@website-v3/web/styles";
 import { debounce } from "lodash";
 import Head from "next/head";

@@ -7,7 +7,7 @@ import {
   Button
 } from "@website-v3/web/components";
 import { Project as ProjectType} from "@website-v3/web/constants/types";
-import { SanityClient } from "@website-v3/web/sanity";
+import { SanityClient } from "@website-v3/web/lib/sanity";
 import {
   BackButton,
   ImageContainer,

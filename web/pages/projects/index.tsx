@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import { Container, Card } from "@website-v3/web/components";
 import { baseUrl, Project } from "@website-v3/web/constants/types";
 import { fontSizeExtraLarge, H1 } from "@website-v3/web/styles";
-import { SanityClient } from "@website-v3/web/sanity";
+import { SanityClient } from "@website-v3/web/lib/sanity";
 import { StarsBG } from "@website-v3/web/components/sections/experience/experience-styled";
 import { StickyCenter } from "@website-v3/web/components/sections/projects/projects-styled";
 import Head from "next/head";

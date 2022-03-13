@@ -8,8 +8,8 @@ import {
   Footer,
   Hero
 } from "@website-v3/web/components";
-import { SanityClient } from "../sanity";
-import { SkillType } from "../constants/types";
+import { SanityClient } from "@website-v3/web/lib/sanity";
+import { SkillType } from "@website-v3/web/constants/types";
 import Head from "next/head";
 
 type Props = {
