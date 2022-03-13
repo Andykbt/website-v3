@@ -14,11 +14,23 @@ export default async function handler(
       article: {
         index: index,
         projection: `{
+          title,
           _type,
           _createdAt,
           "imageUrl": image.asset -> url,
           projectLink,
           "slug": slug.current
+        }`,
+      },
+      project: {
+        index: index,
+        projection: `{
+          title,
+          _type,
+          _createdAt
+          "imageUrl": image.asset -> url,
+          projectLink,
+          "slig": slug.current
         }`,
       },
     },

@@ -4,6 +4,7 @@ import { SanityClient } from "../../sanity";
 const query = `
   *[ _type in ['article', 'project']] {
     "objectID": _id,
+    title,
     _type,
     _createdAt,
     "imageUrl": image.asset -> url,
