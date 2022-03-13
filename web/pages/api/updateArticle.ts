@@ -27,10 +27,10 @@ export default async function handler(
         projection: `{
           title,
           _type,
-          _createdAt
+          _createdAt,
           "imageUrl": image.asset -> url,
           projectLink,
-          "slig": slug.current
+          "slug": slug.current
         }`,
       },
     },
