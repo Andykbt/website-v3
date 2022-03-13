@@ -34,6 +34,7 @@
     "react-icons": "^4.3.1",
     "sanity-plugin-content-calendar": "^1.2.5",
     "sanity-plugin-markdown": "^2.1.1",
+    "sanity-plugin-vercel-deploy": "^2.1.6",
     "sanity-super-pane": "^1.0.0-alpha.11",
     "styled-components": "^5.2.0"
   },

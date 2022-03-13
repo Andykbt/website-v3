@@ -13,7 +13,8 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "markdown",
-    "content-calendar"
+    "content-calendar",
+    "vercel-deploy"
   ],
   "env": {
     "development": {
