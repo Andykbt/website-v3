@@ -1,5 +1,5 @@
 import { Client, Entity, Schema } from "redis-om";
-import { DEFAULT_TTL } from "../constants/types";
+import { DEFAULT_TTL } from "@website-v3/web/constants/types";
 
 const client = new Client();
 
