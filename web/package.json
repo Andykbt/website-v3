@@ -34,6 +34,7 @@
     "react-spring": "^9.4.2",
     "redis-om": "^0.2.0",
     "redredisearch": "^0.0.1",
+    "sanity-algolia": "^1.0.2",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
