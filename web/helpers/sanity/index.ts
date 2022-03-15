@@ -1,5 +1,4 @@
 import { Block } from "@website-v3/web/constants/types";
-import { SanityClient } from "@website-v3/web/lib/sanity";
 
 const defaults = { nonTextBehaviour: "remove" };
 

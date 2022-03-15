@@ -21,6 +21,7 @@ import { animated, config, useSpring } from "react-spring";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { featuredContentState, showMenuState } from "@website-v3/web/helpers/state/atoms";
 import Image from "next/image";
+import Link from "next/link";
 
 type HeaderProps = {
 	navItems: Url[],
@@ -60,14 +61,16 @@ export const Header = ({
       const type = item._type == "project" ? "projects" : "blog";
       const url = `${baseUrl}${type}/${item.slug}`;
       return (
-        <FeaturedCardWrapper key={item._id} href={url}>
-          <animated.div style={fade}>
-            <FeaturedCard>
-              <Image src={item.imageUrl} width={200} height={200}/>
-            </FeaturedCard>
-            <Body2 color="inherit" textDirection="center" margin="15px 0 0 0">{item.title}</Body2>
-          </animated.div>
-        </FeaturedCardWrapper>
+        <Link key={item._id} href={url}>
+          <FeaturedCardWrapper>
+            <animated.div style={fade}>
+              <FeaturedCard>
+                <Image src={item.imageUrl} width={200} height={200}/>
+              </FeaturedCard>
+              <Body2 color="inherit" textDirection="center" margin="15px 0 0 0">{item.title}</Body2>
+            </animated.div>
+          </FeaturedCardWrapper>
+        </Link>
       );
     });
   };
