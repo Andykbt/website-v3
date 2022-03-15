@@ -11,7 +11,8 @@ import {
   MenuItems,
   FeaturedContent,
   FeaturedCard,
-  FeaturedCardWrapper
+  FeaturedCardWrapper,
+  FeaturedContentWrapper
 } from "./header-styled";
 import { useRouter } from "next/router";
 import { fontSizeExtraLarge, colourBlack } from "@website-v3/web/styles";
@@ -94,12 +95,12 @@ export const Header = ({
           <div/>
 
           {featuredContent.length !== 0 &&
-            <div>
+            <FeaturedContentWrapper>
               <H3 color="inherit" textDirection="center" margin="0 0 15px 0">Featured Content</H3>
               <FeaturedContent>
                 {renderFeaturedContent()}
               </FeaturedContent>
-            </div>
+            </FeaturedContentWrapper>
           }
         </MenuItems>
       </Menu>

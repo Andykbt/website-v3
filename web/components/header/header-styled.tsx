@@ -176,7 +176,6 @@ export const MenuItems = styled.div`
   width: 100%;
   width: 89.25vw;
   margin: 0 0.5%;
-
 `;
 
 export const FeaturedContent = styled.div`
@@ -194,13 +193,15 @@ export const FeaturedCardWrapper = styled.a`
   }
 `;
 
+export const FeaturedContentWrapper = styled.div`
+  @media (max-width: ${smBreakpoint}) {
+    display: none;
+  }
+`;
+
 export const FeaturedCard = styled.div`
   padding: 20px;
   border-radius: 0px;
   background: ${colourDarkGrey};
   transition: ${defaultTransition};
-
-  &:hover {
-    // border-radius: 25px;
-  }
 `;
