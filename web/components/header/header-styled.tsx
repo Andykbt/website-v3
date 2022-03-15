@@ -170,7 +170,7 @@ export const Menu = ({
 export const MenuItems = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   position: absolute;
   bottom: 15%;
   width: 100%;
