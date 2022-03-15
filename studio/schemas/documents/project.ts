@@ -2,11 +2,20 @@ export const project = {
   name: "project",
   title: "Projects",
   type: "document",
+  initialValue: {
+    isFeatured: false
+  },
   fields: [
     {
       name: "title",
       title: "Project name",
       type: "string",
+    },
+    {
+      name: "isFeatured",
+      title: "Feature",
+      description: "Feature this post?",
+      type: "boolean",
     },
     {
       name: "date",
