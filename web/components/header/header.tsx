@@ -89,6 +89,8 @@ export const Header = ({
             {renderNavItems()}
           </HeaderSitemap>
 
+          <div/>
+
           <div>
             <H3 color="inherit" textDirection="center" margin="0 0 15px 0">Featured Content</H3>
             <FeaturedContent>
