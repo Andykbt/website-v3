@@ -104,3 +104,11 @@ export type ArticleSchema = {
   excerpt: string,
   imageUrl: string,
 }
+
+export type FeaturedContent = {
+  _id: string,
+  _type: string,
+  slug: string,
+  title: string,
+  imageUrl: string,
+}

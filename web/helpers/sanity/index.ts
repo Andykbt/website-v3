@@ -1,4 +1,5 @@
-import { Block } from "../../constants/types";
+import { Block } from "@website-v3/web/constants/types";
+import { SanityClient } from "@website-v3/web/lib/sanity";
 
 const defaults = { nonTextBehaviour: "remove" };
 
@@ -20,4 +21,17 @@ export const formateDate = (date: string) => {
     month: "long",
     year: "numeric",
   }).format(d);
+};
+
+export const fetchFeaturedContent = async () => {
+  const featured = await SanityClient.fetch(`
+    *[ _type in ['article', 'project'] && isFeatured == true] {
+      _id,
+      _type,
+      "slug": slug.current,
+      title,
+      "imageUrl": image.asset -> url
+    }
+  `);
+  return featured;
 };
