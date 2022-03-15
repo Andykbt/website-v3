@@ -3,13 +3,25 @@ import styled from "styled-components";
 import { useSpring, animated as a, config } from "react-spring";
 import { colourBlack, colourDarkGrey, colourLightBrown, defaultTransition, fontSizeSmall, fontWeightBold, smBreakpoint } from "../../styles";
 
-export const Nav = styled.header<{toggled: boolean}>`
-  padding: 20px 13.5px;
+export const StyledHeader = styled.header`
   position: sticky;
+  float: right;
+  display: flex;
+  justify-content: end;
+  align-items: center;
   top: 50px;
   right: 50px;
+  z-index: 2;
+
+  @media (max-width ${smBreakpoint}) {
+    top: 25px;
+    right: 5px;
+  }
+`;
+
+export const HeaderItem = styled.div<{toggled: boolean}>`
+  padding: 20px 13.5px;
   width: fit-content;
-  float: right;
   border-radius: 25px;
   transition: ${defaultTransition};
   z-index: 2;
@@ -18,20 +30,13 @@ export const Nav = styled.header<{toggled: boolean}>`
   &:hover {
     background: ${props => props.toggled ? "" : colourDarkGrey};
   }
-
-  @media (max-width: ${smBreakpoint}) {
-    top: 25px;
-    right: 25px;
-  }
 `;
+
 export type LineProps = {
   hovered: boolean,
 }
 
 export const HeaderSitemap = styled.div`
-  position: absolute;
-  bottom: 25%;
-  left: 25%;
   display: flex;
   flex-direction: column;
 `;
@@ -99,6 +104,32 @@ export const NavLine2 = ({
   );
 };
 
+export const SearchMenu = ({
+  toggled,
+  children
+}: {toggled: boolean, children: ReactNode}) => {
+  const Menu = styled.div`
+    background-color: ${colourLightBrown};
+    overflow: hidden;
+    position: fixed;
+    z-index: 2;
+    height: 100%;
+    top: 0;
+    left: 0;
+  `;
+
+  const props = useSpring({
+    width: toggled ? "100vw": "0vw",
+    config: config.slow
+  });
+
+  return (
+    <Menu as={a.div} style={props}>
+      {children}
+    </Menu>
+  );
+};
+
 export const Menu = ({
   toggled,
   children
@@ -115,6 +146,9 @@ export const Menu = ({
     & > * {
       z-index: 2;
       color: ${colourBlack};
+    }
+
+    & > h1 {
       position: absolute;
       left: 0.5%;
     }
@@ -131,3 +165,41 @@ export const Menu = ({
     </Menu>
   );
 };
+
+export const MenuItems = styled.div`
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  position: absolute;
+  bottom: 15%;
+  width: 100%;
+  width: 89.25vw;
+  margin: 0 0.5%;
+
+`;
+
+export const FeaturedContent = styled.div`
+  display: flex;
+  gap: 25px;
+  justify-content: space-around;
+`;
+
+export const FeaturedCardWrapper = styled.a`
+  width: 200px;
+  cursor: pointer;
+
+  &:hover div {
+    border-radius: 25px;
+  }
+`;
+
+export const FeaturedCard = styled.div`
+  padding: 20px;
+  border-radius: 0px;
+  background: ${colourDarkGrey};
+  transition: ${defaultTransition};
+
+  &:hover {
+    // border-radius: 25px;
+  }
+`;
