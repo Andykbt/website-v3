@@ -22,16 +22,3 @@ export const formateDate = (date: string) => {
     year: "numeric",
   }).format(d);
 };
-
-export const fetchFeaturedContent = async () => {
-  const featured = await SanityClient.fetch(`
-    *[ _type in ['article', 'project'] && isFeatured == true] {
-      _id,
-      _type,
-      "slug": slug.current,
-      title,
-      "imageUrl": image.asset -> url
-    }
-  `);
-  return featured;
-};

@@ -1,4 +1,4 @@
-import { fetchFeaturedContent } from "../sanity";
+import { SanityClient } from "@website-v3/web/lib/sanity";
 
 export const initPages = async () => {
   return {
@@ -9,4 +9,17 @@ export const initPages = async () => {
       "admin_id": process.env.ALGOLIA_ADMIN_ID,
     }
   };
+};
+
+export const fetchFeaturedContent = async () => {
+  const featured = await SanityClient.fetch(`
+    *[ _type in ['article', 'project'] && isFeatured == true] {
+      _id,
+      _type,
+      "slug": slug.current,
+      title,
+      "imageUrl": image.asset -> url
+    }
+  `);
+  return featured;
 };

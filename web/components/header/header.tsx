@@ -17,7 +17,6 @@ import { useRouter } from "next/router";
 import { fontSizeExtraLarge, colourBlack } from "@website-v3/web/styles";
 import { H1, H3, Body2 } from "@website-v3/web/styles/typography";
 import { animated, config, useSpring } from "react-spring";
-import { Search } from "../search";
 import { useRecoilValue } from "recoil";
 import { featuredContentState } from "../../helpers/state/atoms";
 import Image from "next/image";
