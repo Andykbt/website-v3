@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { baseUrl, Url } from "../../constants/types";
+import React from "react";
+import { baseUrl, Url } from "@website-v3/web/constants/types";
 import {
   NavItem,
   NavLine1,
@@ -17,8 +17,8 @@ import { useRouter } from "next/router";
 import { fontSizeExtraLarge, colourBlack } from "@website-v3/web/styles";
 import { H1, H3, Body2 } from "@website-v3/web/styles/typography";
 import { animated, config, useSpring } from "react-spring";
-import { useRecoilValue } from "recoil";
-import { featuredContentState } from "../../helpers/state/atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { featuredContentState, showMenuState } from "@website-v3/web/helpers/state/atoms";
 import Image from "next/image";
 
 type HeaderProps = {
@@ -29,7 +29,7 @@ export const Header = ({
   navItems,
 }: HeaderProps) => {
   const featuredContent = useRecoilValue(featuredContentState);
-  const [toggleMenu, setToggle] = useState(false);
+  const [toggleMenu, setToggle] = useRecoilState(showMenuState);
   const router = useRouter();
   
   const fade = useSpring({
@@ -41,8 +41,10 @@ export const Header = ({
     return navItems.map((item, index) =>
       <NavItem
         key={index}
-        href={item.url}
-        onClick={() => router.push(item.url)}
+        onClick={() => {
+          router.push(item.url);
+          setToggle(false);
+        }}
         role="header.navItems"
       >
         <animated.div style={fade}>
