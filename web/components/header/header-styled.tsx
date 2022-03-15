@@ -41,7 +41,8 @@ export const HeaderSitemap = styled.div`
   flex-direction: column;
 `;
 
-export const NavItem = styled.a`
+export const NavItem = styled.div`
+  cursor: pointer;
   padding: 5px;
   margin: 5px;
   width: fit-content;
