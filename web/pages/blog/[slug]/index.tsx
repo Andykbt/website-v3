@@ -31,7 +31,7 @@ const ArticlePage = ({ article } : Props) => {
         />
 
         <H1>{article.title}</H1>
-        <PortableText value={article.body} />
+        {/* <PortableText value={article.body} /> */}
       </Container>
     </StarsBG>
   );
