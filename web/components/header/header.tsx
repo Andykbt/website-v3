@@ -91,12 +91,14 @@ export const Header = ({
 
           <div/>
 
-          <div>
-            <H3 color="inherit" textDirection="center" margin="0 0 15px 0">Featured Content</H3>
-            <FeaturedContent>
-              {renderFeaturedContent()}
-            </FeaturedContent>
-          </div>
+          {featuredContent.length !== 0 &&
+            <div>
+              <H3 color="inherit" textDirection="center" margin="0 0 15px 0">Featured Content</H3>
+              <FeaturedContent>
+                {renderFeaturedContent()}
+              </FeaturedContent>
+            </div>
+          }
         </MenuItems>
       </Menu>
       <HeaderItem

@@ -3,16 +3,17 @@ import React from "react";
 import { StarsBG } from "@website-v3/web/components/sections/experience/experience-styled";
 import { Article } from "@website-v3/web/constants/types";
 import { SanityClient } from "@website-v3/web/lib/sanity";
-import { H1 } from "@website-v3/web/styles";
-import { PortableText } from "@portabletext/react";
+import { H2 } from "@website-v3/web/styles";
 import { Container } from "@website-v3/web/components";
 import { NextPageContext } from "next";
+import ReactMarkdown from "react-markdown";
 
 type Props = {
   article: Article,
 }
 
 const ArticlePage = ({ article } : Props) => {
+  console.log(article.body);
   return (
     <StarsBG>
       <Container
@@ -30,8 +31,8 @@ const ArticlePage = ({ article } : Props) => {
           height={500}
         />
 
-        <H1>{article.title}</H1>
-        <PortableText value={article.body} />
+        <H2 textDirection="center">{article.title}</H2>
+        <ReactMarkdown>{article.body}</ReactMarkdown>
       </Container>
     </StarsBG>
   );

@@ -57,7 +57,7 @@ export async function getServerSideProps() {
   const projects = await SanityClient.fetch("*[ _type == 'project' ] | order(_createdAt desc)");
   const experience = await SanityClient.fetch("*[ _type == 'experience' ] | order(dateFinished desc)");
   const skills = await SanityClient.fetch("* [ _type == 'skills' ]");
-  const { featuredContent, algolia} = await initPages();
+  const { featuredContent, algolia } = await initPages();
 
   if (!projects.length) {
     return {

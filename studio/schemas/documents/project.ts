@@ -85,8 +85,7 @@ export const project = {
     {
       name: "body",
       title: "Body",
-      type: "array",
-      of: [{ type: "block" }]
+      type: "markdown",
     },
     {
       name: "technologies",
