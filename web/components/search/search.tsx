@@ -1,29 +1,54 @@
 import algoliasearch from "algoliasearch";
-import React, { useRef, useState } from "react";
-import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
+import React, { useState } from "react";
+import { InstantSearch, SearchBox, Hits, Configure, RefinementList } from "react-instantsearch-dom";
 import { useRecoilValue } from "recoil";
-import { algoliaState, featuredContentState } from "../../helpers/state/atoms";
-import { useSearchBox, UseSearchBoxProps } from "react-instantsearch-hooks";
+import { algoliaState } from "@website-v3/web/helpers/state/atoms";
+import { AlgoliaHit, baseUrl } from "@website-v3/web/constants/types";
+import { Card } from "@website-v3/web/components/card";
 
-export const Search = () => {
-  // const { query, refine, isSearchStalled } = useSearchBox(props);
-  // const [inputValue, setInputValue] = useState(query);
-  // const inputRef = useRef<HTMLInputElement>(null);
-
-  const algolia = useRecoilValue(algoliaState);
-  console.log(algolia);
-
-  // const algoliaClient = algoliasearch(
-  //   "0YB6Z9PBS6",
-  //   "70dcc1a3162ccf33a9e535c5fd960ce4",
-  // );
+const Hit = ({
+  hit
+}: { hit: AlgoliaHit }) => {
+  const type = hit._type == "project" ? "projects" : "blog";
+  const url = `${baseUrl}${type}/${hit.slug}`;
 
   return (
-    <>
-      {/* <InstantSearch searchClient={algoliaClient} indexName={"production"}>
-        <SearchBox />
-        <Hits />
-      </InstantSearch> */}
-    </>
+    <Card
+      title={hit.title}
+      href={url}
+      image={hit.imageUrl}
+      isSmall
+    />
+  );
+};
+
+export const Search = () => {
+  const [showHits, setShowHits] = useState<boolean>(false);
+
+  const algolia = useRecoilValue(algoliaState);
+  const algoliaClient = algoliasearch(
+    algolia.app_id,
+    algolia.search_key,
+  );
+
+  return (
+    <InstantSearch searchClient={algoliaClient} indexName={"production"}>
+      <Configure
+        hitsPerPage={3}
+        analytics={false}
+      />
+
+      <SearchBox
+        showLoadingIndicator
+        onChange={() => setShowHits(true)}
+      />
+
+      <RefinementList
+        attribute={"_type"}
+        defaultRefinement={["article"]}
+      />
+
+      <Hits hitComponent={Hit} />
+    </InstantSearch>
   );
 };
