@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 type CardProps = {
   title: string,
-  excerpt: any[] | string,
+  excerpt?: any[] | string,
   href: string,
   canCopy?: boolean,
   image?: string,
@@ -46,7 +46,9 @@ export const Card: React.FC<CardProps> = ({
 
       <>
         <H3 margin="0.35em 0" fontSize={fontSizeSmall}>{title}</H3>
-        <Body2><PortableText value={excerpt}/></Body2>
+        {excerpt &&
+          <Body2><PortableText value={excerpt}/></Body2>
+        }
       </>
 
       { canCopy &&

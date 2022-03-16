@@ -43,7 +43,7 @@ export type Project = {
     _ref: string,
     _type: string,
   },
-  body: any[],
+  body: string,
   excerpt: any[],
   imageUrl?: string,
 }
@@ -82,7 +82,7 @@ export type SkillType = {
 };
 
 export type Article = {
-  body: any[],
+  body: string,
   excerpt: any,
   slug: {
     _type: string,
@@ -102,5 +102,13 @@ export type ArticleSchema = {
   slug: string,
   updatedAt: string,
   excerpt: string,
+  imageUrl: string,
+}
+
+export type FeaturedContent = {
+  _id: string,
+  _type: string,
+  slug: string,
+  title: string,
   imageUrl: string,
 }

@@ -4,6 +4,7 @@ import { Url } from "@website-v3/web/constants/types";
 import { Header } from "@website-v3/web/components";
 import { createMockRouter } from "../../helpers/test-utils/createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context";
+import { RecoilRoot } from "recoil";
 
 describe("header", () => {
   const mockItems: Url[] = [
@@ -20,9 +21,11 @@ describe("header", () => {
   it("displays the correct nav items", () => {
     const router = createMockRouter({});
     const { getByText, getAllByRole } = render(
-      <RouterContext.Provider value={router}>
-        <Header navItems={mockItems} />
-      </RouterContext.Provider>  
+      <RecoilRoot>
+        <RouterContext.Provider value={router}>
+          <Header navItems={mockItems} />
+        </RouterContext.Provider>  
+      </RecoilRoot>
     );
     const nav1 = getByText("mockNavItem");
     const nav2 = getByText("mockNavItem1");

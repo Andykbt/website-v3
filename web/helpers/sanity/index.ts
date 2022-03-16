@@ -1,4 +1,4 @@
-import { Block } from "../../constants/types";
+import { Block } from "@website-v3/web/constants/types";
 
 const defaults = { nonTextBehaviour: "remove" };
 

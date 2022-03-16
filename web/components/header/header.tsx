@@ -1,10 +1,27 @@
-import React, { useState } from "react";
-import { Url } from "../../constants/types";
-import { NavItem, Nav, NavLine1, NavLine2, Menu, HeaderSitemap } from "./header-styled";
+import React from "react";
+import { baseUrl, Url } from "@website-v3/web/constants/types";
+import {
+  NavItem,
+  NavLine1,
+  NavLine2,
+  Menu,
+  HeaderSitemap,
+  StyledHeader,
+  HeaderItem, 
+  MenuItems,
+  FeaturedContent,
+  FeaturedCard,
+  FeaturedCardWrapper,
+  FeaturedContentWrapper
+} from "./header-styled";
 import { useRouter } from "next/router";
 import { fontSizeExtraLarge, colourBlack } from "@website-v3/web/styles";
-import { H1 } from "@website-v3/web/styles/typography";
+import { H1, H3, Body2 } from "@website-v3/web/styles/typography";
 import { animated, config, useSpring } from "react-spring";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { featuredContentState, showMenuState } from "@website-v3/web/helpers/state/atoms";
+import Image from "next/image";
+import Link from "next/link";
 
 type HeaderProps = {
 	navItems: Url[],
@@ -13,7 +30,8 @@ type HeaderProps = {
 export const Header = ({
   navItems,
 }: HeaderProps) => {
-  const [toggleMenu, setToggle] = useState(false);
+  const featuredContent = useRecoilValue(featuredContentState);
+  const [toggleMenu, setToggle] = useRecoilState(showMenuState);
   const router = useRouter();
   
   const fade = useSpring({
@@ -25,8 +43,10 @@ export const Header = ({
     return navItems.map((item, index) =>
       <NavItem
         key={index}
-        href={item.url}
-        onClick={() => router.push(item.url)}
+        onClick={() => {
+          router.push(item.url);
+          setToggle(false);
+        }}
         role="header.navItems"
       >
         <animated.div style={fade}>
@@ -36,9 +56,28 @@ export const Header = ({
     );
   };
 
+  const renderFeaturedContent = () => {
+    return featuredContent.map((item) => {
+      const type = item._type == "project" ? "projects" : "blog";
+      const url = `${baseUrl}${type}/${item.slug}`;
+      return (
+        <Link key={item._id} href={url}>
+          <FeaturedCardWrapper>
+            <animated.div style={fade}>
+              <FeaturedCard>
+                <Image src={item.imageUrl} width={200} height={200}/>
+              </FeaturedCard>
+              <Body2 color="inherit" textDirection="center" margin="15px 0 0 0">{item.title}</Body2>
+            </animated.div>
+          </FeaturedCardWrapper>
+        </Link>
+      );
+    });
+  };
+
 
   return (
-    <>
+    <StyledHeader>
       <Menu toggled={toggleMenu}>
         <H1
           color={colourBlack}
@@ -51,17 +90,30 @@ export const Header = ({
           </animated.div>
         </H1>
 
-        <HeaderSitemap>
-          {renderNavItems()}
-        </HeaderSitemap>
+        <MenuItems>
+          <HeaderSitemap>
+            {renderNavItems()}
+          </HeaderSitemap>
+
+          <div/>
+
+          {featuredContent.length !== 0 &&
+            <FeaturedContentWrapper>
+              <H3 color="inherit" textDirection="center" margin="0 0 15px 0">Featured Content</H3>
+              <FeaturedContent>
+                {renderFeaturedContent()}
+              </FeaturedContent>
+            </FeaturedContentWrapper>
+          }
+        </MenuItems>
       </Menu>
-      <Nav
+      <HeaderItem
         toggled={toggleMenu}
 
         onMouseDown={() => setToggle(!toggleMenu)}>
         <NavLine1 toggled={toggleMenu} />
         <NavLine2 toggled={toggleMenu} />
-      </Nav>
-    </>
+      </HeaderItem>
+    </StyledHeader>
   );
 };
