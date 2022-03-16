@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { SanityClient } from "@website-v3/web/lib/sanity";
-import { algoliaClient, algoliaIndex } from "@website-v3/web/lib/algolia";
+import { algoliaIndex } from "@website-v3/web/lib/algolia";
 import indexer from "sanity-algolia";
 
 export default async function handler(
