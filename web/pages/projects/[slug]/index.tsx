@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import {
@@ -24,6 +23,7 @@ import { ExpandBorder, TextTrail } from "@website-v3/web/helpers/springs";
 import { useInView } from "react-intersection-observer";
 import { Body1 } from "../../../styles";
 import Head from "next/head";
+import ReactMarkdown from "react-markdown";
 
 type Props = {
   project: ProjectType,
@@ -118,7 +118,7 @@ const Project = ({
             <Technologies>
               {renderTechUsed()}
             </Technologies>
-            <PortableText value={project.body} />
+            <ReactMarkdown>{project.body}</ReactMarkdown>
 
           </TextTrail>
         </ProjectBody>

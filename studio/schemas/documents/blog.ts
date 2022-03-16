@@ -2,12 +2,21 @@ export const blog = {
   name: "article",
   title: "Articles",
   type: "document",
+  initialValue: {
+    isFeatured: false
+  },
   fields: [
     {
       name: "title",
       title: "Article title",
       description: "What is the name of your article",
       type: "string",
+    },
+    {
+      name: "isFeatured",
+      title: "Feature",
+      description: "Feature this post?",
+      type: "boolean",
     },
     {
       name: "publishedAt",

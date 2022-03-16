@@ -45,7 +45,6 @@ export const Experience = ({
   };
 
   const renderBody = (key: string) => {
-    console.log(experiences[selected]);
     return (
       <FadeIn key={key}>
         <H3>{experiences[selected].role} 
