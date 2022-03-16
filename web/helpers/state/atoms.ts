@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { FeaturedContent } from "@website-v3/web/constants/types";
+import { AlgoliaConfig, FeaturedContent } from "@website-v3/web/constants/types";
 
 export const showMenuState = atom({
   key: "showMenu",
@@ -13,5 +13,5 @@ export const featuredContentState = atom({
 
 export const algoliaState = atom({
   key: "algolia",
-  default: {}
+  default: {} as AlgoliaConfig
 });

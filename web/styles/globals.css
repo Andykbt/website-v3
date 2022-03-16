@@ -52,3 +52,46 @@ body::-webkit-scrollbar-thumb {
   from { transform: scale(1.25); }
   to { transform: scale(1); }
 }
+
+.ais-SearchBox-input {
+  background: #302B30;
+  border-radius: 50px;
+  font-size: 2.5rem;
+  outline: none;
+  border: none;
+  border-bottom: dotted 2px;
+  height: 150px;
+  width: 100%;
+  padding: 0 50px;
+  color: white;
+  transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+};
+
+.ais-SearchBox-input:focus {
+  border-color: #FA2B7B;
+};
+
+.ais-SearchBox-submit {
+  display: none;
+}
+
+.ais-HitsPerPage {
+  display: none;
+}
+
+.ais-Hits-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.ais-RefinementList-list {
+  display: none;
+}
+
+.ais-SearchBox-submit {
+  display: none;
+}
+
+.ais-SearchBox-reset {
+  display: none;
+}
