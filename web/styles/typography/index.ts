@@ -6,6 +6,8 @@ import {
   fontSizeSmall,
   fontWeightLight,
   fontSizeXSmall,
+  colourPurple,
+  defaultTransition,
 } from "@website-v3/web/styles";
 import styled, { css } from "styled-components";
 
@@ -85,4 +87,19 @@ export const body2Styles = (props: FontProps) => {
 
 export const Body2 = styled.div<FontProps>`
   ${body2Styles}
+`;
+
+export const AStyles = () => {
+  return css `
+    color: ${colourPurple};
+    transition: ${defaultTransition};
+
+    &:hover {
+      border-bottom: solid 3px ${colourPurple};
+    }
+  `;
+};
+
+export const A = styled.a<FontProps>`
+  ${AStyles}
 `;
