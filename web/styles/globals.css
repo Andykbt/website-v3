@@ -42,6 +42,15 @@ body::-webkit-scrollbar-thumb {
   border-radius: 5px;
 }
 
+strong {
+  font-weight: 700;
+}
+
+blockquote {
+  border-left: solid 5px #D5CDC4;
+  padding-left: 10px;
+}
+
 .imageScale {
   transform: scale(1);
   animation-name: scale;
