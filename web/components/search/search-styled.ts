@@ -1,11 +1,6 @@
 import styled from "styled-components";
-import { colourBlack, colourDarkGrey, colourLightBrown, defaultTransition } from "../../styles";
+import { colourBlack, colourDarkGrey, colourLightBrown, defaultTransition } from "@website-v3/web/styles";
 
-export const Container = styled.div`
-  background-color: ${colourDarkGrey};
-  border-radius: 50px;
-  padding: 25px;
-`;
 
 export const Hit = styled.div`
   display: flex;
@@ -13,7 +8,9 @@ export const Hit = styled.div`
   cursor: pointer;
   gap: 25px;
   transition: ${defaultTransition};
+  background: ${colourDarkGrey};
   padding: 20px;
+  margin: 10px 0;
   border-radius: 25px;
 
   &:hover {

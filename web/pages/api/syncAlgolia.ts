@@ -1,18 +1,16 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { SanityClient } from "@website-v3/web/lib/sanity";
-import { algoliaClient } from "@website-v3/web/lib/algolia";
+import { algoliaIndex } from "@website-v3/web/lib/algolia";
 import indexer from "sanity-algolia";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const index = algoliaClient.initIndex(process.env.ALGOLIA_INDEX || "");
-
   const sanityAlgolia = indexer(
     {
       article: {
-        index: index,
+        index: algoliaIndex,
         projection: `{
           title,
           _type,
@@ -23,7 +21,7 @@ export default async function handler(
         }`,
       },
       project: {
-        index: index,
+        index: algoliaIndex,
         projection: `{
           title,
           _type,

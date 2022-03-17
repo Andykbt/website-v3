@@ -8,6 +8,21 @@ export type Url = {
   url: string,
 }
 
+export type AlgoliaConfig = {
+  app_id: string,
+  search_key: string,
+  index: string,
+}
+
+export type AlgoliaHit = {
+  objectID: string,
+  title: string,
+  _type: string,
+  _createdAt: string,
+  imageUrl: string,
+  slug: string,
+}
+
 export type Block = {
   children: any[],
   markDefs: any[],
