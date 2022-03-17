@@ -1,9 +1,8 @@
-import Image from "next/image";
 import React from "react";
 import { StarsBG } from "@website-v3/web/components/sections/experience/experience-styled";
 import { Article } from "@website-v3/web/constants/types";
 import { SanityClient } from "@website-v3/web/lib/sanity";
-import { H2 } from "@website-v3/web/styles";
+import { A, colourDarkGrey, H1 } from "@website-v3/web/styles";
 import { Container } from "@website-v3/web/components";
 import { NextPageContext } from "next";
 import ReactMarkdown from "react-markdown";
@@ -13,26 +12,26 @@ type Props = {
 }
 
 const ArticlePage = ({ article } : Props) => {
-  console.log(article.body);
   return (
     <StarsBG>
       <Container
         size={"xxl"}
         style={{
-          display: "flex",
-          flexDirection: "column",
           alignItems: "center",
-          paddingTop: "10vh",
+          padding: "10vh 0",
         }}>
         
-        <Image
-          src={article.imageUrl || "/stars.gif"}
-          width={500}
-          height={500}
-        />
+        <H1 textDirection="center">{article.title}</H1>
 
-        <H2 textDirection="center">{article.title}</H2>
-        <ReactMarkdown>{article.body}</ReactMarkdown>
+        <div style={{textAlign: "left", background: colourDarkGrey, padding: 25}}>
+          <ReactMarkdown
+            components={{
+              a: ({...props}: any) => <A href={props.href}>{props.children}</A>
+            }}
+          >
+            {article.body}
+          </ReactMarkdown>
+        </div>
       </Container>
     </StarsBG>
   );
