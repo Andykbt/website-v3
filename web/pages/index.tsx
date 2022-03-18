@@ -54,7 +54,10 @@ const Home: NextPage<Props> = ({
 };
 
 export async function getServerSideProps() {
-  const projects = await SanityClient.fetch("*[ _type == 'project' ] | order(_createdAt desc)");
+  const projects = await SanityClient.fetch(`*[ _type == 'project' ] | order(_createdAt desc) {
+    "imageUrl": image.asset -> url,
+    ...
+  }`);
   const experience = await SanityClient.fetch("*[ _type == 'experience' ] | order(dateFinished desc)");
   const skills = await SanityClient.fetch("* [ _type == 'skills' ]");
   const { featuredContent, algolia } = await initPages();
