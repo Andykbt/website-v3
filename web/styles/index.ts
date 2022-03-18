@@ -18,6 +18,7 @@ export const colourDarkGrey = "#302B30";
 export const colourYellow = "#FED600";
 export const colourCyan = "#3ECAB5";
 export const colourPink = "#FA2B7B";
+export const colourPurple = "#C38FFF";
 
 /* FontWeight */
 export const fontWeightLight = "";
