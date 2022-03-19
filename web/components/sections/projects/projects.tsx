@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Project } from "@website-v3/web/constants/types";
-import { Body1 } from "@website-v3/web/styles/typography";
+import { Body1, H2 } from "@website-v3/web/styles/typography";
 import {
   ArrowContainer,
+  ImageSlider,
   IndexContainer,
   Name,
   ProjectContainer,
@@ -11,8 +12,9 @@ import {
 import { ProjectTextHover } from "@website-v3/web/helpers/springs";
 import { useRouter } from "next/router";
 import ArrowSvg from "@website-v3/web/styles/svg/Arrow-svg";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { hoveredProjectState } from "@website-v3/web/helpers/state/atoms";
+import useMouse from "@react-hook/mouse-position";
 
 type ProjectsProps = {
   projects: Project[],
@@ -28,6 +30,12 @@ type ProjectProps = {
 export const Projects = ({
   projects
 }: ProjectsProps) => {
+  const image = useRecoilValue(hoveredProjectState);
+  const ref = useRef<HTMLDivElement>(null);
+  const mouse = useMouse(ref, {
+    fps: 60,
+  });
+
   const renderProjects = () => {
     return projects.map((project: Project, index: number) =>
       <ProjectComponent
@@ -41,14 +49,19 @@ export const Projects = ({
   };
 
   return (
-    <ProjectsContainer>
-      {renderProjects()}
-      <ProjectComponent
-        title={"View all"}
-        index={projects.length + 1}
-        image={""}
-        url={""}
-      />
+    <ProjectsContainer ref={ref}>
+      <H2 margin="0 0 10vh">{"<Projects>"}</H2>
+      <ImageSlider image={image} x={mouse.clientX} y={mouse.clientY} />
+      <div style={{position: "relative", zIndex: 1}}>
+        {renderProjects()}
+        <ProjectComponent
+          title={"View all"}
+          index={projects.length + 1}
+          image={""}
+          url={""}
+        />
+      </div>
+      <H2 margin="10vh 0 0">{"</Projects>"}</H2>
     </ProjectsContainer>
   );
 };
@@ -66,25 +79,26 @@ export const ProjectComponent = ({
   return (
     <ProjectContainer
       onClick={() => router.push(`/projects/${url}`)} data-testid={"projects.redirect-link"}
-      onMouseOver={() => { setProject(image); console.log(image); }}  
-      onMouseLeave={() => setProject("")}
+      onMouseOver={() => {
+        setProject(image);
+        setHovered(true);
+      }}  
+      onMouseLeave={() => {
+        setProject("");
+        setHovered(false);
+      }}
     >
-      <div
-        onMouseOver={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}>
+      <IndexContainer>
+        <Body1 fontSize="12px">Ø{index}</Body1>
+      </IndexContainer>
 
-        <IndexContainer>
-          <Body1 fontSize="12px">Ø{index}</Body1>
-        </IndexContainer>
+      <ProjectTextHover on={isHovered}>
+        <Name>{title}</Name>
+      </ProjectTextHover>
 
-        <ProjectTextHover on={isHovered}>
-          <Name>{title}</Name>
-        </ProjectTextHover>
-
-        <ArrowContainer>
-          <ArrowSvg width={"5vw"} height={"5vw"} isHovered={isHovered} />
-        </ArrowContainer>
-      </div>
+      <ArrowContainer>
+        <ArrowSvg width={"5vw"} height={"5vw"} isHovered={isHovered} />
+      </ArrowContainer>
     </ProjectContainer>
   );
 };
