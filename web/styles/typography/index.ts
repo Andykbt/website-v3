@@ -93,6 +93,7 @@ export const AStyles = () => {
   return css `
     color: ${colourPurple};
     transition: ${defaultTransition};
+    display: inline-block;
 
     &:hover {
       border-bottom: solid 3px ${colourPurple};
