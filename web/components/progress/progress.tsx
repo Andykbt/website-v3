@@ -5,6 +5,7 @@ import { useSpring , animated as a } from "react-spring";
 import { colourBlack, colourPurple } from "@website-v3/web/styles";
 import { useRecoilValue } from "recoil";
 import { showMenuState } from "@website-v3/web/helpers/state/atoms";
+import styled from "styled-components";
 
 export const Progress = () => {
   const router = useRouter();
@@ -33,17 +34,18 @@ const Bar: React.FC<{
   progress
 }) => {
   const toggleMenu = useRecoilValue(showMenuState);
-
+  const Bar = styled.div`
+    position: sticky;
+    z-index: 10;
+    top: 0px;
+  `;
   const props = useSpring({
-    position: "sticky",
-    top: 0,
     background: toggleMenu ? colourBlack : colourPurple,
     height: isFinished ? 0 : 5,
     width: `${progress * 100}%`,
-    zIndex: 10,
   });
 
   return(
-    <a.div style={props}/>
+    <Bar as={a.div} style={props}/>
   );
 };
