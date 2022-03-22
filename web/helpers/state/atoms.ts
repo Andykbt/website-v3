@@ -15,3 +15,8 @@ export const algoliaState = atom({
   key: "algolia",
   default: {} as AlgoliaConfig
 });
+
+export const hoveredProjectState = atom({
+  key: "hoveredProject",
+  default: "" as string,
+});

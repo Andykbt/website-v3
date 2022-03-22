@@ -2,11 +2,34 @@ import styled from "styled-components";
 import { colourLightBrown, colourBlack, smBreakpoint, defaultTransition, colourDarkGrey } from "@website-v3/web/styles";
 
 export const ProjectsContainer = styled.div`
-  margin: 5vh 5vw;
+  padding: 5vh 5vw;
+  position: relative;
+  border-top: solid 1px ${colourLightBrown};
 `;
 
-export const ProjectContainer = styled.a`
+export const ImageSlider = styled.div<{
+  image: string,
+  x: number | null,
+  y: number | null,
+}>`
+  background-image: url(${props => props.image});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  z-index: 0;
+  width: 22.22vh;
+  height: 22.22vh;
   cursor: pointer;
+  left: ${props => props.x}px;
+  top: ${props => props.y}px;
+`;
+
+export const ProjectContainer = styled.div`
+  cursor: pointer;
+  z-index: 1;
 `;
 
 export const IndexContainer = styled.div`

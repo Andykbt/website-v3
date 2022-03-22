@@ -4,6 +4,7 @@ import { Projects } from ".";
 import { fireEvent, render } from "@testing-library/react";
 import { createMockRouter } from "../../../helpers/test-utils/createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context";
+import { RecoilRoot } from "recoil";
 
 describe("project in homepage", () => {
   const mockItems: Project[] = [
@@ -20,7 +21,7 @@ describe("project in homepage", () => {
         _type: "slugtype",
         current: "slug",
       },
-      body: [],
+      body: "",
       excerpt: [],
       technologies: [
         {
@@ -40,9 +41,11 @@ describe("project in homepage", () => {
   it("displays the correct items", () => {
     const router = createMockRouter({});
     const { getByText, getAllByTestId } = render(
-      <RouterContext.Provider value={router}>
-        <Projects projects={mockItems} />
-      </RouterContext.Provider>
+      <RecoilRoot>
+        <RouterContext.Provider value={router}>
+          <Projects projects={mockItems} />
+        </RouterContext.Provider>
+      </RecoilRoot>
     );
 
     fireEvent.click(getAllByTestId("projects.redirect-link")[0]);
