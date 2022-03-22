@@ -194,14 +194,22 @@ export const FeaturedCardWrapper = styled.a`
 `;
 
 export const FeaturedContentWrapper = styled.div`
+  background: ${colourBlack};
+  color: ${colourLightBrown};
+  border-radius: 25px;
+  padding: 15px;
+
   @media (max-width: ${smBreakpoint}) {
     display: none;
   }
 `;
 
 export const FeaturedCard = styled.div`
-  padding: 20px;
-  border-radius: 0px;
-  background: ${colourDarkGrey};
+  overflow: hidden;
+  background: ${colourLightBrown};
   transition: ${defaultTransition};
+
+  & > span {
+    vertical-align: bottom;
+  }
 `;
