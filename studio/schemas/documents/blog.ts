@@ -69,6 +69,12 @@ export const blog = {
           type: "string",
         }
       ],
+    },
+    {
+      name: "keywords",
+      title: "Keywords",
+      type: "array",
+      of: [{ type: "string" }]
     }
   ]
 };
