@@ -62,7 +62,7 @@ export const Header = ({
       const url = `${baseUrl}${type}/${item.slug}`;
       return (
         <Link key={item._id} href={url}>
-          <FeaturedCardWrapper>
+          <FeaturedCardWrapper onClick={() => setToggle(false)}>
             <animated.div style={fade}>
               <FeaturedCard>
                 <Image src={item.imageUrl} width={200} height={200}/>
