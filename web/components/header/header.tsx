@@ -67,7 +67,9 @@ export const Header = ({
               <FeaturedCard>
                 <Image src={item.imageUrl} width={200} height={200}/>
               </FeaturedCard>
-              <Body2 color="inherit" textDirection="center" margin="15px 0 0 0">{item.title}</Body2>
+              <Body2 color="inherit" textDirection="center" margin="15px 0 0 0">
+                {item.title}
+              </Body2>
             </animated.div>
           </FeaturedCardWrapper>
         </Link>
