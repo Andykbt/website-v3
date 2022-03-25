@@ -93,9 +93,21 @@ export const AStyles = () => {
   return css `
     color: ${colourPurple};
     transition: ${defaultTransition};
+    display: inline-block;
+    position: relative;
 
-    &:hover {
-      border-bottom: solid 3px ${colourPurple};
+    &:before {
+      background-color: ${colourPurple};
+      transition: ${defaultTransition};
+      position: absolute;
+      content: "";
+      height: 0px;
+      width: 100%;
+      bottom: 0px;
+    }
+
+    &:hover:before {
+      height: 3px;
     }
   `;
 };

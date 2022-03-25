@@ -6,9 +6,10 @@ import {
   AboutContainer,
   AboutBody
 } from "./about-styles";
-import { H2 } from "@website-v3/web/styles/typography";
+import { A, H2 } from "@website-v3/web/styles/typography";
 import { useInView } from "react-intersection-observer";
 import { TextTrail } from "@website-v3/web/helpers/springs";
+import { baseUrl } from "@website-v3/web/constants/types";
 
 export const About = () => {
   const [ref, inView] = useInView({
@@ -27,10 +28,12 @@ export const About = () => {
         <VertSeparator expand={inView}/>
         <AboutBody>
           <TextTrail on={inView}>
-            {`Currently in my final year of Computer Science.
-              You can find me on LinkedIn, throw me a follow on Github
-              or come look at what I've been working on here.
-            `}
+            <div>
+              {"Currently in my final year of Computer Science."}
+              {"You can find me on "} <A href="https://www.linkedin.com/in/andy-truong-591449216/">LinkedIn</A>
+              {", throw me a follow on "} <A href="https://github.com/Andykbt">Github</A> {" or "} 
+              {"come look at what I've been working on"} <A href={`${baseUrl}projects`}>here</A>.
+            </div>
           </TextTrail>
         </AboutBody>
       </AboutContainer>
