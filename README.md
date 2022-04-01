@@ -5,7 +5,7 @@
   This is the third version of <a href="https://andykbt.net" target="_blank">andykbt.net</a> built with <a href="https://nextjs.org/" target="_blank">NextJS</a>, <a href="https://www.sanity.io/">Sanity.io</a> and hosted with <a href="https://vercel.com/" target="_blank">Vercel</a>.
 </p>
 
-## Tech Stack
+# Tech Stack
 
 - [React](https://reactjs.org/): For the UI
 - [NextJS](https://nextjs.org/): Framework for the Client/Server/Routing
@@ -23,7 +23,10 @@ Here are the services this site uses:
 - [Github Actions](https://github.com/features/actions): Hosted CI pipeline service
 - [Checkly](https://www.checklyhq.com/): Active monitory platform
 
-## Visual Identity
+# Deployment Pipeline
+<img width="812" alt="website-v3-pipeline" src="https://user-images.githubusercontent.com/55374347/161190073-098a4971-9c37-4110-8ead-d9fc4124e1fc.png">
+
+# Visual Identity
 
 | Colour       | Hex                                                                |
 |--------------|--------------------------------------------------------------------|
