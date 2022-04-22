@@ -11,12 +11,14 @@ export default () =>
     .items([
       S.listItem()
         .title("Projects")
-        .child(createSuperPane("project"))
+        // .child(createSuperPane("project"))
+        .child(S.documentTypeList("project").title("Projects"))
         .icon(AiOutlineProject),
       S.listItem()
         .title("Blog")
         .schemaType("article")
-        .child(createSuperPane("article"))
+        // .child(createSuperPane("article"))
+        .child(S.documentTypeList("article").title("Blog Posts"))
         .icon(MdOutlineArticle),
       S.listItem()
         .title("Experience")
