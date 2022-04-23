@@ -17,7 +17,8 @@ export default async function handler(
           _createdAt,
           "imageUrl": image.asset -> url,
           projectLink,
-          "slug": slug.current
+          "slug": slug.current,
+          category,
         }`,
       },
       project: {
