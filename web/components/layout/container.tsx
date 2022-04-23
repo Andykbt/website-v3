@@ -25,16 +25,16 @@ export const containerStyles = (props:ContainerProps) => {
   case "xl":
     size = widthExtraLarge;
     break;
-  case "L" || "l":
+  case "L":
     size = widthLarge;
     break;
-  case "M" || "m":
+  case "M":
     size = widthMedium;
     break;
-  case "S" || "s":
+  case "S":
     size = widthSmall;
     break;
-  case "XS" || "xs":
+  case "XS":
     size = widthExtraSmall;
     break;
   default:

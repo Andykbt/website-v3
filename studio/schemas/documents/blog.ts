@@ -71,10 +71,18 @@ export const blog = {
       ],
     },
     {
-      name: "keywords",
-      title: "Keywords",
-      type: "array",
-      of: [{ type: "string" }]
+      name: "category",
+      title: "Category",
+      type: "string",
+      options: {
+        list: [
+          { title: "What I've been watching", value: "What I've been watching" },
+          { title: "What I've been reading", value: "What I've been reading" },
+          { title: "Tech", value: "Tech" },
+          { title: "Self", value: "Self" },
+          { title: "Work", value: "Work" },
+        ]
+      }
     }
   ]
 };

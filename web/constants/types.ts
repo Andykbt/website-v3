@@ -21,6 +21,7 @@ export type AlgoliaHit = {
   _createdAt: string,
   imageUrl: string,
   slug: string,
+  category: string,
 }
 
 export type Block = {
