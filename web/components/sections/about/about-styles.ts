@@ -35,14 +35,16 @@ export const AboutContainer = styled.div`
 `;
 
 export const AboutBody = styled.div`
-  text-transform: uppercase;
   padding: 25px;
   width: 50vw;
-  display: inline-block;
   font-size: calc(1em + 0.25vw);
-  font-weight: bold;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: ${smBreakpoint}) {
     padding: 0;
+    height: initial;
   }
 `;
