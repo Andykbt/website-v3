@@ -63,14 +63,12 @@ export const Header = ({
       return (
         <Link key={item._id} href={url}>
           <FeaturedCardWrapper onClick={() => setToggle(false)}>
-            <animated.div style={fade}>
-              <FeaturedCard>
-                <Image src={item.imageUrl} width={200} height={200}/>
-              </FeaturedCard>
-              <Body2 color="inherit" textDirection="center" margin="15px 0 0 0">
-                {item.title}
-              </Body2>
-            </animated.div>
+            <FeaturedCard>
+              <Image src={item.imageUrl} width={200} height={200}/>
+            </FeaturedCard>
+            <Body2 color="inherit" textDirection="center" margin="15px 0 0 0">
+              {item.title}
+            </Body2>
           </FeaturedCardWrapper>
         </Link>
       );
@@ -100,12 +98,14 @@ export const Header = ({
           <div/>
 
           {featuredContent.length !== 0 &&
-            <FeaturedContentWrapper>
-              <H3 color="inherit" textDirection="center" margin="0 0 15px 0">Featured Content</H3>
-              <FeaturedContent>
-                {renderFeaturedContent()}
-              </FeaturedContent>
-            </FeaturedContentWrapper>
+            <animated.div style={fade}>
+              <FeaturedContentWrapper>
+                <H3 color="inherit" textDirection="center" margin="0 0 15px 0">Featured Content</H3>
+                <FeaturedContent>
+                  {renderFeaturedContent()}
+                </FeaturedContent>
+              </FeaturedContentWrapper>
+            </animated.div>
           }
         </MenuItems>
       </Menu>
