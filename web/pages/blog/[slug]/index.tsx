@@ -6,27 +6,40 @@ import { A, colourDarkGrey, H1 } from "@website-v3/web/styles";
 import { Container } from "@website-v3/web/components";
 import { NextPageContext } from "next";
 import ReactMarkdown from "react-markdown";
+import styled from "styled-components";
+import Image from "next/image";
 
 type Props = {
   article: Article,
 }
 
+const HeadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+`;
+
 const ArticlePage = ({ article } : Props) => {
   return (
-    <StarsBG>
+    <StarsBG>  
+      <HeadingContainer>
+        <H1 textDirection="center">{article.title}</H1>
+      </HeadingContainer>
+
       <Container
-        size={"xxl"}
+        size={"L"}
         style={{
           alignItems: "center",
           padding: "10vh 0",
         }}>
-        
-        <H1 textDirection="center">{article.title}</H1>
 
         <div style={{textAlign: "left", background: colourDarkGrey, padding: 25}}>
           <ReactMarkdown
             components={{
-              a: ({...props}: any) => <A href={props.href}>{props.children}</A>
+              a: ({...props}: any) => <A href={props.href}>{props.children}</A>,
+              img: ({...props}: any) => <Image src={props.src || "/stars.gif"} width={720} height={720} />,
             }}
           >
             {article.body}
