@@ -5,8 +5,9 @@ import { H3, Body2 } from "@website-v3/web/styles/typography";
 import { ExpandBorder } from "@website-v3/web/helpers/springs";
 import { colourBlack, fontSizeSmall } from "@website-v3/web/styles";
 import { PortableText } from "@portabletext/react";
-import { Button } from "../button";
 import { useRouter } from "next/router";
+import { Button } from "../button";
+import Badge from "../badge";
 
 type CardProps = {
   title: string,
@@ -15,6 +16,7 @@ type CardProps = {
   canCopy?: boolean,
   image?: string,
   isSmall?: boolean,
+  badgeText?: string,
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -23,7 +25,8 @@ export const Card: React.FC<CardProps> = ({
   href,
   canCopy,
   image,
-  isSmall
+  isSmall,
+  badgeText,
 }) => {
   const [hover, setHover] = useState(false);
   const router = useRouter();
@@ -44,12 +47,13 @@ export const Card: React.FC<CardProps> = ({
         </ExpandBorder>
       </a>
 
-      <>
-        <H3 margin="0.35em 0" fontSize={fontSizeSmall}>{title}</H3>
+      <div style={{margin: "0.75em 0"}}>
+        {badgeText && <Badge label={badgeText} />}
+        <H3 fontSize={fontSizeSmall}>{title}</H3>
         {excerpt &&
           <Body2><PortableText value={excerpt}/></Body2>
         }
-      </>
+      </div>
 
       { canCopy &&
         <ToolsContainer

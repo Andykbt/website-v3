@@ -11,12 +11,12 @@ const Hit = ({
 }: { hit: AlgoliaHit }) => {
   const type = hit._type == "project" ? "projects" : "blog";
   const url = `${baseUrl}${type}/${hit.slug}`;
-
   return (
     <Card
       title={hit.title}
       href={url}
       image={hit.imageUrl}
+      badgeText={hit.category}
       isSmall
     />
   );
