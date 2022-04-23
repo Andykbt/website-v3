@@ -15,10 +15,13 @@ export const fontSizeXSmall = "1rem";
 export const colourBlack = "#232025";
 export const colourLightBrown = "#D5CDC4";
 export const colourDarkGrey = "#302B30";
-export const colourYellow = "#FED600";
+
+export const colourPurple = "#C38FFF"; //Loading colour
+
+// Accents
+export const colourYellow = "#FED644";
 export const colourCyan = "#3ECAB5";
 export const colourPink = "#FA2B7B";
-export const colourPurple = "#C38FFF";
 
 /* FontWeight */
 export const fontWeightLight = "";
