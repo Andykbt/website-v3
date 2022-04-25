@@ -39,7 +39,14 @@ const ArticlePage = ({ article } : Props) => {
           <ReactMarkdown
             components={{
               a: ({...props}: any) => <A href={props.href}>{props.children}</A>,
-              img: ({...props}: any) => <Image src={props.src || "/stars.gif"} width={720} height={720} />,
+              img: ({...props}: any) =>
+                <Image
+                  src={props.src}
+                  width={720}
+                  height={720}
+                  placeholder="blur"
+                  blurDataURL="/stars.gif"
+                />,
             }}
           >
             {article.body}
