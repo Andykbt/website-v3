@@ -89,15 +89,15 @@ export const Body2 = styled.div<FontProps>`
   ${body2Styles}
 `;
 
-export const AStyles = () => {
+export const AStyles = (props: FontProps) => {
   return css `
-    color: ${colourPurple};
+    color: ${props.color || colourPurple};
     transition: ${defaultTransition};
     display: inline-block;
     position: relative;
 
     &:before {
-      background-color: ${colourPurple};
+      background-color: ${props.color || colourPurple};
       transition: ${defaultTransition};
       position: absolute;
       content: "";

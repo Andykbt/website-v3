@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { FadeIn } from "@website-v3/web/helpers/springs";
-import { H2, H3 } from "@website-v3/web/styles/typography";
+import { A, H2, H3 } from "@website-v3/web/styles/typography";
 import {
   Center,
   StarsBG,
@@ -48,12 +48,12 @@ export const Experience = ({
     return (
       <FadeIn key={key}>
         <H3>{experiences[selected].role} 
-          <a 
+          <A
+            color={colourCyan}
             href={experiences[selected].companyLink}
-            style={{color: colourCyan}}
           >
             &nbsp;@ {experiences[selected].company}
-          </a>
+          </A>
         </H3>
 
         <sub>
