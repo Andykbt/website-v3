@@ -4,7 +4,8 @@ import { colourLightBrown, colourBlack, smBreakpoint, defaultTransition, colourD
 export const ProjectsContainer = styled.div`
   padding: 5vh 5vw;
   position: relative;
-  border-top: solid 1px ${colourLightBrown};
+  border-top: dotted 1px ${colourLightBrown};
+  border-bottom: dotted 1px ${colourLightBrown};
 `;
 
 export const ImageSlider = styled.div<{

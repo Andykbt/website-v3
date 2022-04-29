@@ -6,7 +6,8 @@ import {
   About,
   Experience,
   Footer,
-  Hero
+  Hero,
+  Blog,
 } from "@website-v3/web/components";
 import { SanityClient } from "@website-v3/web/lib/sanity";
 import { FeaturedContent, SkillType } from "@website-v3/web/constants/types";
@@ -20,6 +21,7 @@ type Props = {
   experience: any[],
   skills: SkillType[],
   featuredContent: FeaturedContent[],
+  articles: any[],
   algolia: any,
 }
 
@@ -28,7 +30,8 @@ const Home: NextPage<Props> = ({
   experience,
   skills,
   featuredContent,
-  algolia
+  algolia,
+  articles,
 }: Props) => {
   const setFeatured = useSetRecoilState(featuredContentState);
   const setAlgolia = useSetRecoilState(algoliaState);
@@ -37,7 +40,6 @@ const Home: NextPage<Props> = ({
     setFeatured(featuredContent);
     setAlgolia(algolia);
   }, []);
-
   return (
     <>
       <Head>
@@ -48,6 +50,7 @@ const Home: NextPage<Props> = ({
       <Experience experiences={experience}/>
       <Skills pages={5} skills={skills}/>
       <Projects projects={projects}/>
+      <Blog articles={articles}/>
       <Footer/>
     </>
   );
@@ -60,6 +63,10 @@ export async function getServerSideProps() {
   }`);
   const experience = await SanityClient.fetch("*[ _type == 'experience' ] | order(dateFinished desc)");
   const skills = await SanityClient.fetch("* [ _type == 'skills' ]");
+  const articles = await SanityClient.fetch(`* [_type == 'article' ] {
+    "imageUrl": image.asset -> url,
+    ...
+  }`);
   const { featuredContent, algolia } = await initPages();
 
   if (!projects.length) {
@@ -73,7 +80,8 @@ export async function getServerSideProps() {
         experience,
         skills,
         featuredContent,
-        algolia
+        algolia,
+        articles
       },
     };
   }
