@@ -96,7 +96,7 @@ export const ExpandBorder: React.FC<ExpandBorderProps> = ({
       : `0 0 0 0px ${colourBlack}, 0 0 0 0px ${colourLightBrown}, 0 0 ${colourLightBrown}, 0 0 ${colourLightBrown}`,
     cursor: "pointer",
     overflow: "hidden",
-    // width: "fit-content",
+
     margin: "none",
     config: config.stiff,
   });
