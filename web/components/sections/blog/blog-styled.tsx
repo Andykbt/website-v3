@@ -44,6 +44,7 @@ export const ImageWrapper = styled.div`
   overflow: hidden;
   height: 500px;
   position: relative;
+  cursor: none;
 `;
 
 export const MoreArticlesSoon = styled.div`
