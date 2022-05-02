@@ -12,7 +12,7 @@ export const Mouse = ({
   const path = useRecoilValue(mouseImageState);
 
   useEffect(() => {
-    const update = (e) => {
+    const update = (e: any) => {
       const { clientX, clientY } = e;
   
       const mouseX = clientX - ref.current!.clientWidth / 2;

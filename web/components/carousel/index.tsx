@@ -12,7 +12,7 @@ const Carousel: React.FC<{index: number}> = ({
   const [initialMPos, setInitialMPos] = useState<number>(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseDown = (e) => {
+  const handleMouseDown = (e: any) => {
     const { clientX } = e;
     
     setMouseDown(true);
@@ -37,10 +37,10 @@ const Carousel: React.FC<{index: number}> = ({
     }
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: any) => {
     if (!isMouseDown) return;
 
-    const slider = sliderRef.current!
+    const slider = sliderRef.current!;
     const style = window.getComputedStyle(slider);
     const { m41 } = new WebKitCSSMatrix(style.transform);
     const { clientX } = e;
