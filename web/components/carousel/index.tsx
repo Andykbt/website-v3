@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useIsTablet } from "@website-v3/web/helpers/hooks/useWindowDims";
-import { Carousel as StyledCarousel, Inner, Wrapper } from "./carousel-styled";
+import { Carousel as StyledCarousel, Inner } from "./carousel-styled";
 
 const Carousel: React.FC<{index: number}> = ({
   index,
