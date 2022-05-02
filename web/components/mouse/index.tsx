@@ -28,14 +28,6 @@ export const Mouse = ({
     };
   }, []);
 
-  useEffect(() => {
-    console.log("path: ", path);
-  }, [path]);
-
-  useEffect(() => {
-    console.log("show: ", show);
-  }, [show]);
-
   return (
     <Circle ref={ref} show={show} path={path}/>
   );
