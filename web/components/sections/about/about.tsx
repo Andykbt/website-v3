@@ -29,7 +29,7 @@ export const About = () => {
         <AboutBody>
           <TextTrail on={inView}>
             <div>
-              {"Currently in my final year of Computer Science."}
+              {"Currently in my final year of Computer Science. "}
               {"You can find me on "} <A href="https://www.linkedin.com/in/andy-truong-591449216/">LinkedIn</A>
               {", throw me a follow on "} <A href="https://github.com/Andykbt">Github</A> {" or "} 
               {"come look at what I've been working on"} <A href={`${baseUrl}projects`}>here</A>.
