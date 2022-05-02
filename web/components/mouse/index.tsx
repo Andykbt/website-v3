@@ -1,12 +1,15 @@
 import React, { useEffect, useRef } from "react";
+import { useRecoilValue } from "recoil";
+import { mouseImageState } from "../../helpers/state/atoms";
 import { Circle } from "./mouse-styled";
 
 export const Mouse = ({
-  expand
+  show,
 } : {
-  expand: boolean
+  show: boolean,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const path = useRecoilValue(mouseImageState);
 
   useEffect(() => {
     const update = (e) => {
@@ -25,7 +28,15 @@ export const Mouse = ({
     };
   }, []);
 
+  useEffect(() => {
+    console.log("path: ", path);
+  }, [path]);
+
+  useEffect(() => {
+    console.log("show: ", show);
+  }, [show]);
+
   return (
-    <Circle ref={ref} expand={expand}/>
+    <Circle ref={ref} show={show} path={path}/>
   );
 };

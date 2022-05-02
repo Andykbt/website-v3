@@ -12,9 +12,10 @@ import {
 import { SanityClient } from "@website-v3/web/lib/sanity";
 import { FeaturedContent, SkillType } from "@website-v3/web/constants/types";
 import Head from "next/head";
-import { useSetRecoilState } from "recoil";
-import { algoliaState, featuredContentState } from "../helpers/state/atoms";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { algoliaState, featuredContentState, showMouseState } from "../helpers/state/atoms";
 import { initPages } from "../helpers/initPage";
+import { Mouse } from "../components/mouse";
 
 type Props = {
   projects: any[],
@@ -35,16 +36,19 @@ const Home: NextPage<Props> = ({
 }: Props) => {
   const setFeatured = useSetRecoilState(featuredContentState);
   const setAlgolia = useSetRecoilState(algoliaState);
+  const showMouse = useRecoilValue(showMouseState);
 
   useEffect(() => {
     setFeatured(featuredContent);
     setAlgolia(algolia);
   }, []);
+
   return (
     <>
       <Head>
         <title>Andy Truong</title>
       </Head>
+      <Mouse show={showMouse}/>
       <Hero/>
       <About/>
       <Experience experiences={experience}/>

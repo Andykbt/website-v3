@@ -3,7 +3,6 @@ import { Project } from "@website-v3/web/constants/types";
 import { Body1, H2 } from "@website-v3/web/styles/typography";
 import {
   ArrowContainer,
-  ImageSlider,
   IndexContainer,
   Name,
   ProjectContainer,
@@ -12,9 +11,8 @@ import {
 import { ProjectTextHover } from "@website-v3/web/helpers/springs";
 import { useRouter } from "next/router";
 import ArrowSvg from "@website-v3/web/styles/svg/Arrow-svg";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { hoveredProjectState } from "@website-v3/web/helpers/state/atoms";
-import useMouse from "@react-hook/mouse-position";
+import { useSetRecoilState } from "recoil";
+import { mouseImageState, showMouseState } from "@website-v3/web/helpers/state/atoms";
 
 type ProjectsProps = {
   projects: Project[],
@@ -30,11 +28,7 @@ type ProjectProps = {
 export const Projects = ({
   projects
 }: ProjectsProps) => {
-  const image = useRecoilValue(hoveredProjectState);
   const ref = useRef<HTMLDivElement>(null);
-  const mouse = useMouse(ref, {
-    fps: 60,
-  });
 
   const renderProjects = () => {
     return projects.map((project: Project, index: number) =>
@@ -51,7 +45,6 @@ export const Projects = ({
   return (
     <ProjectsContainer ref={ref}>
       <H2 margin="0 0 10vh">{"<Projects>"}</H2>
-      <ImageSlider image={image} x={mouse.clientX} y={mouse.clientY} />
       <div style={{position: "relative", zIndex: 1}}>
         {renderProjects()}
         <ProjectComponent
@@ -72,7 +65,8 @@ export const ProjectComponent = ({
   url,
   image
 }: ProjectProps) => {
-  const setProject = useSetRecoilState(hoveredProjectState);
+  const setProject = useSetRecoilState(mouseImageState);
+  const setShowMouse = useSetRecoilState(showMouseState);
   const [isHovered, setHovered] = useState(false);
   const router = useRouter();
 
@@ -80,10 +74,12 @@ export const ProjectComponent = ({
     <ProjectContainer
       onClick={() => router.push(`/projects/${url}`)} data-testid={"projects.redirect-link"}
       onMouseOver={() => {
+        setShowMouse(true);
         setProject(image);
         setHovered(true);
       }}  
       onMouseLeave={() => {
+        setShowMouse(false);
         setProject("");
         setHovered(false);
       }}

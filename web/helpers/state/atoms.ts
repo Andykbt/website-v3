@@ -16,7 +16,12 @@ export const algoliaState = atom({
   default: {} as AlgoliaConfig
 });
 
-export const hoveredProjectState = atom({
-  key: "hoveredProject",
+export const mouseImageState = atom({
+  key: "mouseImage",
   default: "" as string,
+});
+
+export const showMouseState = atom({
+  key: "showMouse",
+  default: false as boolean,
 });

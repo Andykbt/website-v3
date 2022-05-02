@@ -8,28 +8,8 @@ export const ProjectsContainer = styled.div`
   border-bottom: dotted 1px ${colourLightBrown};
 `;
 
-export const ImageSlider = styled.div<{
-  image: string,
-  x: number | null,
-  y: number | null,
-}>`
-  background-image: url(${props => props.image});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  border-radius: 25px;
-  z-index: 0;
-  width: 22.22vh;
-  height: 22.22vh;
-  cursor: pointer;
-  left: ${props => props.x}px;
-  top: ${props => props.y}px;
-`;
-
 export const ProjectContainer = styled.div`
-  cursor: pointer;
+  cursor: none;
   z-index: 1;
 `;
 

@@ -9,7 +9,8 @@ import { CarouselItem } from "@website-v3/web/components/carousel/carousel-style
 import { ExpandBorder } from "@website-v3/web/helpers/springs";
 import { baseUrl } from "@website-v3/web/constants/types";
 import { useRouter } from "next/router";
-import { Mouse } from "../../mouse";
+import { showMouseState } from "@website-v3/web/helpers/state/atoms";
+import { useSetRecoilState } from "recoil";
 
 type BlogProps = {
   articles: any[],
@@ -19,7 +20,6 @@ export const Blog = ({
   articles
 }: BlogProps) => {
   const [selected, setSelected] = useState(0);
-  const [showCursor, setShowCursor] = useState(false);
 
   const renderTitles = () => {
     return articles.map((item, index) =>
@@ -43,14 +43,12 @@ export const Blog = ({
         imageUrl={item.imageUrl}
         portableText={item.excerpt}
         category={item.category}
-        setShowCursor={setShowCursor}
       />
     );
   };
 
   return (
     <>
-      <Mouse expand={showCursor} />
       <H1 textDirection="center">Blog</H1>
       <Body1 textDirection="center">A personal diary and log of things i find interesting</Body1>
 
@@ -71,16 +69,15 @@ const BlogCard = ({
   imageUrl,
   portableText,
   category,
-  setShowCursor
 } : {
   slug: string,
   imageUrl: string,
   portableText: any[],
   category: string,
-  setShowCursor: (v: boolean) => void,
 }) => {
   const url = `${baseUrl}blog/${slug}`;
   const [hover, setHover] = useState(false);
+  const setShowMouse = useSetRecoilState(showMouseState);
   const router = useRouter();
   const ref = useRef(null);
 
@@ -94,8 +91,8 @@ const BlogCard = ({
         <ExpandBorder on={hover}>
           <ImageWrapper
             ref={ref} 
-            onMouseEnter={() => setShowCursor(true)}
-            onMouseLeave={() => setShowCursor(false)}
+            onMouseEnter={() => setShowMouse(true)}
+            onMouseLeave={() => setShowMouse(false)}
           >
             <Image src={imageUrl} layout="fill" objectFit="cover"/>
           </ImageWrapper>
