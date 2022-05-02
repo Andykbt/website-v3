@@ -3,12 +3,11 @@ import { smBreakpoint } from "@website-v3/web/styles";
 
 export const Carousel = styled.div`
   overflow: hidden;
+  white-space: nowrap;
 `;
 
-export const Inner = styled.div<{translateX: number}>`
-  white-space: nowrap;
+export const Inner = styled.div`
   transition: transform 0.3s;
-  transform: translateX(-${props => props.translateX}%);
 `;
 
 export const CarouselItem = styled.div`
@@ -17,6 +16,13 @@ export const CarouselItem = styled.div`
   justify-content: center;
   width: 60%;
   margin-right: 6.6666%;
+  
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 
   @media (max-width: ${smBreakpoint}) {
     width: 100%;

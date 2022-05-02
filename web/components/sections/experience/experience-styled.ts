@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { colourBlack, colourCyan, colourDarkGrey, colourLightBrown, mdBreakpoint, smBreakpoint, xsBreakpoint } from "@website-v3/web/styles/";
 
 export const StarsBG = styled.div`
@@ -7,10 +7,22 @@ export const StarsBG = styled.div`
     position: relative;
 `;
 
+const float = keyframes`
+    0% {
+        transform: translateY(calc(25vh - 0px));
+    }
+    50% {
+        transform: translateY(calc(25vh - 20px));
+    }
+    100% {
+        transform: translateY(calc(25vh - 0px));
+    }
+`;
+
 export const Center = styled.div`
-    transform: translateY(25vh);
-    margin: auto;
+    animation: ${float} 6s linear infinite;
     background-color: ${colourBlack};
+    margin: auto;
     width: 50vw;
 
     @media (max-width: ${smBreakpoint}) {
