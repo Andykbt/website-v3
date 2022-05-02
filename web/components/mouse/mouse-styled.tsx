@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colourLightBrown, colourDarkGrey } from "@website-v3/web/styles";
 
-export const Circle = styled.div<{show: boolean, path: string}>`
+export const Circle = styled.div<{show: boolean, path: string, isDrag: boolean}>`
   ${props => props.path === "" ? `
     width: ${props.show ? 100 : 0}px;
     height: ${props.show ? 100 : 0}px;
@@ -17,7 +17,7 @@ export const Circle = styled.div<{show: boolean, path: string}>`
     pointer-events: none;
 
     &:after {
-      content: "Explore";
+      content: "${props.isDrag ? "Drag" : "Explore"}";
       color: ${colourLightBrown};
       position: absolute;
       top: 50%;

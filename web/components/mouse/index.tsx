@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
-import { mouseImageState } from "../../helpers/state/atoms";
+import { isCarouselDrag, mouseImageState } from "@website-v3/web/helpers/state/atoms";
 import { Circle } from "./mouse-styled";
 
 export const Mouse = ({
@@ -10,6 +10,7 @@ export const Mouse = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const path = useRecoilValue(mouseImageState);
+  const isDrag = useRecoilValue(isCarouselDrag);
 
   useEffect(() => {
     const update = (e: any) => {
@@ -29,6 +30,6 @@ export const Mouse = ({
   }, []);
 
   return (
-    <Circle ref={ref} show={show} path={path}/>
+    <Circle ref={ref} show={show} path={path} isDrag={isDrag} />
   );
 };

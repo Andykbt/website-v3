@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useIsTablet } from "@website-v3/web/helpers/hooks/useWindowDims";
 import { Carousel as StyledCarousel, Inner } from "./carousel-styled";
+import { useSetRecoilState } from "recoil";
+import { isCarouselDrag } from "@website-v3/web/helpers/state/atoms";
 
 const Carousel: React.FC<{index: number}> = ({
   index,
@@ -10,6 +12,8 @@ const Carousel: React.FC<{index: number}> = ({
   const translateOffset = isTablet ? 100 : 66.666;
   const [isMouseDown, setMouseDown] = useState<boolean>(false);
   const [initialMPos, setInitialMPos] = useState<number>(0);
+  const setDrag = useSetRecoilState(isCarouselDrag);
+  
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const handleMouseDown = (e: any) => {
@@ -22,6 +26,7 @@ const Carousel: React.FC<{index: number}> = ({
   const handleSnap = () => {
     const slider = sliderRef.current!;
     setMouseDown(false);
+    setDrag(false);
 
     const style = window.getComputedStyle(slider);
     const { m41 } = new WebKitCSSMatrix(style.transform);
@@ -40,6 +45,7 @@ const Carousel: React.FC<{index: number}> = ({
   const handleMouseMove = (e: any) => {
     if (!isMouseDown) return;
 
+    setDrag(true);
     const slider = sliderRef.current!;
     const style = window.getComputedStyle(slider);
     const { m41 } = new WebKitCSSMatrix(style.transform);

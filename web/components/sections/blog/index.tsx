@@ -9,8 +9,8 @@ import { CarouselItem } from "@website-v3/web/components/carousel/carousel-style
 import { ExpandBorder } from "@website-v3/web/helpers/springs";
 import { baseUrl } from "@website-v3/web/constants/types";
 import { useRouter } from "next/router";
-import { showMouseState } from "@website-v3/web/helpers/state/atoms";
-import { useSetRecoilState } from "recoil";
+import { isCarouselDrag, showMouseState } from "@website-v3/web/helpers/state/atoms";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 type BlogProps = {
   articles: any[],
@@ -78,6 +78,7 @@ const BlogCard = ({
   const url = `${baseUrl}blog/${slug}`;
   const [hover, setHover] = useState(false);
   const setShowMouse = useSetRecoilState(showMouseState);
+  const isDrag = useRecoilValue(isCarouselDrag);
   const router = useRouter();
   const ref = useRef(null);
 
@@ -85,25 +86,26 @@ const BlogCard = ({
     <CarouselItem 
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}  
-      onMouseDown={() => router.push(url)}
     >
-      <ExcerptContainer>
-        <ExpandBorder on={hover}>
-          <ImageWrapper
-            ref={ref} 
-            onMouseEnter={() => setShowMouse(true)}
-            onMouseLeave={() => setShowMouse(false)}
-          >
-            <Image src={imageUrl} layout="fill" objectFit="cover"/>
-          </ImageWrapper>
-        </ExpandBorder>
-        <div style={{marginTop: 10, overflow: "hidden"}}>
-          <Badge label={category}/>
-          <div>
-            <PortableText value={portableText}/>
+      <a href={isDrag ? "javascript:(0)" : url }>
+        <ExcerptContainer>
+          <ExpandBorder on={hover}>
+            <ImageWrapper
+              ref={ref} 
+              onMouseEnter={() => setShowMouse(true)}
+              onMouseLeave={() => setShowMouse(false)}
+            >
+              <Image src={imageUrl} layout="fill" objectFit="cover"/>
+            </ImageWrapper>
+          </ExpandBorder>
+          <div style={{marginTop: 10, overflow: "hidden"}}>
+            <Badge label={category}/>
+            <div>
+              <PortableText value={portableText}/>
+            </div>
           </div>
-        </div>
-      </ExcerptContainer>
+        </ExcerptContainer>
+      </a>
     </CarouselItem>
   );
 };

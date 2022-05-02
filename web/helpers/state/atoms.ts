@@ -25,3 +25,8 @@ export const showMouseState = atom({
   key: "showMouse",
   default: false as boolean,
 });
+
+export const isCarouselDrag = atom({
+  key: "isCarouselDrag",
+  default: false as boolean,
+});
