@@ -42,20 +42,22 @@ const TechItemWrapper = ({
   const [hover, setHover] = useState<boolean>(false);
 
   return (
-    <ExpandBorder on={hover} borderRadius="9999px">
-      <TechItem
-        href={link}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        <Image
-          width={32}
-          height={32}
-          src={url}
-        />
-        <Body1>{name}</Body1>
-      </TechItem>
-    </ExpandBorder>
+    <div style={{width: "fit-content"}}>
+      <ExpandBorder on={hover} borderRadius="9999px">
+        <TechItem
+          href={link}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
+          <Image
+            width={32}
+            height={32}
+            src={url}
+          />
+          <Body1>{name}</Body1>
+        </TechItem>
+      </ExpandBorder>
+    </div>
   );
 };
 
