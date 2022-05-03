@@ -28,9 +28,12 @@ export const Circle = styled.div<{show: boolean, path: string, isDrag: boolean}>
     height: 22.22vh;
 
     z-index: 10;
-    // border-radius: 25px;
     border-radius: 50%;
     position: fixed;
+
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
