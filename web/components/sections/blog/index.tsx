@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { H1, Body1 } from "@website-v3/web/styles";
 import Image from "next/image";
 import { BlogArticle, BlogContainer, ExcerptContainer, ImageWrapper, Titles } from "./blog-styled";
@@ -8,7 +8,6 @@ import Carousel from "@website-v3/web/components/carousel";
 import { CarouselItem } from "@website-v3/web/components/carousel/carousel-styled";
 import { ExpandBorder } from "@website-v3/web/helpers/springs";
 import { baseUrl } from "@website-v3/web/constants/types";
-import { useRouter } from "next/router";
 import { isCarouselDrag, showMouseState } from "@website-v3/web/helpers/state/atoms";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
@@ -79,15 +78,24 @@ const BlogCard = ({
   const [hover, setHover] = useState(false);
   const setShowMouse = useSetRecoilState(showMouseState);
   const isDrag = useRecoilValue(isCarouselDrag);
-  const router = useRouter();
   const ref = useRef(null);
+  const redirectRef = useRef<HTMLAnchorElement>(null);
 
+  useEffect(() => {
+    if (isDrag) {
+      redirectRef.current!.href = "javascript:(0)";
+    } else if (!isDrag) {
+      setTimeout(() => {
+        redirectRef.current!.href = url;
+      }, 10);
+    }
+  }, [isDrag]);
   return(
     <CarouselItem 
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}  
     >
-      <a href={isDrag ? "javascript:(0)" : url }>
+      <a ref={redirectRef}>
         <ExcerptContainer>
           <ExpandBorder on={hover}>
             <ImageWrapper
