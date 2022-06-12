@@ -8,8 +8,8 @@ import Carousel from "@website-v3/web/components/carousel";
 import { CarouselItem } from "@website-v3/web/components/carousel/carousel-styled";
 import { ExpandBorder } from "@website-v3/web/helpers/springs";
 import { baseUrl } from "@website-v3/web/constants/types";
-import { isCarouselDrag, showMouseState } from "@website-v3/web/helpers/state/atoms";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { showMouseState } from "@website-v3/web/helpers/state/atoms";
+import { useSetRecoilState } from "recoil";
 
 type BlogProps = {
   articles: any[],
@@ -77,19 +77,9 @@ const BlogCard = ({
   const url = `${baseUrl}blog/${slug}`;
   const [hover, setHover] = useState(false);
   const setShowMouse = useSetRecoilState(showMouseState);
-  const isDrag = useRecoilValue(isCarouselDrag);
   const ref = useRef(null);
   const redirectRef = useRef<HTMLAnchorElement>(null);
 
-  useEffect(() => {
-    if (isDrag) {
-      redirectRef.current!.href = "javascript:(0)";
-    } else if (!isDrag) {
-      setTimeout(() => {
-        redirectRef.current!.href = url;
-      }, 10);
-    }
-  }, [isDrag]);
   return(
     <CarouselItem 
       onMouseEnter={() => setHover(true)}
