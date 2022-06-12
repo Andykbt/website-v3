@@ -8,6 +8,7 @@ import { NextPageContext } from "next";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import Image from "next/image";
+import { ImageWrapper } from "../../../components/sections/blog/blog-styled";
 
 type Props = {
   article: Article,
@@ -40,13 +41,17 @@ const ArticlePage = ({ article } : Props) => {
             components={{
               a: ({...props}: any) => <A href={props.href}>{props.children}</A>,
               img: ({...props}: any) =>
-                <Image
-                  src={props.src}
-                  width={720}
-                  height={720}
-                  placeholder="blur"
-                  blurDataURL="/stars.gif"
-                />,
+                <ImageWrapper>
+                  <Image
+                    src={props.src}
+                    width={160}
+                    height={160}
+                    layout="fill"
+                    objectFit="contain"
+                    placeholder="blur"
+                    blurDataURL="/stars.gif"
+                  />
+                </ImageWrapper>
             }}
           >
             {article.body}

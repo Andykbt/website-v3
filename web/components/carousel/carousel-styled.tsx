@@ -28,4 +28,8 @@ export const CarouselItem = styled.div`
     width: 100%;
     margin-right: 0;
   }
+
+  & p {
+    white-space: normal;
+  }
 `;

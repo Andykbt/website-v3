@@ -116,9 +116,7 @@ const BlogCard = ({
           </ExpandBorder>
           <div style={{marginTop: 10, overflow: "hidden"}}>
             <Badge label={category}/>
-            <div>
-              <PortableText value={portableText}/>
-            </div>
+            <PortableText value={portableText}/>
           </div>
         </ExcerptContainer>
       </a>
