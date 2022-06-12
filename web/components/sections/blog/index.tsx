@@ -18,13 +18,32 @@ type BlogProps = {
 export const Blog = ({
   articles
 }: BlogProps) => {
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState<number>(0);
+  const [progress, setProgress] = useState<number>(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress(prev => prev + 10);
+      if (progress === 100) {
+        setProgress(0);
+        setSelected(prev => prev + 1);
+
+        if (selected === articles.length - 1) {
+          setSelected(0);
+        }
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [progress]);
 
   const renderTitles = () => {
     return articles.map((item, index) =>
       <BlogArticle
         key={index}
+        progress={progress}
         onClick={() => {
+          setProgress(0);
           setSelected(index);
         }}
         selected={selected === index}
@@ -78,14 +97,13 @@ const BlogCard = ({
   const [hover, setHover] = useState(false);
   const setShowMouse = useSetRecoilState(showMouseState);
   const ref = useRef(null);
-  const redirectRef = useRef<HTMLAnchorElement>(null);
 
   return(
     <CarouselItem 
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}  
     >
-      <a ref={redirectRef}>
+      <a href={url}>
         <ExcerptContainer>
           <ExpandBorder on={hover}>
             <ImageWrapper
