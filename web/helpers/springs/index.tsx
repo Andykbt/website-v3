@@ -97,7 +97,7 @@ export const ExpandBorder: React.FC<ExpandBorderProps> = ({
     cursor: "pointer",
     overflow: "hidden",
 
-    margin: "none",
+    margin: 0,
     config: config.stiff,
   });
 

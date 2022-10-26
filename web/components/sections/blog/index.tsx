@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { H1, Body1 } from "@website-v3/web/styles";
 import Image from "next/image";
-import { BlogArticle, BlogContainer, ExcerptContainer, ImageWrapper, Titles } from "./blog-styled";
+import { BlogArticle, BlogContainer, ArticleContainer, ImageWrapper, Titles, ArticleInfo } from "./blog-styled";
 import Badge from "@website-v3/web/components/badge";
 import { PortableText } from "@portabletext/react";
 import Carousel from "@website-v3/web/components/carousel";
@@ -10,6 +10,7 @@ import { ExpandBorder } from "@website-v3/web/helpers/springs";
 import { baseUrl } from "@website-v3/web/constants/types";
 import { showMouseState } from "@website-v3/web/helpers/state/atoms";
 import { useSetRecoilState } from "recoil";
+import { useEffect } from "react";
 
 type BlogProps = {
   articles: any[],
@@ -59,6 +60,7 @@ export const Blog = ({
         key={index}
         slug={item.slug.current}
         imageUrl={item.imageUrl}
+        title={item.title}
         portableText={item.excerpt}
         category={item.category}
       />
@@ -85,11 +87,13 @@ export const Blog = ({
 const BlogCard = ({
   slug,
   imageUrl,
+  title,
   portableText,
   category,
 } : {
   slug: string,
   imageUrl: string,
+  title: string,
   portableText: any[],
   category: string,
 }) => {
@@ -101,11 +105,12 @@ const BlogCard = ({
   return(
     <CarouselItem 
       onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}  
+      onMouseLeave={() => setHover(false)}
     >
       <a href={url}>
-        <ExcerptContainer>
+        <ArticleContainer>
           <ExpandBorder on={hover}>
+            {/* (Wrapper for image)*/}
             <ImageWrapper
               ref={ref} 
               onMouseEnter={() => setShowMouse(true)}
@@ -113,12 +118,16 @@ const BlogCard = ({
             >
               <Image src={imageUrl} layout="fill" objectFit="cover"/>
             </ImageWrapper>
+
+            {/* (Contains title and excerpt for article)*/}
+            <ArticleInfo>
+              <h3 style={{whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis"}}>{title}</h3>
+              <PortableText value={portableText}/>
+            </ArticleInfo>
+
+            <Badge label={category} hover={hover}/>
           </ExpandBorder>
-          <div style={{marginTop: 10, overflow: "hidden"}}>
-            <Badge label={category}/>
-            <PortableText value={portableText}/>
-          </div>
-        </ExcerptContainer>
+        </ArticleContainer>
       </a>
     </CarouselItem>
   );
