@@ -11,6 +11,7 @@ import { baseUrl } from "@website-v3/web/constants/types";
 import { showMouseState } from "@website-v3/web/helpers/state/atoms";
 import { useSetRecoilState } from "recoil";
 import { useEffect } from "react";
+import Link from "next/link";
 
 type BlogProps = {
   articles: any[],
@@ -75,6 +76,7 @@ export const Blog = ({
       <BlogContainer>
         <Titles>
           {renderTitles()}
+          <Link href={"/blog"}><BlogArticle selected={false} progress={0}>Read more...</BlogArticle></Link>
         </Titles>
         <Carousel index={selected}>
           {renderExcerpts()}
