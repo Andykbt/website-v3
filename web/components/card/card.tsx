@@ -48,7 +48,7 @@ export const Card: React.FC<CardProps> = ({
       </a>
 
       <div style={{margin: "0.75em 0"}}>
-        {badgeText && <Badge label={badgeText} />}
+        {badgeText && <Badge label={badgeText} hover={false}/>}
         <H3 fontSize={fontSizeSmall}>{title}</H3>
         {excerpt &&
           <Body2><PortableText value={excerpt}/></Body2>
