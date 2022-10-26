@@ -7,7 +7,6 @@ import { colourBlack, fontSizeSmall } from "@website-v3/web/styles";
 import { PortableText } from "@portabletext/react";
 import { useRouter } from "next/router";
 import { Button } from "../button";
-import Badge from "../badge";
 
 type CardProps = {
   title: string,
@@ -26,7 +25,6 @@ export const Card: React.FC<CardProps> = ({
   canCopy,
   image,
   isSmall,
-  badgeText,
 }) => {
   const [hover, setHover] = useState(false);
   const router = useRouter();
@@ -48,7 +46,6 @@ export const Card: React.FC<CardProps> = ({
       </a>
 
       <div style={{margin: "0.75em 0"}}>
-        {badgeText && <Badge label={badgeText} hover={false}/>}
         <H3 fontSize={fontSizeSmall}>{title}</H3>
         {excerpt &&
           <Body2><PortableText value={excerpt}/></Body2>

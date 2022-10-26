@@ -6,6 +6,10 @@ export const Titles = styled.div`
   flex-direction: column;
   gap: 10px;
   padding: 25px 50px;
+  width: 75%;
+  @media (max-width: ${smBreakpoint}) {
+    width: 100%;
+  }
 `;
 
 export const BlogContainer = styled.div`

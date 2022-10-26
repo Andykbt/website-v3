@@ -34,7 +34,7 @@ export const Search = () => {
   return (
     <InstantSearch searchClient={algoliaClient} indexName={"production"}>
       <Configure
-        hitsPerPage={3}
+        hitsPerPage={9}
         analytics={false}
       />
 
