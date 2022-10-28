@@ -83,6 +83,10 @@ export const ProjectComponent = ({
         setProjectImage("");
         setHovered(false);
       }}
+      onMouseUp={() => {
+        setMouseState("default");
+        setProjectImage("");
+      }}
     >
       <IndexContainer>
         <Body1 fontSize="12px">Ø{index}</Body1>

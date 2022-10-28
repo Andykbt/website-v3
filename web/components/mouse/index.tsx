@@ -30,7 +30,7 @@ export const Mouse = () => {
   const handlePointerDown = () => {
     const attr = ref.current!.getAttribute("state");
 
-    if (attr === "default") {
+    if (attr === "default" || attr === "image") {
       ref.current!.style.left = "-7.5px";
       ref.current!.style.top = "-7.5px";
       ref.current!.style.height = "25px";
@@ -41,7 +41,7 @@ export const Mouse = () => {
   const handlePointerUp = () => {
     const attr = ref.current!.getAttribute("state");
 
-    if (attr === "default") {
+    if (attr === "default" || attr === "image") {
       ref.current!.style.left = "";
       ref.current!.style.top = "";
       ref.current!.style.height = "";
