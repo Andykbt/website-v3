@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colourLightBrown, colourDarkGrey } from "@website-v3/web/styles";
+import styled, { keyframes } from "styled-components";
+import { colourLightBrown, colourDarkGrey, colorGrey } from "@website-v3/web/styles";
 
 export const Circle = styled.div<{show: boolean, path: string}>`
   ${props => props.path === "" ? `
@@ -41,3 +41,61 @@ export const Circle = styled.div<{show: boolean, path: string}>`
     pointer-events: none;
   `
 }`;
+
+const rotate = keyframes`
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+`;
+
+export const Cursor = styled.div<{color: string | undefined, state: "default" | "image" | "inspect" | "hidden"}>`
+  background-color: ${props => props.color};
+  opacity: ${props => props.state === "hidden" ? "0" : "1"};
+  width: ${props => props.state === "inspect" ? "50px" : "10px"};
+  height: ${props => props.state === "inspect" ? "50px" : "10px"};
+  border-radius: 50%;
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+  top: 0px;
+  left: 0px;
+  transition-property: width, height, top, left, background-color;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.645,0.045,0.355,1);
+
+  & svg, & div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+`;
+
+export const Border = styled.div`
+  border: dashed 1px;
+  border-radius: 50px;
+  animation: ${rotate} 2s linear infinite;
+  padding: 20px;
+`;
+
+export const CursorShadow = styled.div<{state: "default" | "image" | "inspect" | "hidden"}>`
+  background-color: ${colorGrey};
+  opacity: ${props => props.state === "hidden" || props.state === "inspect" ? "0" : "0.5"};
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border-collapse:separate;
+  border-spacing:2px 0;
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+  left: -7.5px;
+  top: -7.5px;
+  transition: all 0.1s;
+`;
