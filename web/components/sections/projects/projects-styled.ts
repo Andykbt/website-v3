@@ -112,7 +112,6 @@ export const BackButton = styled.div`
   padding: 10px 19.25px;
   text-align: center;
   border-radius: 0%;
-  cursor: pointer;
   color: ${colourLightBrown};
   
   background-color: ${colourBlack};
@@ -134,7 +133,6 @@ export const NextProject = styled.div<{background: string}>`
   justify-content: center;
   margin: 5vh auto 0;
   width: 90vw;
-  cursor: pointer;
   transition: ${defaultTransition};
 
   &:hover {
