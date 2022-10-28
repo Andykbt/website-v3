@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { useSpring, animated as a, config } from "react-spring";
-import { colourBlack, colourDarkGrey, colourLightBrown, defaultTransition, fontSizeSmall, fontWeightBold, smBreakpoint } from "../../styles";
+import { colorGrey, colourBlack, colourLightBrown, defaultTransition, fontSizeSmall, fontWeightBold, smBreakpoint } from "../../styles";
 
 export const StyledHeader = styled.header`
   position: sticky;
@@ -22,13 +22,27 @@ export const StyledHeader = styled.header`
 export const HeaderItem = styled.div<{toggled: boolean}>`
   padding: 20px 13.5px;
   width: fit-content;
-  border-radius: 25px;
-  transition: ${defaultTransition};
   z-index: 2;
-  cursor: pointer;
-  
-  &:hover {
-    background: ${props => props.toggled ? "" : colourDarkGrey};
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    border-radius: 25px;
+    width: 0px;
+    height: 0px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition-property: width, height;
+    transition-duration: 0.25s;
+    transition-timing-function: cubic-bezier(0.645,0.045,0.355,1);
+    background: ${props => props.toggled ? colorGrey : colorGrey};
+  }
+
+  &:hover:before {
+    width: 50px;
+    height: 50px;
   }
 `;
 
@@ -42,7 +56,6 @@ export const HeaderSitemap = styled.div`
 `;
 
 export const NavItem = styled.div`
-  cursor: pointer;
   padding: 5px;
   margin: 5px;
   width: fit-content;
@@ -186,7 +199,6 @@ export const FeaturedContent = styled.div`
 
 export const FeaturedCardWrapper = styled.a`
   width: 200px;
-  cursor: pointer;
 
   &:hover div {
     border-radius: 25px;

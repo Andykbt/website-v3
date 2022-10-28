@@ -72,7 +72,6 @@ export const CardContainer = styled.div<{
   ${props => props.focus && "z-index: 1;"}
   left: ${props => props.left}%;
   transition: ${defaultTransition};
-  cursor: pointer;
   position: absolute;
   width: ${props => props.selected ? "500px" : "350px"};
   height: 350px;

@@ -1,11 +1,15 @@
 import styled from "styled-components";
-import { colourDarkGrey, colourLightBrown, colourPurple, defaultTransition, smBreakpoint } from "@website-v3/web/styles";
+import { colourLightBrown, colourPurple, defaultTransition, smBreakpoint } from "@website-v3/web/styles";
 
 export const Titles = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 25px 50px;
+  width: 75%;
+  @media (max-width: ${smBreakpoint}) {
+    width: 100%;
+  }
 `;
 
 export const BlogContainer = styled.div`
@@ -19,7 +23,6 @@ export const BlogContainer = styled.div`
 `;
 
 export const BlogArticle = styled.a<{selected:boolean, progress: number}>`
-  cursor: pointer;
   opacity: ${props => props.selected ? 1: 0.5};
   transition: ${defaultTransition};
   font-size: 12px;
@@ -43,13 +46,12 @@ export const BlogArticle = styled.a<{selected:boolean, progress: number}>`
     `}
 `;
 
-export const ExcerptContainer = styled.div`
+export const ArticleContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: ${colourDarkGrey};
-  padding: 15px;
   border-radius: 25px;
-  cursor: pointer;
+  position: relative;
+  width: 100%;
 `;
 
 export const ImageWrapper = styled.div`
@@ -67,6 +69,17 @@ export const ImageWrapper = styled.div`
     -webkit-user-select: none;
     -ms-user-select: none;
   }
+`;
+
+export const ArticleInfo = styled.div`
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5032606792717087) 0%, rgba(0,0,0,0) 100%);
+  margin: 0;
+  position: absolute;
+  bottom: 0px;
+  padding: 50% 25px 25px;
+  width: 100%;
+  border-radius: 0 0 0.5rem 0.5rem;
 `;
 
 export const MoreArticlesSoon = styled.div`

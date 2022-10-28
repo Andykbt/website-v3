@@ -1,9 +1,15 @@
 import styled from "styled-components";
 import { smBreakpoint } from "@website-v3/web/styles";
 
-export const Carousel = styled.div`
+export const Carousel = styled.div<{elements: number}>`
   overflow: hidden;
   white-space: nowrap;
+  padding: 20px 10px;
+  width: ${props => props.elements * 60}%;
+
+  @media (max-width: ${smBreakpoint}) {
+    width: 100% !important;
+  }
 `;
 
 export const Inner = styled.div`
@@ -26,10 +32,14 @@ export const CarouselItem = styled.div`
 
   @media (max-width: ${smBreakpoint}) {
     width: 100%;
-    margin-right: 0;
+    margin-right: 5%;
   }
 
   & p {
     white-space: normal;
+  }
+
+  & a {
+    cursor: none;
   }
 `;

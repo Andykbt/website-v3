@@ -8,5 +8,4 @@ export const ButtonContainer = styled.button<{background: string | undefined}>`
   border-radius: 9999px;
   border: solid 2px ${colourDarkGrey};
   background: ${props => props.background ? props.background : "transparent"};
-  cursor: pointer;
 `;

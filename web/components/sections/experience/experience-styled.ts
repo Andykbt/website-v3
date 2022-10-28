@@ -90,7 +90,6 @@ export const Button = styled.button`
     text-align: left;
     border-left: solid 5px ${colourDarkGrey};
     padding: 10px;
-    cursor: pointer;
     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
     color: ${colourLightBrown};
 

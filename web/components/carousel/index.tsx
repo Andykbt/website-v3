@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { Children, useEffect, useRef } from "react";
 import { useIsTablet } from "@website-v3/web/helpers/hooks/useWindowDims";
 import { Carousel as StyledCarousel, Inner } from "./carousel-styled";
 
@@ -7,7 +7,7 @@ const Carousel: React.FC<{index: number}> = ({
   children,
 }) => {
   const isTablet = useIsTablet();
-  const translateOffset = isTablet ? 100 : 66.666;
+  const translateOffset = isTablet ? 105 : 66.666;
   
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -16,7 +16,7 @@ const Carousel: React.FC<{index: number}> = ({
   }, [index]);
 
   return (
-    <StyledCarousel>
+    <StyledCarousel elements={Children.count(children)}>
       <Inner ref={sliderRef}>
         {children}
       </Inner>

@@ -5,6 +5,7 @@ import { Header } from "@website-v3/web/components";
 import { Url } from "@website-v3/web/constants/types";
 import { RecoilRoot } from "recoil";
 import { Progress } from "@website-v3/web/components/progress";
+import { Mouse } from "../components/mouse";
 
 const navItems: Url[] = [
   {
@@ -33,6 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
       <Progress />
+      <Mouse />
       <Header navItems={navItems} />
       <Component {...pageProps} />
     </RecoilRoot>

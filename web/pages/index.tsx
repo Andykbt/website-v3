@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import type { NextPage } from "next";
 import {
   Projects,
-  Skills,
+  // Skills,
   About,
   Experience,
   Footer,
@@ -12,10 +12,9 @@ import {
 import { SanityClient } from "@website-v3/web/lib/sanity";
 import { FeaturedContent, SkillType } from "@website-v3/web/constants/types";
 import Head from "next/head";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { algoliaState, featuredContentState, showMouseState } from "../helpers/state/atoms";
+import { useSetRecoilState } from "recoil";
+import { algoliaState, featuredContentState } from "../helpers/state/atoms";
 import { initPages } from "../helpers/initPage";
-import { Mouse } from "../components/mouse";
 
 type Props = {
   projects: any[],
@@ -29,14 +28,12 @@ type Props = {
 const Home: NextPage<Props> = ({
   projects,
   experience,
-  skills,
   featuredContent,
   algolia,
   articles,
 }: Props) => {
   const setFeatured = useSetRecoilState(featuredContentState);
   const setAlgolia = useSetRecoilState(algoliaState);
-  const showMouse = useRecoilValue(showMouseState);
 
   useEffect(() => {
     setFeatured(featuredContent);
@@ -48,11 +45,10 @@ const Home: NextPage<Props> = ({
       <Head>
         <title>Andy Truong</title>
       </Head>
-      <Mouse show={showMouse}/>
       <Hero/>
       <About/>
       <Experience experiences={experience}/>
-      <Skills pages={5} skills={skills}/>
+      {/* <Skills pages={5} skills={skills}/> */}
       <Projects projects={projects}/>
       <Blog articles={articles}/>
       <Footer/>

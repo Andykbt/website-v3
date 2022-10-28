@@ -12,7 +12,7 @@ import { ProjectTextHover } from "@website-v3/web/helpers/springs";
 import { useRouter } from "next/router";
 import ArrowSvg from "@website-v3/web/styles/svg/Arrow-svg";
 import { useSetRecoilState } from "recoil";
-import { mouseImageState, showMouseState } from "@website-v3/web/helpers/state/atoms";
+import { mouseImageState, mouseState } from "@website-v3/web/helpers/state/atoms";
 
 type ProjectsProps = {
   projects: Project[],
@@ -65,8 +65,8 @@ export const ProjectComponent = ({
   url,
   image
 }: ProjectProps) => {
-  const setProject = useSetRecoilState(mouseImageState);
-  const setShowMouse = useSetRecoilState(showMouseState);
+  const setProjectImage = useSetRecoilState(mouseImageState);
+  const setMouseState = useSetRecoilState(mouseState);
   const [isHovered, setHovered] = useState(false);
   const router = useRouter();
 
@@ -74,14 +74,18 @@ export const ProjectComponent = ({
     <ProjectContainer
       onClick={() => router.push(`/projects/${url}`)} data-testid={"projects.redirect-link"}
       onMouseOver={() => {
-        setShowMouse(true);
-        setProject(image);
+        setMouseState("image");
+        setProjectImage(image);
         setHovered(true);
       }}  
       onMouseLeave={() => {
-        setShowMouse(false);
-        setProject("");
+        setMouseState("default");
+        setProjectImage("");
         setHovered(false);
+      }}
+      onMouseUp={() => {
+        setMouseState("default");
+        setProjectImage("");
       }}
     >
       <IndexContainer>

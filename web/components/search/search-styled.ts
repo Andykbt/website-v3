@@ -5,7 +5,6 @@ import { colourBlack, colourDarkGrey, colourLightBrown, defaultTransition } from
 export const Hit = styled.div`
   display: flex;
   flex-direction: row;
-  cursor: pointer;
   gap: 25px;
   transition: ${defaultTransition};
   background: ${colourDarkGrey};

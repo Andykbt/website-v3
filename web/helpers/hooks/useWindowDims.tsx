@@ -37,7 +37,7 @@ export const useIsTablet = () => {
     return false;
   }
   
-  if (width < 768) {
+  if (width < 769) {
     return true;
   }
 
