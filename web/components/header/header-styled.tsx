@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { useSpring, animated as a, config } from "react-spring";
-import { colorGrey, colourBlack, colourDarkGrey, colourLightBrown, defaultTransition, fontSizeSmall, fontWeightBold, smBreakpoint } from "../../styles";
+import { colorGrey, colourBlack, colourLightBrown, defaultTransition, fontSizeSmall, fontWeightBold, smBreakpoint } from "../../styles";
 
 export const StyledHeader = styled.header`
   position: sticky;

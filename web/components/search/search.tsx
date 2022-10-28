@@ -1,5 +1,5 @@
 import algoliasearch from "algoliasearch";
-import React, { useState } from "react";
+import React from "react";
 import { InstantSearch, SearchBox, Hits, Configure, RefinementList } from "react-instantsearch-dom";
 import { useRecoilValue } from "recoil";
 import { algoliaState } from "@website-v3/web/helpers/state/atoms";
@@ -23,8 +23,6 @@ const Hit = ({
 };
 
 export const Search = () => {
-  const [showHits, setShowHits] = useState<boolean>(false);
-
   const algolia = useRecoilValue(algoliaState);
   const algoliaClient = algoliasearch(
     algolia.app_id,
@@ -38,10 +36,7 @@ export const Search = () => {
         analytics={false}
       />
 
-      <SearchBox
-        showLoadingIndicator
-        onChange={() => setShowHits(true)}
-      />
+      <SearchBox showLoadingIndicator/>
 
       <RefinementList
         attribute={"_type"}
