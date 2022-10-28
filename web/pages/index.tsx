@@ -51,7 +51,7 @@ const Home: NextPage<Props> = ({
       <Hero/>
       <About/>
       <Experience experiences={experience}/>
-      <Skills pages={5} skills={skills}/>
+      {/* <Skills pages={5} skills={skills}/> */}
       <Projects projects={projects}/>
       <Blog articles={articles}/>
       <Footer/>
