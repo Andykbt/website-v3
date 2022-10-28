@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { H1, Body1 } from "@website-v3/web/styles";
 import Image from "next/image";
 import { BlogArticle, BlogContainer, ArticleContainer, ImageWrapper, Titles, ArticleInfo } from "./blog-styled";
@@ -8,7 +8,7 @@ import Carousel from "@website-v3/web/components/carousel";
 import { CarouselItem } from "@website-v3/web/components/carousel/carousel-styled";
 import { ExpandBorder } from "@website-v3/web/helpers/springs";
 import { baseUrl } from "@website-v3/web/constants/types";
-import { showMouseState } from "@website-v3/web/helpers/state/atoms";
+import { mouseState } from "@website-v3/web/helpers/state/atoms";
 import { useSetRecoilState } from "recoil";
 import { useEffect } from "react";
 import Link from "next/link";
@@ -101,22 +101,24 @@ const BlogCard = ({
 }) => {
   const url = `${baseUrl}blog/${slug}`;
   const [hover, setHover] = useState(false);
-  const setShowMouse = useSetRecoilState(showMouseState);
-  const ref = useRef(null);
+  const setMouseState = useSetRecoilState(mouseState);
 
   return(
     <CarouselItem 
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      onMouseEnter={() => {
+        setHover(true);
+        setMouseState("inspect");
+      }}
+      onMouseLeave={() => {
+        setHover(false);
+        setMouseState("default");
+      }}
     >
       <a href={url}>
         <ArticleContainer>
           <ExpandBorder on={hover}>
             {/* (Wrapper for image)*/}
             <ImageWrapper
-              ref={ref} 
-              onMouseEnter={() => setShowMouse(true)}
-              onMouseLeave={() => setShowMouse(false)}
             >
               <Image src={imageUrl} layout="fill" objectFit="cover"/>
             </ImageWrapper>

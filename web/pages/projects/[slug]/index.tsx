@@ -24,6 +24,8 @@ import { useInView } from "react-intersection-observer";
 import { Body1 } from "../../../styles";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
+import { useSetRecoilState } from "recoil";
+import { mouseState } from "../../../helpers/state/atoms";
 
 type Props = {
   project: ProjectType,
@@ -67,6 +69,7 @@ const Project = ({
 }: Props) => {
   const router = useRouter(); 
   const [ref, inView] = useInView();
+  const setMouseState = useSetRecoilState(mouseState);
 
   const renderTechUsed = () => {    
     if (!project.technologies) {
@@ -92,7 +95,11 @@ const Project = ({
       </Head>
       <ProjectWrapper ref={ref}>
         <ImageContainer>
-          <BackButton onClick={() => router.back()} />
+          <BackButton
+            onClick={() => router.back()}
+            onMouseOver={() => setMouseState("hidden")}
+            onMouseLeave={() => setMouseState("default")}
+          />
           <Image
             src={project.imageUrl || "/stars.gif"}
             layout="fill"
