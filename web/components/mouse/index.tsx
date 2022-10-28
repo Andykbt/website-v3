@@ -9,7 +9,7 @@ import { colorGrey, colourDarkGrey } from "../../styles";
 export const Mouse = () => {
   const ref = useRef<HTMLDivElement>(null);
   const shadowRef = useRef<HTMLDivElement>(null);
-  const path = useRecoilValue(mouseImageState);
+  const imagePath = useRecoilValue(mouseImageState);
   const state = useRecoilValue(mouseState);
 
   const colors = new Map([
@@ -20,11 +20,12 @@ export const Mouse = () => {
   ]);
   const color = colors.get(state);
 
-  /* states */
-  // default -> small ball with following see thru circle
-  // image
-  // eye / explore ?, undecided
-  // hide
+  /* states
+  * default -> small ball with following see thru circle
+  * image
+  * inspect
+  * hidden
+  */
 
   const handlePointerDown = () => {
     const attr = ref.current!.getAttribute("state");
@@ -79,8 +80,7 @@ export const Mouse = () => {
 
   return (
     <>
-      {/* <Circle ref={ref} show={show} path={path} />*/}
-      <Cursor ref={ref} color={color} state={state}>
+      <Cursor ref={ref} color={color} state={state} image={imagePath}>
         {state === "inspect" && 
           <>
             <FontAwesomeIcon icon={faEye}/>

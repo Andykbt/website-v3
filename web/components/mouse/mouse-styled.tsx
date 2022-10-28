@@ -52,11 +52,12 @@ const rotate = keyframes`
   }
 `;
 
-export const Cursor = styled.div<{color: string | undefined, state: "default" | "image" | "inspect" | "hidden"}>`
+export const Cursor = styled.div<{color: string | undefined, state: "default" | "image" | "inspect" | "hidden", image: string}>`
   background-color: ${props => props.color};
   opacity: ${props => props.state === "hidden" ? "0" : "1"};
   width: ${props => props.state === "inspect" ? "50px" : "10px"};
   height: ${props => props.state === "inspect" ? "50px" : "10px"};
+  background-image: url("${props => props.image && props.image}");
   border-radius: 50%;
   position: fixed;
   z-index: 10;
