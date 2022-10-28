@@ -38,4 +38,8 @@ export const CarouselItem = styled.div`
   & p {
     white-space: normal;
   }
+
+  & a {
+    cursor: none;
+  }
 `;

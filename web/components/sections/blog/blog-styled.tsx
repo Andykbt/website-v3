@@ -23,7 +23,6 @@ export const BlogContainer = styled.div`
 `;
 
 export const BlogArticle = styled.a<{selected:boolean, progress: number}>`
-  cursor: pointer;
   opacity: ${props => props.selected ? 1: 0.5};
   transition: ${defaultTransition};
   font-size: 12px;
@@ -51,7 +50,6 @@ export const ArticleContainer = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 25px;
-  cursor: pointer;
   position: relative;
   width: 100%;
 `;
