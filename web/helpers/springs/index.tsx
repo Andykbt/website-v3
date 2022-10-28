@@ -94,7 +94,6 @@ export const ExpandBorder: React.FC<ExpandBorderProps> = ({
     boxShadow: on
       ? `0 0 0 4px ${colourBlack}, 0 0 0 6px ${colourLightBrown}, 0 0 ${colourLightBrown}, 0 0 ${colourLightBrown}`
       : `0 0 0 0px ${colourBlack}, 0 0 0 0px ${colourLightBrown}, 0 0 ${colourLightBrown}, 0 0 ${colourLightBrown}`,
-    cursor: "pointer",
     overflow: "hidden",
 
     margin: 0,

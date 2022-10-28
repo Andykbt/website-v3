@@ -9,7 +9,6 @@ export const ProjectsContainer = styled.div`
 `;
 
 export const ProjectContainer = styled.div`
-  cursor: none;
   z-index: 1;
 `;
 

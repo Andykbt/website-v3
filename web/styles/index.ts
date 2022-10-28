@@ -13,8 +13,9 @@ export const fontSizeXSmall = "1rem";
 
 /* Colours */
 export const colourBlack = "#232025";
-export const colourLightBrown = "#D5CDC4";
 export const colourDarkGrey = "#302B30";
+export const colorGrey = "#837C7A";
+export const colourLightBrown = "#D5CDC4";
 
 export const colourPurple = "#C38FFF"; //Loading colour
 

@@ -18,8 +18,8 @@ import { useRouter } from "next/router";
 import { fontSizeExtraLarge, colourBlack } from "@website-v3/web/styles";
 import { H1, H3, Body2 } from "@website-v3/web/styles/typography";
 import { animated, config, useSpring } from "react-spring";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { featuredContentState, showMenuState } from "@website-v3/web/helpers/state/atoms";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { featuredContentState, mouseState, showMenuState } from "@website-v3/web/helpers/state/atoms";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -32,6 +32,7 @@ export const Header = ({
 }: HeaderProps) => {
   const featuredContent = useRecoilValue(featuredContentState);
   const [toggleMenu, setToggle] = useRecoilState(showMenuState);
+  const setMouseState = useSetRecoilState(mouseState);
   const router = useRouter();
   
   const fade = useSpring({
@@ -111,8 +112,10 @@ export const Header = ({
       </Menu>
       <HeaderItem
         toggled={toggleMenu}
-
-        onMouseDown={() => setToggle(!toggleMenu)}>
+        onMouseOver={() => setMouseState("hidden")}
+        onMouseLeave={() => setMouseState("default")}
+        onMouseDown={() => setToggle(!toggleMenu)}
+      >
         <NavLine1 toggled={toggleMenu} />
         <NavLine2 toggled={toggleMenu} />
       </HeaderItem>

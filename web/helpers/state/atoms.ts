@@ -21,12 +21,12 @@ export const mouseImageState = atom({
   default: "" as string,
 });
 
-export const showMouseState = atom({
-  key: "showMouse",
-  default: false as boolean,
+export const mouseColorState = atom({
+  key: "mouseColor",
+  default: "" as string,
 });
 
-export const isCarouselDrag = atom({
-  key: "isCarouselDrag",
-  default: false as boolean,
+export const mouseState = atom({
+  key: "mouseState",
+  default: "default" as "default" | "image" | "inspect" | "hidden",
 });
