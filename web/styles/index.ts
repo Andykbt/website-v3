@@ -46,9 +46,11 @@ export const lgBreakpoint = "1280px";
 export const defaultTransition = "all 0.25s cubic-bezier(0.645,0.045,0.355,1)";
 
 export const disableSelect = () => {
-  return css`user-select: none; /* supported by Chrome and Opera */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */`;
+  return css`
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge testing*/
+  `;
 };
