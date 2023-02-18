@@ -1,5 +1,5 @@
-import { Contact } from '@website-v3/web/components/contact';
-import { ContactPageWrapper } from '@website-v3/web/components/contact/contact-styled';
+import { Contact } from '@website-v3/web/src/components/contact';
+import { ContactPageWrapper } from '@website-v3/web/src/components/contact/contact-styled';
 import { H1, fontSizeExtraLarge } from '@website-v3/web/styles';
 import Head from 'next/head';
 import React from 'react';

@@ -1,7 +1,7 @@
 import {
     EmbedWrapper,
     ResumePageWrapped,
-} from '@website-v3/web/components/resume/resume-styled';
+} from '@website-v3/web/src/components/resume';
 import { H1, fontSizeExtraLarge } from '@website-v3/web/styles';
 import Head from 'next/head';
 import React from 'react';

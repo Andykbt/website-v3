@@ -75,8 +75,8 @@ export const getServerSideProps = async (context: NextPageContext) => {
     const pageSlug = context.query.slug;
     const article = await SanityClient.fetch(
         `*[ _type == "article" && slug.current == "${pageSlug}"][0] {
-      "imageUrl": image.asset -> url,
-      ...,
+        "imageUrl": image.asset -> url,
+        ...,
     }`
     );
 

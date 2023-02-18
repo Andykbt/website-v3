@@ -12,25 +12,25 @@ export default async function handler(
             article: {
                 index: algoliaIndex,
                 projection: `{
-          title,
-          _type,
-          _createdAt,
-          "imageUrl": image.asset -> url,
-          projectLink,
-          "slug": slug.current,
-          category,
-        }`,
+                    title,
+                    _type,
+                    _createdAt,
+                    "imageUrl": image.asset -> url,
+                    projectLink,
+                    "slug": slug.current,
+                    category,
+                    }`,
             },
             project: {
                 index: algoliaIndex,
                 projection: `{
-          title,
-          _type,
-          _createdAt,
-          "imageUrl": image.asset -> url,
-          projectLink,
-          "slug": slug.current
-        }`,
+                    title,
+                    _type,
+                    _createdAt,
+                    "imageUrl": image.asset -> url,
+                    projectLink,
+                    "slug": slug.current
+                    }`,
             },
         },
         // Serializer function to manipulate documents

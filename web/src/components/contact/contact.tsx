@@ -1,9 +1,9 @@
 import emailjs from '@emailjs/browser';
+import { colourDarkGrey, colourLightBrown } from '@website-v3/web/styles';
 import React, { useRef, useState } from 'react';
 import { PulseLoader } from 'react-spinners';
 
 import { Button } from '..';
-import { colourDarkGrey, colourLightBrown } from '../../styles';
 import { Form, Input, Loading } from './contact-styled';
 
 type Props = {

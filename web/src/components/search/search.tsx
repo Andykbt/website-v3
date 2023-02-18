@@ -1,6 +1,6 @@
-import { Card } from '@website-v3/web/components/card';
-import { AlgoliaHit, baseUrl } from '@website-v3/web/constants/types';
-import { algoliaState } from '@website-v3/web/helpers/state/atoms';
+import { Card } from '@website-v3/web/src/components/card';
+import { AlgoliaHit, baseUrl } from '@website-v3/web/src/constants/types';
+import { algoliaState } from '@website-v3/web/src/helpers/state/atoms';
 import algoliasearch from 'algoliasearch';
 import React from 'react';
 import {

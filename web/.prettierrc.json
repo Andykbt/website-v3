@@ -2,7 +2,13 @@
     "singleQuote": true,
     "tabWidth": 4,
     "semi": true,
-    "importOrder": ["^@/(.*)$", "^[./]", "^[../]"],
+    "importOrder": [
+        "^@website-v3/(.*)$",
+        "next/(.*)$",
+        "^[./]",
+        "^[../]",
+        "(.*)$"
+    ],
     "importOrderSeparation": true,
     "importOrderSortSpecifiers": true
 }

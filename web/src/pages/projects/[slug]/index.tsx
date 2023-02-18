@@ -1,5 +1,6 @@
-import { Button, Footer } from '@website-v3/web/components';
-import { Separator } from '@website-v3/web/components/sections/about/about-styles';
+import { SanityClient } from '@website-v3/web/lib/sanity';
+import { Button, Footer } from '@website-v3/web/src/components';
+import { Separator } from '@website-v3/web/src/components/sections/about/about-styles';
 import {
     BackButton,
     ImageContainer,
@@ -10,20 +11,20 @@ import {
     ProjectWrapper,
     TechItem,
     Technologies,
-} from '@website-v3/web/components/sections/projects/projects-styled';
-import { Project as ProjectType } from '@website-v3/web/constants/types';
-import { ExpandBorder, TextTrail } from '@website-v3/web/helpers/springs';
-import { SanityClient } from '@website-v3/web/lib/sanity';
+} from '@website-v3/web/src/components/sections/projects/projects-styled';
+import { Project as ProjectType } from '@website-v3/web/src/constants/types';
+import { ExpandBorder, TextTrail } from '@website-v3/web/src/helpers/springs';
+import { mouseState } from '@website-v3/web/src/helpers/state/atoms';
+import { Body1 } from '@website-v3/web/styles';
+
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import ReactMarkdown from 'react-markdown';
 import { useSetRecoilState } from 'recoil';
-
-import { Body1 } from '../../../../styles';
-import { mouseState } from '../../../helpers/state/atoms';
 
 type Props = {
     project: ProjectType;

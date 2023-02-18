@@ -1,7 +1,7 @@
 import {
     AlgoliaConfig,
     FeaturedContent,
-} from '@website-v3/web/constants/types';
+} from '@website-v3/web/src/constants/types';
 import { atom } from 'recoil';
 
 export const showMenuState = atom({
