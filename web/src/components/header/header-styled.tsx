@@ -7,6 +7,7 @@ import {
     fontWeightBold,
     smBreakpoint,
 } from '@website-v3/web/styles';
+
 import React, { ReactNode } from 'react';
 import { animated as a, config, useSpring } from 'react-spring';
 import styled from 'styled-components';
@@ -197,28 +198,11 @@ export const MenuItems = styled.div`
     margin: 0 0.5%;
 `;
 
-export const FeaturedContent = styled.div`
-    display: flex;
-    gap: 25px;
-    justify-content: space-around;
-`;
-
 export const FeaturedCardWrapper = styled.a`
     width: 200px;
 
     &:hover div {
         border-radius: 25px;
-    }
-`;
-
-export const FeaturedContentWrapper = styled.div`
-    background: ${colourBlack};
-    color: ${colourLightBrown};
-    border-radius: 25px;
-    padding: 15px;
-
-    @media (max-width: ${smBreakpoint}) {
-        display: none;
     }
 `;
 

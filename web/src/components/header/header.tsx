@@ -1,23 +1,14 @@
-import { Url, baseUrl } from '@website-v3/web/src/constants/types';
+import { Url } from '@website-v3/web/src/constants/types';
 import {
-    featuredContentState,
     mouseState,
     showMenuState,
 } from '@website-v3/web/src/helpers/state/atoms';
 import { colourBlack, fontSizeExtraLarge } from '@website-v3/web/styles';
-import { Body2, H1, H3 } from '@website-v3/web/styles/typography';
-import Image from 'next/image';
-import Link from 'next/link';
+import { H1 } from '@website-v3/web/styles/typography';
+
 import { useRouter } from 'next/router';
-import React from 'react';
-import { animated, config, useSpring } from 'react-spring';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import {
-    FeaturedCard,
-    FeaturedCardWrapper,
-    FeaturedContent,
-    FeaturedContentWrapper,
     HeaderItem,
     HeaderSitemap,
     Menu,
@@ -28,12 +19,15 @@ import {
     StyledHeader,
 } from './header-styled';
 
+import React from 'react';
+import { animated, config, useSpring } from 'react-spring';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+
 type HeaderProps = {
     navItems: Url[];
 };
 
 export const Header = ({ navItems }: HeaderProps) => {
-    const featuredContent = useRecoilValue(featuredContentState);
     const [toggleMenu, setToggle] = useRecoilState(showMenuState);
     const setMouseState = useSetRecoilState(mouseState);
     const router = useRouter();
@@ -51,38 +45,10 @@ export const Header = ({ navItems }: HeaderProps) => {
                     router.push(item.url);
                     setToggle(false);
                 }}
-                role="header.navItems"
             >
                 <animated.div style={fade}>{item.name}</animated.div>
             </NavItem>
         ));
-    };
-
-    const renderFeaturedContent = () => {
-        return featuredContent.map((item) => {
-            const type = item._type == 'project' ? 'projects' : 'blog';
-            const url = `${baseUrl}${type}/${item.slug}`;
-            return (
-                <Link key={item._id} href={url}>
-                    <FeaturedCardWrapper onClick={() => setToggle(false)}>
-                        <FeaturedCard>
-                            <Image
-                                src={item.imageUrl}
-                                width={200}
-                                height={200}
-                            />
-                        </FeaturedCard>
-                        <Body2
-                            color="inherit"
-                            textDirection="center"
-                            margin="15px 0 0 0"
-                        >
-                            {item.title}
-                        </Body2>
-                    </FeaturedCardWrapper>
-                </Link>
-            );
-        });
     };
 
     return (
@@ -100,25 +66,6 @@ export const Header = ({ navItems }: HeaderProps) => {
 
                 <MenuItems>
                     <HeaderSitemap>{renderNavItems()}</HeaderSitemap>
-
-                    <div />
-
-                    {featuredContent.length !== 0 && (
-                        <animated.div style={fade}>
-                            <FeaturedContentWrapper>
-                                <H3
-                                    color="inherit"
-                                    textDirection="center"
-                                    margin="0 0 15px 0"
-                                >
-                                    Featured Content
-                                </H3>
-                                <FeaturedContent>
-                                    {renderFeaturedContent()}
-                                </FeaturedContent>
-                            </FeaturedContentWrapper>
-                        </animated.div>
-                    )}
                 </MenuItems>
             </Menu>
             <HeaderItem

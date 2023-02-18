@@ -7,28 +7,19 @@ import {
     smBreakpoint,
     xsBreakpoint,
 } from '@website-v3/web/styles/';
-import styled, { keyframes } from 'styled-components';
+
+import styled from 'styled-components';
 
 export const StarsBG = styled.div`
     min-height: 100vh;
     background-image: url('/stars.gif');
     position: relative;
-`;
-
-const float = keyframes`
-    0% {
-        transform: translateY(calc(25vh - 0px));
-    }
-    50% {
-        transform: translateY(calc(25vh - 20px));
-    }
-    100% {
-        transform: translateY(calc(25vh - 0px));
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const Center = styled.div`
-    animation: ${float} 6s linear infinite;
     background-color: ${colourBlack};
     margin: auto;
     width: 50vw;

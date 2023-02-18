@@ -1,5 +1,4 @@
 import { SanityClient } from '@website-v3/web/lib/sanity';
-import { Mouse } from '@website-v3/web/src/components/mouse';
 import {
     About,
     Blog,
@@ -8,51 +7,25 @@ import {
     Hero,
     Projects,
 } from '@website-v3/web/src/components/sections';
-import {
-    FeaturedContent,
-    SkillType,
-} from '@website-v3/web/src/constants/types';
-import { initPages } from '@website-v3/web/src/helpers/initPage';
-import {
-    algoliaState,
-    featuredContentState,
-} from '@website-v3/web/src/helpers/state/atoms';
-import type { NextPage } from 'next';
+
 import Head from 'next/head';
-import React, { useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
+
+import type { NextPage } from 'next';
+import React from 'react';
 
 type Props = {
     projects: any[];
     experience: any[];
-    skills: SkillType[];
-    featuredContent: FeaturedContent[];
     articles: any[];
-    algolia: any;
 };
 
-const Home: NextPage<Props> = ({
-    projects,
-    experience,
-    featuredContent,
-    algolia,
-    articles,
-}: Props) => {
-    const setFeatured = useSetRecoilState(featuredContentState);
-    const setAlgolia = useSetRecoilState(algoliaState);
-
-    useEffect(() => {
-        setFeatured(featuredContent);
-        setAlgolia(algolia);
-    }, []);
-
+const Home: NextPage<Props> = ({ projects, experience, articles }: Props) => {
     return (
         <>
             <Head>
                 <title>Andy Truong</title>
                 <meta property="og:title" content="Andy Truong" key="title" />
             </Head>
-            <Mouse />
             <Hero />
             <About />
             <Experience experiences={experience} />
@@ -66,35 +39,25 @@ const Home: NextPage<Props> = ({
 export async function getServerSideProps() {
     const projects =
         await SanityClient.fetch(`*[ _type == 'project' ] | order(_createdAt desc) {
-    "imageUrl": image.asset -> url,
-    ...
+            "imageUrl": image.asset -> url,
+            ...
     }`);
     const experience = await SanityClient.fetch(
         '*[ _type == "experience" ] | order(dateFinished desc)'
     );
-    const skills = await SanityClient.fetch('* [ _type == "skills" ]');
-    const articles = await SanityClient.fetch(`* [_type == 'article' ] {
-    "imageUrl": image.asset -> url,
-    ...
+    const articles =
+        await SanityClient.fetch(`* [_type == 'article' ] | order(publishedAt desc) {
+        "imageUrl": image.asset -> url,
+        ...
     }`);
-    const { featuredContent, algolia } = await initPages();
 
-    if (!projects.length) {
-        return {
-            props: {},
-        };
-    } else {
-        return {
-            props: {
-                projects,
-                experience,
-                skills,
-                featuredContent,
-                algolia,
-                articles,
-            },
-        };
-    }
+    return {
+        props: {
+            projects,
+            experience,
+            articles,
+        },
+    };
 }
 
 export default Home;

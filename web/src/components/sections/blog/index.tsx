@@ -1,4 +1,3 @@
-import { PortableText } from '@portabletext/react';
 import Badge from '@website-v3/web/src/components/badge';
 import Carousel from '@website-v3/web/src/components/carousel';
 import { CarouselItem } from '@website-v3/web/src/components/carousel/carousel-styled';
@@ -6,11 +5,9 @@ import { baseUrl } from '@website-v3/web/src/constants/types';
 import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
 import { mouseState } from '@website-v3/web/src/helpers/state/atoms';
 import { Body1, H1 } from '@website-v3/web/styles';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
 
 import {
     ArticleContainer,
@@ -20,6 +17,11 @@ import {
     ImageWrapper,
     Titles,
 } from './blog-styled';
+
+import { PortableText } from '@portabletext/react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useSetRecoilState } from 'recoil';
 
 type BlogProps = {
     articles: any[];
