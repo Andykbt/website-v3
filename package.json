@@ -8,32 +8,14 @@
     "@babel/core": "^7.16.12",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@types/jest": "^27.4.0",
-    "@types/next": "^9.0.0",
-    "@types/node": "^17.0.10",
-    "@types/react": "^17.0.38",
-    "@typescript-eslint/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/parser": "^5.10.0",
-    "babel-jest": "^27.4.6",
-    "jest": "^27.4.7",
-    "jest-config": "^27.4.7",
-    "jest-dom": "^4.0.0",
     "kill-port": "^1.6.1",
-    "lerna": "^4.0.0",
-    "react-icons": "^4.3.1",
-    "typescript": "^4.5.5"
+    "lerna": "^4.0.0"
   },
   "scripts": {
-    "test": "jest",
     "diff": "lerna diff",
     "dev": "kill-port 3000 && kill-port 3333 && lerna run dev --parallel --stream",
     "lint": "lerna run lint --parallel",
     "killall": "kill-port 3000 && kill-port 3333"
-  },
-  "dependencies": {
-    "ts-node": "^10.4.0"
   },
   "transform": {
     "^.+\\.js$": "babel-jest"
