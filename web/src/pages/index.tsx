@@ -7,7 +7,6 @@ import {
     Footer,
     Hero,
     Projects,
-    Skills,
 } from '@website-v3/web/src/components/sections';
 import {
     FeaturedContent,
@@ -35,7 +34,6 @@ type Props = {
 const Home: NextPage<Props> = ({
     projects,
     experience,
-    skills,
     featuredContent,
     algolia,
     articles,
@@ -52,13 +50,12 @@ const Home: NextPage<Props> = ({
         <>
             <Head>
                 <title>Andy Truong</title>
-                <meta property="og:title" content="My page title" key="title" />
+                <meta property="og:title" content="Andy Truong" key="title" />
             </Head>
             <Mouse />
             <Hero />
             <About />
             <Experience experiences={experience} />
-            <Skills pages={5} skills={skills} />
             <Projects projects={projects} />
             <Blog articles={articles} />
             <Footer />

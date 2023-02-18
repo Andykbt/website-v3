@@ -1,6 +1,6 @@
-import { Container, Flex } from '@website-v3/web/components/layout';
-import { baseUrl } from '@website-v3/web/constants/types';
-import { TextTrail } from '@website-v3/web/helpers/springs';
+import { Container, Flex } from '@website-v3/web/src/components/layout';
+import { baseUrl } from '@website-v3/web/src/constants/types';
+import { TextTrail } from '@website-v3/web/src/helpers/springs';
 import { A, H2 } from '@website-v3/web/styles/typography';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';

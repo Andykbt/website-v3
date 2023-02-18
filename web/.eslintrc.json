@@ -19,7 +19,6 @@
     "plugins": ["react", "@typescript-eslint", "unused-imports"],
     "rules": {
         "semi": ["error", "always"],
-        "quotes": ["error", "single"],
         "indent": ["error", 4],
         "no-multi-spaces": ["error"],
         "no-extra-semi": ["error"],
@@ -27,6 +26,7 @@
         "semi-style": ["error", "last"],
         "no-unused-vars": "off",
         "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
         "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
             "warn",

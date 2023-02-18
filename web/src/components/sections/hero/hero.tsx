@@ -1,4 +1,4 @@
-import { TextTrail } from '@website-v3/web/helpers/springs';
+import { TextTrail } from '@website-v3/web/src/helpers/springs';
 import { fontSizeExtraLarge, fontSizeSmall } from '@website-v3/web/styles';
 import { Body1, H1 } from '@website-v3/web/styles';
 import React from 'react';

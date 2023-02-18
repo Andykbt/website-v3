@@ -1,5 +1,5 @@
 import { PortableText } from '@portabletext/react';
-import { ExpandBorder } from '@website-v3/web/helpers/springs';
+import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
 import { colourBlack, fontSizeSmall } from '@website-v3/web/styles';
 import { Body2, H3 } from '@website-v3/web/styles/typography';
 import Image from 'next/image';

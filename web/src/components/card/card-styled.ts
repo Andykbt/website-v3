@@ -1,6 +1,5 @@
+import { colourDarkGrey, smBreakpoint } from '@website-v3/web/styles';
 import styled from 'styled-components';
-
-import { colourDarkGrey, smBreakpoint } from '../../styles';
 
 export const CardContainer = styled.div<{ isSmall: boolean }>`
     position: relative;

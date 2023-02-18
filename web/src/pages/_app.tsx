@@ -1,12 +1,11 @@
-import { Header } from '@website-v3/web/components';
-import { Progress } from '@website-v3/web/components/progress';
-import { Url } from '@website-v3/web/constants/types';
+import { Header } from '@website-v3/web/src/components';
+import { Mouse } from '@website-v3/web/src/components/mouse';
+import { Progress } from '@website-v3/web/src/components/progress';
+import { Url } from '@website-v3/web/src/constants/types';
 import '@website-v3/web/styles/globals.css';
 import type { AppProps } from 'next/app';
 import React from 'react';
 import { RecoilRoot } from 'recoil';
-
-import { Mouse } from '../components/mouse';
 
 const navItems: Url[] = [
     {

@@ -1,6 +1,5 @@
+import { colourDarkGrey } from '@website-v3/web/styles';
 import styled from 'styled-components';
-
-import { colourDarkGrey } from '../../styles';
 
 export const ButtonContainer = styled.button<{
     background: string | undefined;

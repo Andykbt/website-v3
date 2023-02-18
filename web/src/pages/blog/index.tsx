@@ -1,15 +1,14 @@
-import { Container } from '@website-v3/web/components';
-import { StarsBG } from '@website-v3/web/components/sections/experience/experience-styled';
-import { AlgoliaConfig } from '@website-v3/web/constants/types';
+import { Container } from '@website-v3/web/src/components';
+import { Search } from '@website-v3/web/src/components/search';
+import { StarsBG } from '@website-v3/web/src/components/sections/experience/experience-styled';
+import { AlgoliaConfig } from '@website-v3/web/src/constants/types';
+import { initPages } from '@website-v3/web/src/helpers/initPage';
+import { algoliaState } from '@website-v3/web/src/helpers/state/atoms';
 import { Body1, H1, fontSizeExtraLarge } from '@website-v3/web/styles';
 import Head from 'next/head';
 import React, { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-
-import { Search } from '../../components/search';
-import { initPages } from '../../helpers/initPage';
-import { algoliaState } from '../../helpers/state/atoms';
 
 const SearchContainer = styled.div`
     margin: 25px 10px;

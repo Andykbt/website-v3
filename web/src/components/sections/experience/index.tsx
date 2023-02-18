@@ -1,7 +1,7 @@
 import { PortableText } from '@portabletext/react';
-import { ExperienceType } from '@website-v3/web/constants/types';
-import { formateDate } from '@website-v3/web/helpers/sanity';
-import { FadeIn } from '@website-v3/web/helpers/springs';
+import { ExperienceType } from '@website-v3/web/src/constants/types';
+import { formateDate } from '@website-v3/web/src/helpers/sanity';
+import { FadeIn } from '@website-v3/web/src/helpers/springs';
 import { colourCyan } from '@website-v3/web/styles';
 import { A, H2, H3 } from '@website-v3/web/styles/typography';
 import React, { useState } from 'react';

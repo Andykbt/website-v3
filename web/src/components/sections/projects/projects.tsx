@@ -1,9 +1,9 @@
-import { Project } from '@website-v3/web/constants/types';
-import { ProjectTextHover } from '@website-v3/web/helpers/springs';
+import { Project } from '@website-v3/web/src/constants/types';
+import { ProjectTextHover } from '@website-v3/web/src/helpers/springs';
 import {
     mouseImageState,
     mouseState,
-} from '@website-v3/web/helpers/state/atoms';
+} from '@website-v3/web/src/helpers/state/atoms';
 import ArrowSvg from '@website-v3/web/styles/svg/Arrow-svg';
 import { Body1, H2 } from '@website-v3/web/styles/typography';
 import { useRouter } from 'next/router';

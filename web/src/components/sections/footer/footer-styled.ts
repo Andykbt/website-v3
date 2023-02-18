@@ -1,11 +1,10 @@
-import styled, { css } from 'styled-components';
-
 import {
     colourCyan,
     colourLightBrown,
     defaultTransition,
     mdBreakpoint,
-} from '../../../styles';
+} from '@website-v3/web/styles';
+import styled, { css } from 'styled-components';
 
 export const FooterContainer = styled.footer`
     border-top: solid 1px ${colourLightBrown};

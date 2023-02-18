@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     mouseImageState,
     mouseState,
-} from '@website-v3/web/helpers/state/atoms';
+} from '@website-v3/web/src/helpers/state/atoms';
+import { colorGrey, colourDarkGrey } from '@website-v3/web/styles/index';
 import React, { useEffect, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 
-import { colorGrey, colourDarkGrey } from '../../styles';
 import { Border, Cursor, CursorShadow } from './mouse-styled';
 
 export const Mouse = () => {
@@ -57,7 +57,7 @@ export const Mouse = () => {
         document.addEventListener('pointerdown', handlePointerDown);
         document.addEventListener('pointerup', handlePointerUp);
 
-        const update = (e: any) => {
+        const update = (e: MouseEvent) => {
             const { clientX, clientY } = e;
 
             const mouseX = clientX - ref.current!.clientWidth / 2;

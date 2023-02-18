@@ -1,15 +1,14 @@
-import { Container } from '@website-v3/web/components';
-import { StarsBG } from '@website-v3/web/components/sections/experience/experience-styled';
-import { Article } from '@website-v3/web/constants/types';
 import { SanityClient } from '@website-v3/web/lib/sanity';
+import { Container } from '@website-v3/web/src/components';
+import { ImageWrapper } from '@website-v3/web/src/components/sections/blog/blog-styled';
+import { StarsBG } from '@website-v3/web/src/components/sections/experience/experience-styled';
+import { Article } from '@website-v3/web/src/constants/types';
 import { A, H1, colourDarkGrey } from '@website-v3/web/styles';
 import { NextPageContext } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
-
-import { ImageWrapper } from '../../../components/sections/blog/blog-styled';
 
 type Props = {
     article: Article;

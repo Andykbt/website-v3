@@ -1,7 +1,7 @@
+import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
+import { Body1 } from '@website-v3/web/styles';
 import React, { useState } from 'react';
 
-import { ExpandBorder } from '../../helpers/springs';
-import { Body1 } from '../../styles';
 import { ButtonContainer } from './button-styled';
 
 type Props = {

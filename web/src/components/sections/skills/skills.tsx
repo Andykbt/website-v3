@@ -1,5 +1,5 @@
-import { Container } from '@website-v3/web/components/layout';
-import { SkillType } from '@website-v3/web/constants/types';
+import { Container } from '@website-v3/web/src/components/layout';
+import { SkillType } from '@website-v3/web/src/constants/types';
 import { colourBlack, defaultTransition } from '@website-v3/web/styles';
 import { H2, H3 } from '@website-v3/web/styles/typography';
 import React, { useEffect, useRef, useState } from 'react';

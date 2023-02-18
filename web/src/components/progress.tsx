@@ -1,5 +1,5 @@
 import { useNProgress } from '@tanem/react-nprogress';
-import { showMenuState } from '@website-v3/web/helpers/state/atoms';
+import { showMenuState } from '@website-v3/web/src/helpers/state/atoms';
 import { colourBlack, colourPurple } from '@website-v3/web/styles';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';

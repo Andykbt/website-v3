@@ -1,9 +1,9 @@
-import { Url, baseUrl } from '@website-v3/web/constants/types';
+import { Url, baseUrl } from '@website-v3/web/src/constants/types';
 import {
     featuredContentState,
     mouseState,
     showMenuState,
-} from '@website-v3/web/helpers/state/atoms';
+} from '@website-v3/web/src/helpers/state/atoms';
 import { colourBlack, fontSizeExtraLarge } from '@website-v3/web/styles';
 import { Body2, H1, H3 } from '@website-v3/web/styles/typography';
 import Image from 'next/image';

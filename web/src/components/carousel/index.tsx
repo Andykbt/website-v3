@@ -1,4 +1,4 @@
-import { useIsTablet } from '@website-v3/web/helpers/hooks/useWindowDims';
+import { useIsTablet } from '@website-v3/web/src/helpers/hooks/useWindowDims';
 import React, { Children, useEffect, useRef } from 'react';
 
 import { Inner, Carousel as StyledCarousel } from './carousel-styled';
