@@ -13,7 +13,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 export const About = () => {
-    const [ref, inView] = useInView({ threshold: 1 });
+    const [ref, inView] = useInView({ threshold: 1, triggerOnce: true });
 
     return (
         <Container size="XS">

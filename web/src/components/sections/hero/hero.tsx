@@ -6,7 +6,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 export const Hero = () => {
-    const { ref, inView } = useInView();
+    const { ref, inView } = useInView({ triggerOnce: true });
 
     return (
         <div
