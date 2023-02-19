@@ -1,5 +1,13 @@
 @import url('https://use.typekit.net/hjr3fsx.css');
 
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 html,
 body {
     padding: 0;
