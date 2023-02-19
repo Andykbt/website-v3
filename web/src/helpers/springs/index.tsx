@@ -3,6 +3,7 @@ import {
     colourLightBrown,
     colourPink,
 } from '@website-v3/web/styles';
+
 import React from 'react';
 import { animated, config, useSpring, useTrail } from 'react-spring';
 
@@ -10,25 +11,30 @@ export { animated } from 'react-spring';
 
 type SpringProps = {
     on?: boolean;
-    styles?: React.CSSProperties | undefined;
+    delay?: number;
 };
 
-export const TextTrail: React.FC<SpringProps> = ({ on, children }) => {
+export const TextTrail: React.FC<SpringProps> = ({ on, delay, children }) => {
     const items = React.Children.toArray(children);
     const trail = useTrail(items.length, {
         opacity: on ? 1 : 0,
         y: on ? 0 : 100,
+        delay: delay,
+        // config: { tension: 320, friction: 20 },
         config: config.default,
     });
 
     return (
-        <div>
+        <>
             {trail.map(({ ...style }, index) => (
-                <animated.div key={index} style={style}>
+                <animated.div
+                    key={index}
+                    style={{ display: 'inline-block', ...style }}
+                >
                     {items[index]}
                 </animated.div>
             ))}
-        </div>
+        </>
     );
 };
 

@@ -12,27 +12,17 @@ import React, { ReactNode } from 'react';
 import { animated as a, config, useSpring } from 'react-spring';
 import styled from 'styled-components';
 
-export const StyledHeader = styled.header`
-    position: sticky;
-    float: right;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    top: 50px;
-    right: 50px;
-    z-index: 2;
-
-    @media (max-width ${smBreakpoint}) {
-        top: 25px;
-        right: 5px;
-    }
-`;
-
 export const HeaderItem = styled.div<{ toggled: boolean }>`
     padding: 20px 13.5px;
     width: fit-content;
     z-index: 2;
-    position: relative;
+    position: sticky;
+    right: 3.5vw;
+    top: 5vh;
+    margin-left: auto;
+
+    @media (max-width ${smBreakpoint}) {
+    }
 
     &:before {
         content: '';

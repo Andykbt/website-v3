@@ -1,4 +1,8 @@
 import { colourLightBrown, smBreakpoint } from '@website-v3/web/styles';
+
+import { colourPink } from './../../../../styles/index';
+
+import { keyframes } from 'styled-components';
 import styled from 'styled-components';
 
 export const Separator = styled.div<{ expand: boolean }>`
@@ -24,8 +28,7 @@ export const VertSeparator = styled.div<{ expand: boolean }>`
 export const AboutContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 0 50px;
+    overflow: hidden;
 
     @media (max-width: ${smBreakpoint}) {
         flex-direction: column;
@@ -34,14 +37,21 @@ export const AboutContainer = styled.div`
     }
 `;
 
+const textScroll = keyframes`
+    from   { transform: translateX(0%); }
+    to { transform: translateX(-100%); }
+`;
+
 export const AboutBody = styled.div`
-    padding: 25px;
-    width: 50vw;
-    font-size: calc(1em + 0.25vw);
     height: 30vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    overflow: hidden;
+
+    & h2 {
+        padding-left: 5vw;
+        animation: ${textScroll} 33s infinite;
+    }
 
     @media (max-width: ${smBreakpoint}) {
         padding: 0;

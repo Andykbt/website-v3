@@ -4,6 +4,7 @@ import {
     defaultTransition,
     smBreakpoint,
 } from '@website-v3/web/styles';
+
 import styled from 'styled-components';
 
 export const Titles = styled.div`
@@ -41,14 +42,14 @@ export const BlogArticle = styled.a<{ selected: boolean; progress: number }>`
     ${(props) =>
         props.selected &&
         `&:after {
-      position: absolute;
-      content: " ";
-      bottom: -1.5px;
-      height: 2px;
-      left: 0;
-      transition: ${defaultTransition};
-      width: ${props.progress}%;
-      background-color: ${colourPurple};
+        position: absolute;
+        content: " ";
+        bottom: -1.5px;
+        height: 2px;
+        left: 0;
+        transition: ${defaultTransition};
+        width: ${props.progress}%;
+        background-color: ${colourPurple};
     `}
 `;
 
@@ -58,6 +59,10 @@ export const ArticleContainer = styled.div`
     border-radius: 25px;
     position: relative;
     width: 100%;
+
+    @media (max-width: ${smBreakpoint}) {
+        height: 260px;
+    }
 `;
 
 export const ImageWrapper = styled.div`

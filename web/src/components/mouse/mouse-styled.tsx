@@ -3,6 +3,7 @@ import {
     colourDarkGrey,
     colourLightBrown,
 } from '@website-v3/web/styles';
+
 import styled, { keyframes } from 'styled-components';
 
 export const Circle = styled.div<{ show: boolean; path: string }>`
@@ -50,13 +51,13 @@ export const Circle = styled.div<{ show: boolean; path: string }>`
 `;
 
 const rotate = keyframes`
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
 
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 `;
 
 export const Cursor = styled.div<{

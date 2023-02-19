@@ -4,36 +4,35 @@ import { ImageWrapper } from '@website-v3/web/src/components/sections/blog/blog-
 import { StarsBG } from '@website-v3/web/src/components/sections/experience/experience-styled';
 import { Article } from '@website-v3/web/src/constants/types';
 import { A, H1, colourDarkGrey } from '@website-v3/web/styles';
-import { NextPageContext } from 'next';
+
 import Image from 'next/image';
+
+import { NextPageContext } from 'next';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import styled from 'styled-components';
 
 type Props = {
     article: Article;
 };
 
-const HeadingContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    width: 100%;
-`;
-
 const ArticlePage = ({ article }: Props) => {
     return (
         <StarsBG>
-            <HeadingContainer>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
                 <H1 textDirection="center">{article.title}</H1>
-            </HeadingContainer>
+            </div>
 
             <Container
                 size={'L'}
                 style={{
                     alignItems: 'center',
-                    padding: '10vh 0',
+                    padding: '5vh 0',
                 }}
             >
                 <div
@@ -52,10 +51,8 @@ const ArticlePage = ({ article }: Props) => {
                                 <ImageWrapper>
                                     <Image
                                         src={props.src}
-                                        width={160}
-                                        height={160}
                                         layout="fill"
-                                        objectFit="contain"
+                                        loading="lazy"
                                         placeholder="blur"
                                         blurDataURL="/stars.gif"
                                     />

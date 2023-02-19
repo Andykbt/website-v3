@@ -1,9 +1,6 @@
-import { Container, Flex } from '@website-v3/web/src/components/layout';
-import { baseUrl } from '@website-v3/web/src/constants/types';
+import { Container } from '@website-v3/web/src/components/layout';
 import { TextTrail } from '@website-v3/web/src/helpers/springs';
 import { A, H2 } from '@website-v3/web/styles/typography';
-import React from 'react';
-import { useInView } from 'react-intersection-observer';
 
 import {
     AboutBody,
@@ -12,34 +9,47 @@ import {
     VertSeparator,
 } from './about-styles';
 
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
+
 export const About = () => {
-    const [ref, inView] = useInView({});
+    const [ref, inView] = useInView({ threshold: 1 });
 
     return (
         <Container size="XS">
             <Separator expand={inView} />
-            <AboutContainer>
-                <Flex ref={ref}>
-                    <TextTrail on={inView}>
-                        <H2 fontSize="5vw">ABOUT</H2>
-                        <H2 fontSize="5vw">ME</H2>
-                    </TextTrail>
-                </Flex>
+            <AboutContainer ref={ref}>
+                <TextTrail on={inView} delay={1000}>
+                    <H2 fontSize="5vw" style={{ padding: '2.5vw' }}>
+                        CURRENTLY
+                    </H2>
+                </TextTrail>
+
                 <VertSeparator expand={inView} />
+
                 <AboutBody>
-                    <TextTrail on={inView}>
-                        <div>
-                            {'Currently in my final year of Computer Science. '}
-                            {'You can find me on '}{' '}
-                            <A href="https://www.linkedin.com/in/andy-truong-591449216/">
-                                LinkedIn
+                    <TextTrail on={inView} delay={1250}>
+                        <H2 fontSize="5vw" style={{ whiteSpace: 'nowrap' }}>
+                            Building{' '}
+                            <A href="https://www.firefront.com.au/?page_id=412">
+                                Firemapper
+                            </A>{' '}
+                            @{' '}
+                            <A href="https://www.firefront.com.au/">
+                                FireFront
                             </A>
-                            {', throw me a follow on '}{' '}
-                            <A href="https://github.com/Andykbt">Github</A>{' '}
-                            {' or '}
-                            {"come look at what I've been working on"}{' '}
-                            <A href={`${baseUrl}projects`}>here</A>.
-                        </div>
+                        </H2>
+
+                        <H2 fontSize="5vw" style={{ whiteSpace: 'nowrap' }}>
+                            Building{' '}
+                            <A href="https://www.firefront.com.au/?page_id=412">
+                                Firemapper
+                            </A>{' '}
+                            @{' '}
+                            <A href="https://www.firefront.com.au/">
+                                FireFront
+                            </A>
+                        </H2>
                     </TextTrail>
                 </AboutBody>
             </AboutContainer>

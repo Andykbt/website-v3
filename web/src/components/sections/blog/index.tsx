@@ -37,7 +37,6 @@ export const Blog = ({ articles }: BlogProps) => {
             if (progress === 100) {
                 setProgress(0);
                 setSelected((prev) => prev + 1);
-
                 if (selected === articles.length - 1) {
                     setSelected(0);
                 }
@@ -126,7 +125,7 @@ const BlogCard = ({
                 setMouseState('default');
             }}
         >
-            <a href={url}>
+            <Link href={url}>
                 <ArticleContainer>
                     <ExpandBorder on={hover}>
                         {/* (Wrapper for image)*/}
@@ -155,7 +154,7 @@ const BlogCard = ({
                         <Badge label={category} hover={hover} />
                     </ExpandBorder>
                 </ArticleContainer>
-            </a>
+            </Link>
         </CarouselItem>
     );
 };

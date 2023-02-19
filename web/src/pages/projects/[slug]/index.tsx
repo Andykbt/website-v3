@@ -19,6 +19,7 @@ import { Body1 } from '@website-v3/web/styles';
 
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import React, { useState } from 'react';
@@ -137,17 +138,14 @@ const Project = ({ project, nextProject }: Props) => {
                 </ProjectBody>
             </ProjectWrapper>
 
-            <NextProject
-                onClick={() =>
-                    router.push(`/projects/${nextProject.slug.current}`)
-                }
-                background={nextProject.colour}
-            >
-                <Image
-                    src={nextProject.imageUrl || '/stars.gif'}
-                    width={250}
-                    height={250}
-                />
+            <NextProject background={nextProject.colour}>
+                <Link href={`/projects/${nextProject.slug.current}`}>
+                    <Image
+                        src={nextProject.imageUrl || '/stars.gif'}
+                        width={250}
+                        height={250}
+                    />
+                </Link>
             </NextProject>
             <Footer />
         </>
@@ -158,22 +156,22 @@ export const getServerSideProps = async (context: any) => {
     const pageSlug = context.query.slug;
     const project: ProjectType = await SanityClient.fetch(
         `*[ _type == 'project' && slug.current == '${pageSlug}' ][0] {
-      "imageUrl": image.asset -> url,
-      technologies[] {
-        name,
-        link,
-        "url": asset -> url,
-      },
-      ...,
-    }`
+            "imageUrl": image.asset -> url,
+            technologies[] {
+                name,
+                link,
+                "url": asset -> url,
+            },
+            ...,
+        }`
     );
 
     const nextProject: ProjectType = await SanityClient.fetch(
         `*[ _id == '${project.nextProject._ref}' ][0] {
-      slug,
-      colour,
-      "imageUrl": image.asset -> url,
-    }`
+            slug,
+            colour,
+            "imageUrl": image.asset -> url,
+        }`
     );
 
     if (!project) {

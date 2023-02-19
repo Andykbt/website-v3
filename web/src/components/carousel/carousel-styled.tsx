@@ -1,4 +1,5 @@
 import { smBreakpoint } from '@website-v3/web/styles';
+
 import styled from 'styled-components';
 
 export const Carousel = styled.div<{ elements: number }>`
@@ -8,7 +9,7 @@ export const Carousel = styled.div<{ elements: number }>`
     width: ${(props) => props.elements * 60}%;
 
     @media (max-width: ${smBreakpoint}) {
-        width: 100% !important;
+        width: 100%;
     }
 `;
 

@@ -14,9 +14,6 @@ export const StarsBG = styled.div`
     min-height: 100vh;
     background-image: url('/stars.gif');
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 `;
 
 export const Center = styled.div`

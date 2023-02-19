@@ -1,8 +1,9 @@
 import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
 import { Body1 } from '@website-v3/web/styles';
-import React, { useState } from 'react';
 
 import { ButtonContainer } from './button-styled';
+
+import React, { useState } from 'react';
 
 type Props = {
     label?: string;
@@ -24,7 +25,6 @@ export const Button: React.FC<Props> = ({
     return (
         <ExpandBorder on={hover} borderRadius="9999px">
             <ButtonContainer
-                data-testid={'button.button'}
                 onClick={onClick}
                 disabled={disabled}
                 background={background}

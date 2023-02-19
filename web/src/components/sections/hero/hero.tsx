@@ -1,31 +1,54 @@
 import { TextTrail } from '@website-v3/web/src/helpers/springs';
 import { fontSizeExtraLarge, fontSizeSmall } from '@website-v3/web/styles';
 import { Body1, H1 } from '@website-v3/web/styles';
+
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-
-import { HeroContainer } from './hero-styles';
 
 export const Hero = () => {
     const { ref, inView } = useInView();
 
     return (
-        <HeroContainer ref={ref}>
-            <TextTrail on={inView}>
-                <H1 fontSize={fontSizeExtraLarge}>Andy</H1>
-                <H1 fontSize={fontSizeExtraLarge}>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Truong
-                </H1>
+        <div
+            ref={ref}
+            style={{
+                height: '100vh',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+            }}
+        >
+            <div style={{ marginLeft: '7.5vw' }}>
+                <TextTrail on={inView}>
+                    <H1 fontSize={fontSizeExtraLarge}>A</H1>
+                    <H1 fontSize={fontSizeExtraLarge}>n</H1>
+                    <H1 fontSize={fontSizeExtraLarge}>d</H1>
+                    <H1 fontSize={fontSizeExtraLarge}>y</H1>
+                </TextTrail>
+            </div>
+
+            <div style={{ marginLeft: '20vw' }}>
+                <TextTrail on={inView} delay={500}>
+                    <H1 fontSize={fontSizeExtraLarge}>T</H1>
+                    <H1 fontSize={fontSizeExtraLarge}>r</H1>
+                    <H1 fontSize={fontSizeExtraLarge}>u</H1>
+                    <H1 fontSize={fontSizeExtraLarge}>o</H1>
+                    <H1 fontSize={fontSizeExtraLarge}>n</H1>
+                    <H1 fontSize={fontSizeExtraLarge}>g</H1>
+                </TextTrail>
+            </div>
+
+            <TextTrail on={inView} delay={1000}>
                 <Body1
                     fontSize={fontSizeSmall}
                     textDirection="right"
-                    margin="7.5vh 20vw"
+                    style={{ width: '100%', padding: '7.5vh 20vw' }}
                 >
                     SOFTWARE
                     <br />
                     ENG
                 </Body1>
             </TextTrail>
-        </HeroContainer>
+        </div>
     );
 };

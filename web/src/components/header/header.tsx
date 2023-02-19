@@ -16,7 +16,6 @@ import {
     NavItem,
     NavLine1,
     NavLine2,
-    StyledHeader,
 } from './header-styled';
 
 import React from 'react';
@@ -52,7 +51,7 @@ export const Header = ({ navItems }: HeaderProps) => {
     };
 
     return (
-        <StyledHeader>
+        <>
             <Menu toggled={toggleMenu}>
                 <H1
                     color={colourBlack}
@@ -77,6 +76,6 @@ export const Header = ({ navItems }: HeaderProps) => {
                 <NavLine1 toggled={toggleMenu} />
                 <NavLine2 toggled={toggleMenu} />
             </HeaderItem>
-        </StyledHeader>
+        </>
     );
 };

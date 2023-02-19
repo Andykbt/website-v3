@@ -1,10 +1,11 @@
 import { colourDarkGrey } from '@website-v3/web/styles';
+
 import styled from 'styled-components';
 
 export const ButtonContainer = styled.button<{
     background: string | undefined;
 }>`
-    padding: 25px;
+    padding: 20px 15px;
     outline: none;
     border: none;
     border-radius: 9999px;

@@ -101,7 +101,7 @@ export type Article = {
     _rev: string;
     _type: string;
     _updatedAt: string;
-    imageUrl?: string;
+    imageUrl: string;
 };
 
 export type ArticleSchema = {

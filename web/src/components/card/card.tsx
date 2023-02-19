@@ -1,13 +1,16 @@
-import { PortableText } from '@portabletext/react';
 import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
 import { colourBlack, fontSizeSmall } from '@website-v3/web/styles';
 import { Body2, H3 } from '@website-v3/web/styles/typography';
+
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
 
 import { Button } from '../button';
 import { CardContainer, ToolsContainer } from './card-styled';
+
+import { PortableText } from '@portabletext/react';
+import React, { useState } from 'react';
 
 type CardProps = {
     title: string;
@@ -36,10 +39,7 @@ export const Card: React.FC<CardProps> = ({
             onMouseLeave={() => setHover(false)}
             isSmall={isSmall || false}
         >
-            <a
-                data-testid={'card.redirect-link'}
-                onClick={() => router.push(href)}
-            >
+            <Link href={href}>
                 <ExpandBorder on={hover}>
                     <Image
                         src={image || '/stars.gif'}
@@ -48,7 +48,7 @@ export const Card: React.FC<CardProps> = ({
                         objectFit={'cover'}
                     />
                 </ExpandBorder>
-            </a>
+            </Link>
 
             <div style={{ margin: '0.75em 0' }}>
                 <H3 fontSize={fontSizeSmall}>{title}</H3>
