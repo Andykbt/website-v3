@@ -1,12 +1,13 @@
+import { Container } from '~/components';
+import { StarsBG } from '~/components/common/Stars';
+import { Mouse } from '~/components/mouse';
+import { LinkWrapper } from '~/components/sections/footer/footer-styled';
+import { H1, H2, fontSizeExtraLarge } from '~/styles/index';
+
 import Head from 'next/head';
 import Link from 'next/link';
-import React from 'react';
 
-import { H1, H2, fontSizeExtraLarge } from '../../styles';
-import { Container } from '../components';
-import { Mouse } from '../components/mouse';
-import { StarsBG } from '../components/sections/experience/experience-styled';
-import { LinkWrapper } from '../components/sections/footer/footer-styled';
+import React from 'react';
 
 const Custom404 = () => {
     return (

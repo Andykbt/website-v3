@@ -1,11 +1,13 @@
-import { Card, Container } from '@website-v3/web/src/components';
-import { StarsBG } from '@website-v3/web/src/components/sections/experience/experience-styled';
-import { StickyCenter } from '@website-v3/web/src/components/sections/projects/projects-styled';
-import { Project, baseUrl } from '@website-v3/web/src/constants/types';
+import { Card, Container } from '~/components';
+import { StarsBG } from '~/components/common/Stars';
+import { StickyCenter } from '~/components/sections/projects/projects-styled';
+import { Project, baseUrl } from '~/constants/types';
+
+import Head from 'next/head';
+
 import { SanityClient } from '@website-v3/web/lib/sanity';
 import { H1, fontSizeExtraLarge } from '@website-v3/web/styles';
 import { NextPage } from 'next';
-import Head from 'next/head';
 import React from 'react';
 
 type Props = {

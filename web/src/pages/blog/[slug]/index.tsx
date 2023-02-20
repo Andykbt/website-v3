@@ -1,12 +1,12 @@
-import { SanityClient } from '@website-v3/web/lib/sanity';
-import { Container } from '@website-v3/web/src/components';
-import { ImageWrapper } from '@website-v3/web/src/components/sections/blog/blog-styled';
-import { StarsBG } from '@website-v3/web/src/components/sections/experience/experience-styled';
-import { Article } from '@website-v3/web/src/constants/types';
-import { A, H1, colourDarkGrey } from '@website-v3/web/styles';
+import { Container } from '~/components';
+import { StarsBG } from '~/components/common/Stars';
+import { ImageWrapper } from '~/components/sections/blog/blog-styled';
+import { Article } from '~/constants/types';
 
 import Image from 'next/image';
 
+import { SanityClient } from '@website-v3/web/lib/sanity';
+import { A, H1, colourDarkGrey } from '@website-v3/web/styles';
 import { NextPageContext } from 'next';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
