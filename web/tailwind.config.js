@@ -6,6 +6,7 @@ module.exports = {
             colors: {
                 'pastel-grey': 'rgb(213,205,196)',
                 night: 'rgb(34,32,37)',
+                'kb-purple': '#C38FFF',
             },
             fontSize: {
                 '25vh': [

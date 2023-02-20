@@ -22,6 +22,26 @@ export const experience = {
       description: "What is the link to the company that you worked at?",
     },
     {
+      name: "companyLogo",
+      title: "Company Logo",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "caption",
+          title: "Caption",
+          type: "string",
+        },
+        {
+          name: "alt",
+          title: "Alt",
+          type: "string",
+        },
+      ],
+    },
+    {
       name: "dateStarted",
       title: "Date started",
       type: "date",

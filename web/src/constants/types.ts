@@ -61,6 +61,7 @@ export type ExperienceType = {
     _updatedAt: string;
     company: string;
     companyLink: string;
+    imageUrl: string;
     role: string;
     dateFinished: string;
     dateStarted: string;

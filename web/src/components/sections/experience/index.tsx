@@ -1,53 +1,44 @@
 import { ExperienceType } from '@website-v3/web/src/constants/types';
 import { formateDate } from '@website-v3/web/src/helpers/sanity';
-import { FadeIn } from '@website-v3/web/src/helpers/springs';
+import { FadeIn, FadeUp } from '@website-v3/web/src/helpers/springs';
 import { colourCyan } from '@website-v3/web/styles';
-import { A, H2, H3 } from '@website-v3/web/styles/typography';
+import { A } from '@website-v3/web/styles/typography';
 
-import {
-    Button,
-    Center,
-    Slider,
-    StarsBG,
-    TableBody,
-    TableContent,
-    TableHeader,
-    TableItems,
-    TableItemsWrapper,
-} from './experience-styled';
+import Image from 'next/image';
+
+import { Name } from '../projects/projects-styled';
 
 import { PortableText } from '@portabletext/react';
 import React, { useState } from 'react';
-import { useInView } from 'react-intersection-observer';
 
 type Props = {
     experiences: ExperienceType[];
 };
 
 export const Experience = ({ experiences }: Props) => {
-    const [ref, inView] = useInView({ threshold: 1 });
     const [selected, setSelected] = useState(0);
-    const [slider, setSlider] = useState(0);
 
-    const renderItems = () => {
-        return experiences.map((item, index) => (
-            <Button
-                key={index}
-                onClick={() => {
-                    setSelected(index);
-                    setSlider(48 * index);
-                }}
-                style={{ color: selected === index ? colourCyan : '' }}
-            >
-                {item.company}
-            </Button>
-        ));
+    const renderLogo = (key: string) => {
+        return (
+            <div className="rounded-full max-h-48 aspect-square overflow-hidden">
+                <FadeIn key={key}>
+                    <Image
+                        src={experiences[selected].imageUrl}
+                        width={256}
+                        height={256}
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL="/stars.gif"
+                    />
+                </FadeIn>
+            </div>
+        );
     };
 
-    const renderBody = (key: string) => {
+    const renderCompany = (key: string) => {
         return (
-            <FadeIn key={key}>
-                <H3>
+            <FadeUp key={key}>
+                <h2 className="text-center text-[5vw]">
                     {experiences[selected].role}
                     <A
                         color={colourCyan}
@@ -55,41 +46,58 @@ export const Experience = ({ experiences }: Props) => {
                     >
                         &nbsp;@ {experiences[selected].company}
                     </A>
-                </H3>
+                </h2>
+            </FadeUp>
+        );
+    };
 
-                <sub>
+    const renderBody = (key: string) => {
+        return (
+            <FadeUp key={key}>
+                <sub className="underline text-kb-purple">
                     {formateDate(experiences[selected].dateStarted)}
                     {' - '}
-                    {formateDate(experiences[selected].dateFinished)}
+                    {experiences[selected].dateFinished
+                        ? formateDate(experiences[selected].dateFinished)
+                        : 'Now'}
                 </sub>
 
                 <PortableText value={experiences[selected].body} />
-            </FadeIn>
+            </FadeUp>
         );
     };
 
     return (
-        <StarsBG>
-            <Center>
-                <TableHeader>
-                    <H2 fontSize="5vw" textDirection="center">
-                        Experience
-                    </H2>
-                </TableHeader>
+        <div className="h-screen grid grid-cols-3 grid-rows-3 border-t-1 border-dotted border-pastel-grey">
+            <main className="row-span-2 col-span-2 flex justify-center items-center p-4">
+                {renderCompany(experiences[selected]._id)}
+            </main>
+            <aside className="row-span-2 col-start-3 border-l-1 border-pastel-grey p-16 overflow-scroll">
+                {renderBody(experiences[selected]._id)}
+            </aside>
 
-                <TableBody ref={ref} show={inView}>
-                    <TableItemsWrapper>
-                        <TableItems>
-                            <Slider height={slider} />
-                            {renderItems()}
-                        </TableItems>
-                    </TableItemsWrapper>
-
-                    <TableContent>
-                        {renderBody(experiences[selected]._id)}
-                    </TableContent>
-                </TableBody>
-            </Center>
-        </StarsBG>
+            <footer className="flex justify-around items-center gap-16 col-span-2 row-start-3 border-t-1 border-dotted border-pastel-grey">
+                {experiences.map((_, index) => {
+                    return (
+                        <Name
+                            className={`transition-colors ${
+                                selected === index
+                                    ? 'text-pastel-grey'
+                                    : 'text-night'
+                            }`}
+                            onClick={() => {
+                                setSelected(index);
+                            }}
+                            key={index}
+                        >
+                            {index}
+                        </Name>
+                    );
+                })}
+            </footer>
+            <aside className="p-8 col-start-3 row-start-3 border-l-1 border-t-1 border-dotted border-pastel-grey flex items-center justify-center">
+                {renderLogo(experiences[selected]._id)}
+            </aside>
+        </div>
     );
 };

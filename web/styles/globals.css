@@ -52,6 +52,12 @@ body::-webkit-scrollbar-thumb {
     border-radius: 5px;
 }
 
+ul {
+    list-style: circle;
+    margin: 0;
+    padding: 0;
+}
+
 p {
     font-weight: lighter;
 }
