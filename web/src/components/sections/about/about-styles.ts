@@ -1,7 +1,5 @@
 import { colourLightBrown, smBreakpoint } from '@website-v3/web/styles';
 
-import { colourPink } from './../../../../styles/index';
-
 import { keyframes } from 'styled-components';
 import styled from 'styled-components';
 

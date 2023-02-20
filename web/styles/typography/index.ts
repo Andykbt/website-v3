@@ -9,6 +9,7 @@ import {
     fontWeightLight,
     fontWeightMedium,
 } from '@website-v3/web/styles';
+
 import styled, { css } from 'styled-components';
 
 type FontProps = {
@@ -92,7 +93,6 @@ export const Body2 = styled.div<FontProps>`
 export const AStyles = (props: FontProps) => {
     return css`
         color: ${props.color || colourPurple};
-        transition: ${defaultTransition};
         display: inline-block;
         position: relative;
 

@@ -6,9 +6,8 @@ import {
 } from '@website-v3/web/src/helpers/state/atoms';
 import ArrowSvg from '@website-v3/web/styles/svg/Arrow-svg';
 import { Body1, H2 } from '@website-v3/web/styles/typography';
+
 import { useRouter } from 'next/router';
-import React, { useRef, useState } from 'react';
-import { useSetRecoilState } from 'recoil';
 
 import {
     ArrowContainer,
@@ -17,6 +16,9 @@ import {
     ProjectContainer,
     ProjectsContainer,
 } from './projects-styled';
+
+import React, { useRef, useState } from 'react';
+import { useSetRecoilState } from 'recoil';
 
 type ProjectsProps = {
     projects: Project[];

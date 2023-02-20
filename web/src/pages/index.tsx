@@ -43,13 +43,16 @@ export async function getServerSideProps() {
             ...
     }`);
     const experience = await SanityClient.fetch(
-        '*[ _type == "experience" ] | order(dateFinished desc)'
+        `*[ _type == "experience" ] | order(dateStarted desc) {
+            "imageUrl": companyLogo.asset -> url,
+            ...    
+        }`
     );
     const articles =
         await SanityClient.fetch(`* [_type == 'article' ] | order(publishedAt desc) {
         "imageUrl": image.asset -> url,
         ...
-    }`);
+        }`);
 
     return {
         props: {

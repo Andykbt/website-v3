@@ -20,7 +20,6 @@ export const TextTrail: React.FC<SpringProps> = ({ on, delay, children }) => {
         opacity: on ? 1 : 0,
         y: on ? 0 : 100,
         delay: delay,
-        // config: { tension: 320, friction: 20 },
         config: config.default,
     });
 
@@ -38,12 +37,21 @@ export const TextTrail: React.FC<SpringProps> = ({ on, delay, children }) => {
     );
 };
 
-export const FadeIn: React.FC<SpringProps> = ({ on, children }) => {
+export const FadeUp: React.FC<SpringProps> = ({ children }) => {
     const props = useSpring({
-        opacity: on ? 1 : 0,
+        from: { opacity: 0, y: 10 },
+        to: { opacity: 1, y: 0 },
+        config: config.molasses,
+    });
+
+    return <animated.div style={props}>{children}</animated.div>;
+};
+
+export const FadeIn: React.FC<SpringProps> = ({ children }) => {
+    const props = useSpring({
         from: { opacity: 0 },
         to: { opacity: 1 },
-        config: config.gentle,
+        config: config.molasses,
     });
 
     return <animated.div style={props}>{children}</animated.div>;
