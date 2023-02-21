@@ -1,25 +1,20 @@
+import { Border, Cursor, CursorShadow } from './mouse-styled';
+
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    mouseImageState,
-    mouseState,
-} from '@website-v3/web/src/helpers/state/atoms';
+import { mouseState } from '@website-v3/web/src/helpers/state/atoms';
 import { colorGrey, colourDarkGrey } from '@website-v3/web/styles/index';
 import React, { useEffect, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 
-import { Border, Cursor, CursorShadow } from './mouse-styled';
-
 export const Mouse = () => {
     const ref = useRef<HTMLDivElement>(null);
     const shadowRef = useRef<HTMLDivElement>(null);
-    const imagePath = useRecoilValue(mouseImageState);
     const state = useRecoilValue(mouseState);
 
     const colors = new Map([
         ['default', colorGrey],
         ['inspect', colourDarkGrey],
-        ['image', colorGrey],
         ['hidden', colorGrey],
     ]);
     const color = colors.get(state);
@@ -83,7 +78,7 @@ export const Mouse = () => {
 
     return (
         <>
-            <Cursor ref={ref} color={color} state={state} image={imagePath}>
+            <Cursor ref={ref} color={color} state={state}>
                 {state === 'inspect' && (
                     <>
                         <FontAwesomeIcon icon={faEye} />

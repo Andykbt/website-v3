@@ -3,7 +3,6 @@ import {
     colourDarkGrey,
     colourLightBrown,
 } from '@website-v3/web/styles';
-
 import styled, { keyframes } from 'styled-components';
 
 export const Circle = styled.div<{ show: boolean; path: string }>`
@@ -24,13 +23,13 @@ export const Circle = styled.div<{ show: boolean; path: string }>`
     pointer-events: none;
 
     &:after {
-      content: "Explore";
-      color: ${colourLightBrown};
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }`
+        content: "Explore";
+        color: ${colourLightBrown};
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }`
             : `
     width: 22.22vh;
     height: 22.22vh;
@@ -47,7 +46,7 @@ export const Circle = styled.div<{ show: boolean; path: string }>`
     background-size: contain;
     background-image: url(${props.path});
     pointer-events: none;
-  `}
+    `}
 `;
 
 const rotate = keyframes`
@@ -62,14 +61,12 @@ const rotate = keyframes`
 
 export const Cursor = styled.div<{
     color: string | undefined;
-    state: 'default' | 'image' | 'inspect' | 'hidden';
-    image: string;
+    state: 'default' | 'inspect' | 'hidden';
 }>`
     background-color: ${(props) => props.color};
     opacity: ${(props) => (props.state === 'hidden' ? '0' : '1')};
     width: ${(props) => (props.state === 'inspect' ? '50px' : '10px')};
     height: ${(props) => (props.state === 'inspect' ? '50px' : '10px')};
-    background-image: url('${(props) => props.image && props.image}');
     border-radius: 50%;
     position: fixed;
     z-index: 10;
@@ -99,7 +96,7 @@ export const Border = styled.div`
 `;
 
 export const CursorShadow = styled.div<{
-    state: 'default' | 'image' | 'inspect' | 'hidden';
+    state: 'default' | 'inspect' | 'hidden';
 }>`
     background-color: ${colorGrey};
     opacity: ${(props) =>

@@ -5,7 +5,6 @@ import {
     defaultTransition,
     smBreakpoint,
 } from '@website-v3/web/styles';
-
 import styled from 'styled-components';
 
 export const ProjectsContainer = styled.div`
@@ -114,7 +113,7 @@ export const BackButton = styled.div`
     left: 10px;
     z-index: 1;
     font-size: 25px;
-    padding: 10px 19.25px;
+    padding: 10px 22.5px;
     text-align: center;
     border-radius: 0%;
     color: ${colourLightBrown};

@@ -1,14 +1,13 @@
-import { ExperienceType } from '@website-v3/web/src/constants/types';
-import { formateDate } from '@website-v3/web/src/helpers/sanity';
-import { FadeIn, FadeUp } from '@website-v3/web/src/helpers/springs';
-import { colourCyan } from '@website-v3/web/styles';
-import { A } from '@website-v3/web/styles/typography';
-
 import Image from 'next/image';
 
 import { Name } from '../projects/projects-styled';
 
 import { PortableText } from '@portabletext/react';
+import { ExperienceType } from '@website-v3/web/src/constants/types';
+import { formateDate } from '@website-v3/web/src/helpers/sanity';
+import { FadeIn, FadeUp } from '@website-v3/web/src/helpers/springs';
+import { colourCyan } from '@website-v3/web/styles';
+import { A } from '@website-v3/web/styles/typography';
 import React, { useState } from 'react';
 
 type Props = {

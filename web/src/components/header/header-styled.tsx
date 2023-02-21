@@ -7,7 +7,6 @@ import {
     fontWeightBold,
     smBreakpoint,
 } from '@website-v3/web/styles';
-
 import React, { ReactNode } from 'react';
 import { animated as a, config, useSpring } from 'react-spring';
 import styled from 'styled-components';
@@ -16,7 +15,7 @@ export const HeaderItem = styled.div<{ toggled: boolean }>`
     padding: 20px 13.5px;
     width: fit-content;
     z-index: 2;
-    position: sticky;
+    position: fixed;
     right: 3.5vw;
     top: 5vh;
     margin-left: auto;

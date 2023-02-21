@@ -1,15 +1,13 @@
-import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
-import { colourBlack, fontSizeSmall } from '@website-v3/web/styles';
-import { Body2, H3 } from '@website-v3/web/styles/typography';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { Button } from '../button';
 import { CardContainer, ToolsContainer } from './card-styled';
 
 import { PortableText } from '@portabletext/react';
+import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
+import { colourBlack, fontSizeSmall } from '@website-v3/web/styles';
+import { Body2, H3 } from '@website-v3/web/styles/typography';
 import React, { useState } from 'react';
 
 type CardProps = {
@@ -31,7 +29,6 @@ export const Card: React.FC<CardProps> = ({
     isSmall,
 }) => {
     const [hover, setHover] = useState(false);
-    const router = useRouter();
 
     return (
         <CardContainer
