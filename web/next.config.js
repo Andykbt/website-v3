@@ -3,7 +3,7 @@ module.exports = {
     reactStrictMode: true,
     modules: true,
     images: {
-        domains: ['assets.vercel.com', 'cdn.sanity.io'],
+        domains: ['assets.vercel.com', 'cdn.sanity.io', 'andykbt.net'],
         formats: ['image/avif', 'image/webp'],
     },
 };

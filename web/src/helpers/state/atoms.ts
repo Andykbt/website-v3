@@ -5,11 +5,6 @@ export const showMenuState = atom({
     default: false as boolean,
 });
 
-export const mouseImageState = atom({
-    key: 'mouseImage',
-    default: '' as string,
-});
-
 export const mouseColorState = atom({
     key: 'mouseColor',
     default: '' as string,
@@ -17,5 +12,5 @@ export const mouseColorState = atom({
 
 export const mouseState = atom({
     key: 'mouseState',
-    default: 'default' as 'default' | 'image' | 'inspect' | 'hidden',
+    default: 'default' as 'default' | 'inspect' | 'hidden',
 });
