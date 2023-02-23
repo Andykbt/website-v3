@@ -1,12 +1,4 @@
-import Badge from '@website-v3/web/src/components/badge';
-import Carousel from '@website-v3/web/src/components/carousel';
-import { CarouselItem } from '@website-v3/web/src/components/carousel/carousel-styled';
-import { baseUrl } from '@website-v3/web/src/constants/types';
-import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
-import { mouseState } from '@website-v3/web/src/helpers/state/atoms';
-import { Body1, H1 } from '@website-v3/web/styles';
-
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 
 import {
@@ -19,6 +11,13 @@ import {
 } from './blog-styled';
 
 import { PortableText } from '@portabletext/react';
+import Badge from '@website-v3/web/src/components/badge';
+import Carousel from '@website-v3/web/src/components/carousel';
+import { CarouselItem } from '@website-v3/web/src/components/carousel/carousel-styled';
+import { baseUrl } from '@website-v3/web/src/constants/types';
+import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
+import { mouseState } from '@website-v3/web/src/helpers/state/atoms';
+import { Body1, H1 } from '@website-v3/web/styles';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -85,11 +84,9 @@ export const Blog = ({ articles }: BlogProps) => {
             <BlogContainer>
                 <Titles>
                     {renderTitles()}
-                    <Link href={'/blog'}>
-                        <BlogArticle selected={false} progress={0}>
-                            Read more...
-                        </BlogArticle>
-                    </Link>
+                    <BlogArticle selected={false} progress={0} href={'/blog'}>
+                        Read more...
+                    </BlogArticle>
                 </Titles>
                 <Carousel index={selected}>{renderExcerpts()}</Carousel>
             </BlogContainer>

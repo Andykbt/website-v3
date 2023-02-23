@@ -187,14 +187,6 @@ export const MenuItems = styled.div`
     margin: 0 0.5%;
 `;
 
-export const FeaturedCardWrapper = styled.a`
-    width: 200px;
-
-    &:hover div {
-        border-radius: 25px;
-    }
-`;
-
 export const FeaturedCard = styled.div`
     overflow: hidden;
     background: ${colourLightBrown};

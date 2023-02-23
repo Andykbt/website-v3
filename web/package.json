@@ -21,6 +21,7 @@
         "@tanem/react-nprogress": "^5.0.29",
         "@typescript-eslint/parser": "^5.52.0",
         "@website-v3/web": "1.0.0",
+        "babel-plugin-styled-components": "^2.0.7",
         "next": "^13.1.6",
         "next-sanity": "^4.1.5",
         "react": "^18.2.0",
