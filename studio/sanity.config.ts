@@ -8,8 +8,8 @@ export default defineConfig({
     name: 'default',
     title: 'website-cdn',
 
-    projectId: 'bw5alwe6',
-    dataset: 'production',
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+    dataset: process.env.SANITY_STUDIO_DATASET!,
 
     plugins: [deskTool(), visionTool(), markdownSchema()],
 
