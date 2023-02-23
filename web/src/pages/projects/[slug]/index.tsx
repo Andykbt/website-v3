@@ -18,7 +18,7 @@ import { mouseState } from '@website-v3/web/src/helpers/state/atoms';
 import { Body1 } from '@website-v3/web/styles';
 
 import Head from 'next/head';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 

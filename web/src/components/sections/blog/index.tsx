@@ -6,7 +6,7 @@ import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
 import { mouseState } from '@website-v3/web/src/helpers/state/atoms';
 import { Body1, H1 } from '@website-v3/web/styles';
 
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 
 import {
