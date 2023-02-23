@@ -3,8 +3,7 @@ import {
     colourLightBrown,
     colourPink,
 } from '@website-v3/web/styles';
-
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { animated, config, useSpring, useTrail } from 'react-spring';
 
 export { animated } from 'react-spring';
@@ -12,6 +11,7 @@ export { animated } from 'react-spring';
 type SpringProps = {
     on?: boolean;
     delay?: number;
+    children: ReactNode;
 };
 
 export const TextTrail: React.FC<SpringProps> = ({ on, delay, children }) => {

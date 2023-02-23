@@ -1,4 +1,4 @@
-import { ClientConfig, createClient, createImageUrlBuilder } from 'next-sanity';
+import { ClientConfig, createClient } from 'next-sanity';
 
 const config = {
     /**
@@ -17,12 +17,6 @@ const config = {
      * Authenticated request (like preview) will always bypass the CDN
      **/
 } as ClientConfig;
-/**
- * Set up a helper function for generating Image URLs with only the asset reference data in your documents.
- * Read more: https://www.sanity.io/docs/image-url
- **/
-export const urlFor = (source: string) =>
-    createImageUrlBuilder(config).image(source);
 
 // Set up the client for fetching data in the getProps page functions
 export const SanityClient = createClient(config);
