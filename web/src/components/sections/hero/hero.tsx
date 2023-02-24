@@ -1,7 +1,6 @@
 import { TextTrail } from '@website-v3/web/src/helpers/springs';
 import { fontSizeExtraLarge, fontSizeSmall } from '@website-v3/web/styles';
 import { Body1, H1 } from '@website-v3/web/styles';
-
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -27,7 +26,7 @@ export const Hero = () => {
                 </TextTrail>
             </div>
 
-            <div style={{ marginLeft: '20vw' }}>
+            <div className="text-center">
                 <TextTrail on={inView} delay={500}>
                     <H1 fontSize={fontSizeExtraLarge}>T</H1>
                     <H1 fontSize={fontSizeExtraLarge}>r</H1>
@@ -42,7 +41,7 @@ export const Hero = () => {
                 <Body1
                     fontSize={fontSizeSmall}
                     textDirection="right"
-                    style={{ width: '100%', padding: '7.5vh 20vw' }}
+                    style={{ width: '100%', padding: '7.5vh' }}
                 >
                     SOFTWARE
                     <br />

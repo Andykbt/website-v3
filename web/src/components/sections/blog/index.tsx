@@ -84,9 +84,9 @@ export const Blog = ({ articles }: BlogProps) => {
             <BlogContainer>
                 <Titles>
                     {renderTitles()}
-                    <BlogArticle selected={false} progress={0} href={'/blog'}>
+                    {/* <BlogArticle selected={false} progress={0} href={'/blog'}>
                         Read more...
-                    </BlogArticle>
+                    </BlogArticle> */}
                 </Titles>
                 <Carousel index={selected}>{renderExcerpts()}</Carousel>
             </BlogContainer>

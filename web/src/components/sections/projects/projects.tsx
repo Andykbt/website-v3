@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 
 import {
@@ -82,7 +82,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                     <ProjectComponent
                         title={'View all'}
                         index={projects.length + 1}
-                        url={''}
+                        url={'/projects'}
                         image={''}
                         setImage={setImage}
                     />
