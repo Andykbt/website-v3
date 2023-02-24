@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import { SanityClient } from '@website-v3/web/lib/sanity';
 import {
     About,
@@ -7,9 +9,6 @@ import {
     Hero,
     Projects,
 } from '@website-v3/web/src/components/sections';
-
-import Head from 'next/head';
-
 import type { NextPage } from 'next';
 import React from 'react';
 

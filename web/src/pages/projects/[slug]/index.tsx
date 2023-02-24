@@ -1,3 +1,8 @@
+import Head from 'next/head';
+import Image from 'next/legacy/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 import { SanityClient } from '@website-v3/web/lib/sanity';
 import { Button, Footer } from '@website-v3/web/src/components';
 import { Separator } from '@website-v3/web/src/components/sections/about/about-styles';
@@ -16,12 +21,6 @@ import { Project as ProjectType } from '@website-v3/web/src/constants/types';
 import { ExpandBorder, TextTrail } from '@website-v3/web/src/helpers/springs';
 import { mouseState } from '@website-v3/web/src/helpers/state/atoms';
 import { Body1 } from '@website-v3/web/styles';
-
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import ReactMarkdown from 'react-markdown';
@@ -138,15 +137,15 @@ const Project = ({ project, nextProject }: Props) => {
                 </ProjectBody>
             </ProjectWrapper>
 
-            <NextProject background={nextProject.colour}>
-                <Link href={`/projects/${nextProject.slug.current}`}>
+            <Link href={`/projects/${nextProject.slug.current}`}>
+                <NextProject background={nextProject.colour}>
                     <Image
                         src={nextProject.imageUrl || '/stars.gif'}
                         width={250}
                         height={250}
                     />
-                </Link>
-            </NextProject>
+                </NextProject>
+            </Link>
             <Footer />
         </>
     );

@@ -3,7 +3,7 @@ import { StarsBG } from '~/components/common/Stars';
 import { ImageWrapper } from '~/components/sections/blog/blog-styled';
 import { Article } from '~/constants/types';
 
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 import { SanityClient } from '@website-v3/web/lib/sanity';
 import { A, H1, colourDarkGrey } from '@website-v3/web/styles';

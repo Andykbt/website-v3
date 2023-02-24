@@ -1,9 +1,12 @@
-import { useIsTablet } from '@website-v3/web/src/helpers/hooks/useWindowDims';
-import React, { Children, useEffect, useRef } from 'react';
-
 import { Inner, Carousel as StyledCarousel } from './carousel-styled';
 
-const Carousel: React.FC<{ index: number }> = ({ index, children }) => {
+import { useIsTablet } from '@website-v3/web/src/helpers/hooks/useWindowDims';
+import React, { Children, ReactNode, useEffect, useRef } from 'react';
+
+const Carousel: React.FC<{ index: number; children: ReactNode }> = ({
+    index,
+    children,
+}) => {
     const isTablet = useIsTablet();
     const translateOffset = isTablet ? 105 : 66.666;
 

@@ -1,9 +1,8 @@
-import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
-import { Body1 } from '@website-v3/web/styles';
-
 import { ButtonContainer } from './button-styled';
 
-import React, { useState } from 'react';
+import { ExpandBorder } from '@website-v3/web/src/helpers/springs';
+import { Body1 } from '@website-v3/web/styles';
+import React, { ReactNode, useState } from 'react';
 
 type Props = {
     label?: string;
@@ -11,6 +10,7 @@ type Props = {
     color?: string;
     background?: string;
     disabled?: boolean;
+    children?: ReactNode;
 };
 
 export const Button: React.FC<Props> = ({
