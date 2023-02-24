@@ -9,7 +9,6 @@ import {
     fontWeightLight,
     fontWeightMedium,
 } from '@website-v3/web/styles';
-
 import styled, { css } from 'styled-components';
 
 type FontProps = {
@@ -67,7 +66,6 @@ export const body1Styles = (props: FontProps) => {
         font-weight: ${props.fontWeight || fontWeightLight};
         font-size: ${props.fontSize || fontSizeSmall};
         color: ${props.color || colourLightBrown};
-        margin: ${props.margin || '0'};
         text-align: ${props.textDirection || 'left'};
     `;
 };

@@ -41,7 +41,7 @@ export const Hero = () => {
                 <Body1
                     fontSize={fontSizeSmall}
                     textDirection="right"
-                    style={{ width: '100%', padding: '7.5vh' }}
+                    className="mr-[7.5vw]"
                 >
                     SOFTWARE
                     <br />
