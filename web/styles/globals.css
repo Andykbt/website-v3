@@ -24,6 +24,13 @@ body {
     overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+    html,
+    body {
+        cursor: initial;
+    }
+}
+
 button {
     font-family: nimbus-sans-extended, sans-serif;
     font-weight: 400;

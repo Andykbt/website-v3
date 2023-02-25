@@ -2,6 +2,8 @@ import {
     colorGrey,
     colourDarkGrey,
     colourLightBrown,
+    mdBreakpoint,
+    smBreakpoint,
 } from '@website-v3/web/styles';
 import styled, { keyframes } from 'styled-components';
 
@@ -86,6 +88,10 @@ export const Cursor = styled.div<{
         text-align: center;
         transform: translate(-50%, -50%);
     }
+
+    @media (max-width: ${smBreakpoint}) {
+        display: none;
+    }
 `;
 
 export const Border = styled.div`
@@ -112,4 +118,8 @@ export const CursorShadow = styled.div<{
     left: -7.5px;
     top: -7.5px;
     transition: all 0.1s;
+
+    @media (max-width: ${smBreakpoint}) {
+        display: none;
+    }
 `;
