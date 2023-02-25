@@ -2,7 +2,6 @@ import {
     colorGrey,
     colourDarkGrey,
     colourLightBrown,
-    mdBreakpoint,
     smBreakpoint,
 } from '@website-v3/web/styles';
 import styled, { keyframes } from 'styled-components';
