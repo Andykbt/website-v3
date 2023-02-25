@@ -63,6 +63,10 @@ p {
     font-weight: lighter;
 }
 
+p > img {
+    position: static !important;
+}
+
 strong {
     font-weight: 700;
 }

@@ -92,11 +92,13 @@ export type SkillType = {
 export type Article = {
     body: string;
     excerpt: any;
+    publishedAt: string;
     slug: {
         _type: string;
         current: string;
     };
     title: string;
+    category: string;
     _createdAt: string;
     _id: string;
     _rev: string;
