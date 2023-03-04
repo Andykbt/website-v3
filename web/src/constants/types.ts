@@ -29,6 +29,7 @@ export type Project = {
     _rev: string;
     _type: string;
     _updatedAt: string;
+    date: string;
     title: string;
     codeLink: string;
     projectLink: string;
