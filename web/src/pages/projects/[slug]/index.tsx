@@ -4,24 +4,19 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { SanityClient } from '@website-v3/web/lib/sanity';
-import { Button, Footer } from '@website-v3/web/src/components';
-import { Separator } from '@website-v3/web/src/components/sections/about/about-styles';
+import { Footer } from '@website-v3/web/src/components';
 import {
     BackButton,
     ImageContainer,
     NextProject,
     ProjectBody,
     ProjectHeading,
-    ProjectLinks,
     ProjectWrapper,
-    TechItem,
-    Technologies,
 } from '@website-v3/web/src/components/sections/projects/projects-styled';
 import { Project as ProjectType } from '@website-v3/web/src/constants/types';
-import { ExpandBorder, TextTrail } from '@website-v3/web/src/helpers/springs';
+import { TextTrail } from '@website-v3/web/src/helpers/springs';
 import { mouseState } from '@website-v3/web/src/helpers/state/atoms';
-import { Body1 } from '@website-v3/web/styles';
-import React, { useState } from 'react';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import ReactMarkdown from 'react-markdown';
 import { useSetRecoilState } from 'recoil';
@@ -31,54 +26,10 @@ type Props = {
     nextProject: ProjectType;
 };
 
-const TechItemWrapper = ({
-    url,
-    name,
-    link,
-}: {
-    url: string;
-    name: string;
-    link: string;
-}) => {
-    const [hover, setHover] = useState<boolean>(false);
-
-    return (
-        <div style={{ width: 'fit-content' }}>
-            <ExpandBorder on={hover} borderRadius="9999px">
-                <TechItem
-                    href={link}
-                    onMouseEnter={() => setHover(true)}
-                    onMouseLeave={() => setHover(false)}
-                >
-                    <Image width={32} height={32} src={url} />
-                    <Body1>{name}</Body1>
-                </TechItem>
-            </ExpandBorder>
-        </div>
-    );
-};
-
 const Project = ({ project, nextProject }: Props) => {
     const router = useRouter();
     const [ref, inView] = useInView();
     const setMouseState = useSetRecoilState(mouseState);
-
-    const renderTechUsed = () => {
-        if (!project.technologies) {
-            return;
-        }
-
-        return project.technologies.map((item, index) => {
-            return (
-                <TechItemWrapper
-                    key={`${item.name}-${index}`}
-                    name={item.name}
-                    url={item.url}
-                    link={item.link}
-                />
-            );
-        });
-    };
 
     return (
         <>
@@ -117,22 +68,34 @@ const Project = ({ project, nextProject }: Props) => {
                     </TextTrail>
 
                     <TextTrail on={inView}>
-                        <Separator expand={true} />
-                        <ProjectLinks>
-                            <Button
-                                onClick={() => router.push(project.projectLink)}
+                        <div className="flex gap-8 mb-8">
+                            <Link
+                                href={project.projectLink}
+                                className="transition-all duration-[250ms] border-solid border-pastel-grey border-1 rounded-sm flex items-center justify-center p-4 hover:rounded-xl"
                             >
                                 View Project
-                            </Button>
-                            <Button
-                                onClick={() => router.push(project.codeLink)}
+                            </Link>
+                            <Link
+                                href={project.codeLink}
+                                className="transition-all duration-[250ms] border-solid border-pastel-grey border-1 rounded-sm flex items-center justify-center p-4 hover:rounded-xl"
                             >
                                 View Code
-                            </Button>
-                        </ProjectLinks>
-                        <Separator expand={true} />
-                        <Technologies>{renderTechUsed()}</Technologies>
+                            </Link>
+                        </div>
+
                         <ReactMarkdown>{project.body}</ReactMarkdown>
+                        {project.technologies !== null && (
+                            <>
+                                <h1 className="underline mt-8">
+                                    Technologies Used:
+                                </h1>
+                                <ul className="pl-8">
+                                    {project.technologies.map((item, index) => {
+                                        return <li key={index}>{item.name}</li>;
+                                    })}
+                                </ul>
+                            </>
+                        )}
                     </TextTrail>
                 </ProjectBody>
             </ProjectWrapper>

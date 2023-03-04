@@ -1,6 +1,5 @@
 import {
     colourBlack,
-    colourDarkGrey,
     colourLightBrown,
     defaultTransition,
     smBreakpoint,
@@ -64,24 +63,12 @@ export const ProjectWrapper = styled.div`
 export const ProjectBody = styled.div`
     width: 50%;
     display: inline-block;
-    padding: 0 50px 0 25px;
+    padding: 0 25px 0 25px;
 
     @media (max-width: ${smBreakpoint}) {
         padding: 0;
         flex-direction: column;
         width: initial;
-    }
-`;
-
-export const ProjectLinks = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin: 25px 0;
-    gap: 25px;
-
-    @media (max-width: ${smBreakpoint}) {
-        flex-direction: row;
-        justify-content: center;
     }
 `;
 
@@ -142,21 +129,4 @@ export const NextProject = styled.div<{ background: string }>`
     &:hover {
         width: 100%;
     }
-`;
-
-export const Technologies = styled.div`
-    margin-top: 15px;
-    display: grid;
-    gap: 25px;
-    grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
-`;
-
-export const TechItem = styled.a`
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    width: fit-content;
-    background: ${colourDarkGrey};
-    border-radius: 50px;
-    padding: 10px;
 `;
