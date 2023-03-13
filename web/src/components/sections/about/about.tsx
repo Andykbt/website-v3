@@ -1,7 +1,3 @@
-import { Container } from '@website-v3/web/src/components/layout';
-import { TextTrail } from '@website-v3/web/src/helpers/springs';
-import { A, H2 } from '@website-v3/web/styles/typography';
-
 import {
     AboutBody,
     AboutContainer,
@@ -9,6 +5,9 @@ import {
     VertSeparator,
 } from './about-styles';
 
+import { Container } from '@website-v3/web/src/components/layout';
+import { TextTrail } from '@website-v3/web/src/helpers/springs';
+import { A, H2 } from '@website-v3/web/styles/typography';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -19,13 +18,17 @@ export const About = () => {
         <Container size="XS">
             <Separator expand={inView} />
             <AboutContainer ref={ref}>
-                <TextTrail on={inView} delay={1000}>
-                    <H2 fontSize="5vw" style={{ padding: '2.5vw' }}>
-                        CURRENTLY
-                    </H2>
-                </TextTrail>
+                <div className="hidden md:block">
+                    <TextTrail on={inView} delay={1000}>
+                        <H2 fontSize="5vw" style={{ padding: '2.5vw' }}>
+                            CURRENTLY
+                        </H2>
+                    </TextTrail>
+                </div>
 
-                <VertSeparator expand={inView} />
+                <div className="hidden md:block">
+                    <VertSeparator expand={inView} />
+                </div>
 
                 <AboutBody>
                     <TextTrail on={inView} delay={1250}>

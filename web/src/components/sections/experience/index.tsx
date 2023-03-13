@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 
 import { Name } from '../projects/projects-styled';
 
@@ -67,19 +67,19 @@ export const Experience = ({ experiences }: Props) => {
     };
 
     return (
-        <div className="h-screen grid grid-cols-3 grid-rows-3 border-t-1 border-dotted border-pastel-grey">
-            <main className="row-span-2 col-span-2 flex justify-center items-center p-4">
+        <div className="h-screen grid grid-rows-[1fr_3fr_1fr] sm:grid-rows-3 sm:grid-cols-3">
+            <main className="sm:row-span-2 sm:col-span-2 flex justify-center items-center p-4 border-b-1 border-dotted sm:border-0">
                 {renderCompany(experiences[selected]._id)}
             </main>
-            <aside className="row-span-2 col-start-3 border-l-1 border-pastel-grey p-16 overflow-scroll">
+            <aside className="border-pastel-grey p-8 overflow-scroll sm:row-span-2 sm:col-start-3 sm:border-l-1 sm:p-16">
                 {renderBody(experiences[selected]._id)}
             </aside>
 
-            <footer className="flex justify-around items-center gap-16 col-span-2 row-start-3 border-t-1 border-dotted border-pastel-grey">
+            <footer className="flex justify-around items-center sm:gap-16 border-dotted border-pastel-grey border-0 sm:col-span-2 sm:row-start-3 sm:border-t-1">
                 {experiences.map((_, index) => {
                     return (
                         <Name
-                            className={`transition-colors ${
+                            className={`text-lg transition-colors ${
                                 selected === index
                                     ? 'text-pastel-grey'
                                     : 'text-night'
@@ -94,7 +94,7 @@ export const Experience = ({ experiences }: Props) => {
                     );
                 })}
             </footer>
-            <aside className="p-8 col-start-3 row-start-3 border-l-1 border-t-1 border-dotted border-pastel-grey flex items-center justify-center">
+            <aside className="p-8 border-t-1 border-dotted border-pastel-grey items-center justify-center hidden sm:flex sm:row-start-3 sm:col-start-3 sm:border-l-1">
                 {renderLogo(experiences[selected]._id)}
             </aside>
         </div>
