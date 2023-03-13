@@ -4,7 +4,6 @@ import {
     defaultTransition,
     smBreakpoint,
 } from '@website-v3/web/styles';
-
 import styled from 'styled-components';
 
 export const Titles = styled.div`
@@ -28,8 +27,8 @@ export const BlogContainer = styled.div`
     }
 `;
 
-export const BlogArticle = styled.a<{ selected: boolean; progress: number }>`
-    opacity: ${(props) => (props.selected ? 1 : 0.5)};
+export const BlogArticle = styled.div<{ selected: boolean; progress: number }>`
+    opacity: ${(props) => (props.selected ? 1 : 0.75)};
     transition: ${defaultTransition};
     font-size: 12px;
     position: relative;

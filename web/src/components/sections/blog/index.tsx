@@ -131,20 +131,15 @@ const BlogCard = ({
                                 src={imageUrl}
                                 layout="fill"
                                 objectFit="cover"
+                                alt={`${title} Image`}
                             />
                         </ImageWrapper>
 
                         {/* (Contains title and excerpt for article)*/}
                         <ArticleInfo>
-                            <h3
-                                style={{
-                                    whiteSpace: 'nowrap',
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
-                                }}
-                            >
+                            <h1 className="whitespace-nowrap overflow-hidden text-ellipsis">
                                 {title}
-                            </h3>
+                            </h1>
                             <PortableText value={portableText} />
                         </ArticleInfo>
 

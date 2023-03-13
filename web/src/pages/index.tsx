@@ -23,7 +23,11 @@ const Home: NextPage<Props> = ({ projects, experience, articles }: Props) => {
         <>
             <Head>
                 <title>Andy Truong</title>
-                <meta property="og:title" content="Andy Truong" key="title" />
+                <meta name="title" content="Andy Truong" key="title" />
+                <meta
+                    name="description"
+                    content="Andy Truong is a software engineer who specialises in building (and occasionally designing) digital products."
+                />
             </Head>
             <Hero />
             <About />

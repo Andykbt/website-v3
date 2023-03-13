@@ -28,6 +28,7 @@ export const Experience = ({ experiences }: Props) => {
                         loading="lazy"
                         placeholder="blur"
                         blurDataURL="/stars.gif"
+                        alt={`${experiences[selected].company} Logo`}
                     />
                 </FadeIn>
             </div>
