@@ -1,18 +1,13 @@
-import { Body1, H2, fontSizeMediumResponsive } from '@website-v3/web/styles';
 import Link from 'next/link';
-import React from 'react';
 
-import {
-    Col0,
-    Col1,
-    FooterContainer,
-    LinkWrapper,
-    Sitemap,
-} from './footer-styled';
+import { Col0, Col1, LinkWrapper, Sitemap } from './footer-styled';
+
+import { Body1, H2, fontSizeMediumResponsive } from '@website-v3/web/styles';
+import React from 'react';
 
 export const Footer = () => {
     return (
-        <FooterContainer>
+        <footer className="bg-night p-16">
             <Sitemap>
                 <Col0>
                     <H2 fontSize={`calc(15px + ${fontSizeMediumResponsive})`}>
@@ -46,6 +41,6 @@ export const Footer = () => {
                     </LinkWrapper>
                 </Col1>
             </Sitemap>
-        </FooterContainer>
+        </footer>
     );
 };

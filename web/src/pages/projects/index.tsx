@@ -95,9 +95,7 @@ const Projects: NextPage<Props> = ({ projects }: Props) => {
                         })}
                 </div>
             </StarsBG>
-            <div className="relative z-[2] bg-night">
-                <Footer />
-            </div>
+            <Footer />
         </>
     );
 };

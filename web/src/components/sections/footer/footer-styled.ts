@@ -31,18 +31,18 @@ const colStyles = () => {
 };
 
 export const Col0 = styled.div`
-  grid-column 1 / span 3;
-  ${colStyles}
+    grid-column 1 / span 3;
+    ${colStyles}
 `;
 
 export const Col1 = styled.div`
-  grid-column 5 / span 3;
-  ${colStyles}
+    grid-column 5 / span 3;
+    ${colStyles}
 `;
 
 export const Col2 = styled.div`
-  grid-column 9 / span 3;
-  ${colStyles}
+    grid-column 9 / span 3;
+    ${colStyles}
 `;
 
 export const Col3 = styled.div`
